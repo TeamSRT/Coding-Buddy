@@ -1,0 +1,29 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.VboxClass {
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.PaneClass {
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+}
+
+.PaneClass:hover {
+    -fx-background-color: #e6e6e6;
+    -fx-border-radius: 2 2 2 2;
+    -fx-background-radius: 2 2 2 2;
+}
+
+.LabelClass {
+    -fx-border-radius: 2 2 2 2;
+    -fx-background-radius: 2 2 2 2;
+}

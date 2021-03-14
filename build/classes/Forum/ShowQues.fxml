@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="apShowQues" prefHeight="550.0" prefWidth="685.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Forum.ShowQuesController">
+    <stylesheets>
+        <URL value="@showques.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="lblSQTitle" alignment="BASELINE_LEFT" layoutX="83.0" layoutY="68.0" prefHeight="45.0" prefWidth="585.0" wrapText="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="36.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSQUser" alignment="BASELINE_LEFT" layoutX="78.0" layoutY="28.0" prefHeight="26.0" prefWidth="297.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="taSQBody" layoutX="60.0" layoutY="114.0" prefHeight="250.0" prefWidth="585.0" wrapText="true" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="81.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextArea>
+      <Label fx:id="lblSQTag" alignment="BASELINE_LEFT" layoutX="60.0" layoutY="455.0" prefHeight="45.0" prefWidth="585.0" textFill="#228dc3" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="331.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

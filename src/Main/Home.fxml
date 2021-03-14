@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="apBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="Home" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.HomeController">
+    <stylesheets>
+        <URL value="@Home.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane fx:id="apBtn" prefHeight="33.0" prefWidth="215.0" style="-fx-background-color: #1D2026;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="115.0" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" text="Home" textFill="#f8f3f3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fx:id="iconHome" fill="#f8f8f8" glyphName="HOME" size="16.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnProbSet" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="148.0" onAction="#btnProbSetOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" text="Problem Sets" textFill="#f8f3f3">
+               <graphic>
+                  <FontAwesomeIconView fx:id="iconProbSet" fill="#f8f8f8" glyphName="CODE" onMouseEntered="#iconProbSetEnter" size="16.0" />
+               </graphic>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnForum" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="181.0" onAction="#btnForumOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" text="Forum" textFill="#f8f3f3">
+               <graphic>
+                  <FontAwesomeIconView fx:id="iconForum" fill="#f8f8f8" glyphName="COMMENTS" size="16.0" />
+               </graphic>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnAbout" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="255.0" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" text="About us" textFill="#f8f3f3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fx:id="iconAbout" fill="#f8f8f8" glyphName="GROUP" size="16.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="218.0" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" text="Dashboard" textFill="#f8f3f3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fx:id="iconDashboard" fill="#f8f8f8" glyphName="DASHBOARD" size="16.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="458.0" onAction="#btnSignOutClicked" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" text="Sign out" textFill="#f8f3f3" AnchorPane.bottomAnchor="45.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fx:id="iconSignout" fill="#f8f8f8" size="16.0" />
+               </graphic>
+            </JFXButton>
+            <Pane fx:id="PaneNavigation" layoutX="-39.0" layoutY="-66.0" prefHeight="113.0" prefWidth="215.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <FontAwesomeIconView disable="true" fill="#f8f8f8" glyphName="BARS" layoutX="14.0" layoutY="23.0" opacity="0.0" size="17.0" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apTop" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="lblUserName" alignment="TOP_RIGHT" layoutX="646.0" layoutY="11.0" prefHeight="29.0" prefWidth="240.0" text="user_name" textFill="#f8f8f8" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="11.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <BorderPane fx:id="testContent" layoutX="215.0" layoutY="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+   </children>
+</AnchorPane>
