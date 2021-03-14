@@ -19,7 +19,7 @@
             <TextArea fx:id="taTitle" editable="true" prefHeight="20.0" prefWidth="124.0" promptText="what's your post is about" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="95.0" />
             <TextArea fx:id="taBody" prefHeight="220.0" prefWidth="124.0" promptText="include all informations that are necessary to answer the question" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="175.0" />
             <TextArea fx:id="taTag" prefHeight="20.0" prefWidth="124.0" promptText="include essential tags related to the question" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="445.0" />
-            <Button fx:id="btnPost" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnPostClicked" prefHeight="30.0" prefWidth="139.0" text="Post your question" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <Button fx:id="btnPost" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#btnPostClicked" prefHeight="30.0" prefWidth="139.0" styleClass="btn" text="Post your question" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
                <font>
                   <Font size="14.0" />
                </font>
