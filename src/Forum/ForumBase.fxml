@@ -14,9 +14,9 @@
         <URL value="@ForumBase.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btnAskQ" layoutX="565.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAskQClicked" prefHeight="25.0" prefWidth="100.0" text="Ask question" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
+      <Button fx:id="btnAskQ" layoutX="565.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAskQClicked" prefHeight="25.0" prefWidth="100.0" styleClass="btnClass" text="Ask question" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
          <font>
-            <Font name="Segoe UI" size="14.0" />
+            <Font size="14.0" />
          </font>
       </Button>
       <AnchorPane fx:id="apShowQues" layoutX="184.0" layoutY="75.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
@@ -255,8 +255,8 @@
             </Pane>
          </children>
       </AnchorPane>
-      <Button layoutX="322.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" text="1" AnchorPane.bottomAnchor="10.0" />
-      <Button fx:id="btnPreviousForum" layoutX="243.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Previous" AnchorPane.bottomAnchor="10.0" />
-      <Button fx:id="btnNextForum" layoutX="360.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Next" AnchorPane.bottomAnchor="10.0" />
+      <Button layoutX="322.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" styleClass="btnClass" text="1" AnchorPane.bottomAnchor="10.0" />
+      <Button fx:id="btnPreviousForum" layoutX="243.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" styleClass="btnClass" text="Previous" AnchorPane.bottomAnchor="10.0" />
+      <Button fx:id="btnNextForum" layoutX="360.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" styleClass="btnClass" text="Next" AnchorPane.bottomAnchor="10.0" />
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package Forum;
 
+
 import com.mysql.cj.protocol.Resultset;
 import java.sql.*;
 import java.util.*;
@@ -16,6 +17,7 @@ public class Forum {
     }
 
     public ArrayList<Post> readForum(ForumBaseController Obj) {
+                   
         ArrayList<Post> info = new ArrayList<>();
         try {
             Statement query = conn.createStatement();
@@ -40,13 +42,13 @@ public class Forum {
     }
 
     public void writeForum(String rec_title, String rec_body, String rec_tag) throws SQLException {
-
-        String query = "INSERT INTO `forum`(`username`, `title`, `body`, `tag`) VALUES (?,?,?,?)";
+               
+        String query = "INSERT INTO `forum`(`username`, `title`, `body`, `tag`) VALUES (?,?,?)";
         PreparedStatement wF = conn.prepareStatement(query);
         wF.setString(1, Main.Utility.username);       
         wF.setString(2, rec_title);
         wF.setString(3, rec_body);
-        wF.setString(4, rec_tag);
+        wF.setString(4, rec_tag);       
         wF.execute();
     }
     public ArrayList<Comment> readComment(int postID)
@@ -59,9 +61,9 @@ public class Forum {
             {
                 System.out.println("1");
                 Comment commObj = new Comment();
-                commObj.userName = comm.getString("commentID");
+                commObj.userName = comm.getString("userName");
                 commObj.commentID = comm.getInt("commentID");
-                commObj.commentBody = comm.getString("commentBody");
+                commObj.commentBody = comm.getString("commentBody");                
                 sendComm.add(commObj);
             }
            
@@ -76,7 +78,31 @@ public class Forum {
         PreparedStatement wC = conn.prepareStatement(query);
         wC.setString(1,Integer.toString(postID));
         wC.setString(2, Main.Utility.username);
-        wC.setString(3, commBody);
+        wC.setString(3, commBody);       
         wC.execute();
     }
+    public void writeVote(int postID, int vote) throws SQLException
+    {
+        String query = "UPDATE `forum` SET `vote`= ? where postID = ?";
+        PreparedStatement sV = conn.prepareStatement(query);       
+        sV.setInt(1, vote);
+        sV.setInt(2, postID);
+        sV.executeUpdate();
+    }
+    public String readAnsCount(int postID) throws SQLException
+    {
+        String sql = "Select count(commentID) from comment where postID = " +postID;               
+        PreparedStatement psAns = conn.prepareStatement(sql);
+        ResultSet rsAns = psAns.executeQuery();
+        String sum = "";
+        if(rsAns.next())
+        {
+            sum = rsAns.getString("count(commentID)");
+            System.out.println(sum);
+        }
+        psAns.execute();
+        return sum;
+    }
+  
+    
 }
