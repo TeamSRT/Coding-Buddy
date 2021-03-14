@@ -43,7 +43,7 @@
       <FontAwesomeIconView glyphName="USER" layoutX="338.0" layoutY="105.0" size="23" AnchorPane.leftAnchor="338.0" AnchorPane.rightAnchor="301.9285717010498" />
       <FontAwesomeIconView glyphName="LOCK" layoutX="338.0" layoutY="162.0" size="23" AnchorPane.leftAnchor="338.0" AnchorPane.rightAnchor="305.2142858505249" />
       <JFXButton fx:id="sign_In_Btn" buttonType="RAISED" layoutX="543.0" layoutY="196.0" onAction="#sign_in_btn_Action" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #2a9df4;" text="Sign In" AnchorPane.rightAnchor="36.0" />
-      <JFXButton fx:id="Forgetpassword_btn" alignment="TOP_LEFT" buttonType="RAISED" layoutX="361.0" layoutY="196.0" prefHeight="25.0" prefWidth="118.0" text="Forgot Password" textFill="#3627bf" AnchorPane.leftAnchor="369.0" />
+      <JFXButton fx:id="Forgetpassword_btn" alignment="TOP_LEFT" buttonType="RAISED" layoutX="361.0" layoutY="196.0" onAction="#Forgetpassword_btn" prefHeight="25.0" prefWidth="118.0" text="Forgot Password" textFill="#3627bf" AnchorPane.leftAnchor="369.0" />
       <JFXTextField fx:id="tfLoginUsername" labelFloat="true" layoutX="369.0" layoutY="79.0" maxWidth="285.0" minWidth="263.0" prefHeight="31.0" prefWidth="263.0" promptText="Username" unFocusColor="#3f1818" AnchorPane.leftAnchor="369.0" AnchorPane.rightAnchor="26.0" />
       <JFXPasswordField fx:id="tfLoginPassword" labelFloat="true" layoutX="370.0" layoutY="138.0" maxWidth="263.0" minWidth="263.0" prefHeight="31.0" prefWidth="263.0" promptText="Password" unFocusColor="#3f1818" />
    </children>

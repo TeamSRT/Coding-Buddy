@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -30,6 +31,7 @@ import javafx.stage.Stage;
  */
 public class SignupController implements Initializable {
 
+   
     Database d = new Database();
 
     @FXML
@@ -43,13 +45,15 @@ public class SignupController implements Initializable {
     @FXML
     private JFXTextField tf_Signup_Username;
     @FXML
-    private JFXTextField tf_Signup_Email;
+    JFXTextField tf_Signup_Email;
     @FXML
     private JFXTextField tf_Signup_Occupation;
     @FXML
     private JFXTextField tf_Signup_Name;
     @FXML
     private JFXPasswordField tf_Signup_Confirmpassword;
+    @FXML
+    private Label passwrd_matching;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -57,38 +61,100 @@ public class SignupController implements Initializable {
     }
 
     @FXML
-    private void ConfirmSignup_btn(ActionEvent event) {
+    private void ConfirmSignup_btn(ActionEvent event) throws IOException {
 
-        boolean check;
+        boolean empty;
         Alert a = new Alert(AlertType.NONE);
         a.setAlertType(AlertType.INFORMATION);
 
         String Name = tf_Signup_Name.getText();
         String Username = tf_Signup_Username.getText();
-        String Email = tf_Signup_Email.getText();
+        String email = tf_Signup_Email.getText();
         String Password = tf_Signup_Password.getText();
         String Confirmpassword = tf_Signup_Confirmpassword.getText();
         String Occupation = tf_Signup_Occupation.getText();
 
         //exception
         Exception e = new Exception();
-        check = e.SignUpException(Name, Username, Email, Password, Confirmpassword);
+       
+        empty = e.SignUpException(Name, Username, email, Password, Confirmpassword);
 
-        if (check == true) {
+        if (empty == true) {
 
             a.setContentText("All fields with Star sign are must be filled"); //Exception
             a.show();
 
-        } else if (check == false) {
-            if (Password.equals(Confirmpassword)) {
-                d.setData(Name, Username, Email, Password, Confirmpassword, Occupation);
-            } else {
+        } else if (empty == false) {
 
-                a.setContentText("Password has not matched with Confirm Password"); //Exception
-                a.show();
+            boolean invalid = false;
+
+            invalid = e.signup_SpecharacterException(Name, Username, email, Occupation);
+
+            System.out.println("invalid checked");
+
+            if (invalid == false) {
+
+                if (Password.equals(Confirmpassword)) {
+                    
+                    passwrd_matching.setText(null);
+                   
+                    boolean data_same = false;
+
+                    data_same = d.check_same_data(Username, email);
+                    if (data_same == true) {
+
+                        a.setAlertType(AlertType.INFORMATION);
+                        a.setContentText("This Username or Email has been already used");
+                        a.show();
+                    } else {
+
+                        EController.Name = Name;
+                        EController.Username = Username;
+                        EController.email = email;
+                        EController.Password = Password;
+                        EController.Confirmpassword = Confirmpassword;
+                        EController.Occupation = Occupation;
+                        //double rand_double = Math.random();
+                        int rand = (int) (Math.random() * 4000);
+                        EController.sent_otp = rand;
+
+                        //boolean emailSent_or_not = false;
+
+                       Email.send("samirsarker055@gmail.com", "Samir1234", email, "Emai Varification", rand);
+
+                       // if (emailSent_or_not == true) {
+                            Parent root = FXMLLoader.load(getClass().getResource("email.fxml"));
+                            Scene src = new Scene(root);
+                            Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            s.setScene(src);
+                            s.show();
+                      //  }
+                    /*else {
+                            a.setAlertType(AlertType.INFORMATION);
+                            a.setContentText("Invalid Email Address");
+                            a.show();
+                        }*/
+                        /*  tf_Signup_Name.setText(null);
+                    tf_Signup_Username.setText(null);
+     tf_Signup_Email.setText(null);
+     tf_Signup_Password.setText(null);
+     tf_Signup_Confirmpassword.setText(null);
+     tf_Signup_Occupation.setText(null);*/
+
+                        //if(data_taken==true)
+                        //{
+                        //int rand= (int) Math.random()+1000;
+                        //EController.sent_otp=rand;
+                    }
+                } else {
+
+                    String pass_match = "Not Matched with Confirm Password  !";
+                    passwrd_matching.setText(pass_match);
+
+                }
+
             }
         }
-
     }
 
     @FXML
