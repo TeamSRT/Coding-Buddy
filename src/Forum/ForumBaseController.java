@@ -156,24 +156,41 @@ public class ForumBaseController implements Initializable {
     private ImageView imgHolder6;
     @FXML
     private ImageView imgHolder7;
-    
-    
-    
+    private int quesCount;
+    private int currPage;
+    private final int QuesPerPage = 7;
+    @FXML
+    private Button btnCenterForum;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Forum reader = new Forum();
         try {
             reader.connection();
         } catch (SQLException ex) {
-            System.out.println("Connection failed");
+            System.out.println("Connection Failed1");
         }
         receive = reader.readForum(this);
+        quesCount = receive.size();
+        currPage = 0;
         try {
             loadForumBase();
         } catch (SQLException ex) {
-            Logger.getLogger(ForumBaseController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Loading failed");
         }
-        
+        if (quesCount % 7 != 0) {
+            for (int i = 0; i < 7 - (quesCount % 7); i++) {
+                Post obj = new Post("", "", "", "", -1, 0, 0);
+                receive.add(obj);
+            }
+        }
+        quesCount = receive.size();
+        if (currPage >= quesCount / QuesPerPage - 1) {
+            btnNextForum.setDisable(true);
+        }
+        btnPreviousForum.setDisable(true);
+        btnCenterForum.setText(currPage + 1 + "");
+        checkAvailability();
     }
 
     @FXML
@@ -182,49 +199,48 @@ public class ForumBaseController implements Initializable {
     }
 
     private void loadForumBase() throws SQLException {
-        imgHolder1.setImage(Utility.getImage(receive.get(0).username));
-        imgHolder2.setImage(Utility.getImage(receive.get(1).username));
-        imgHolder3.setImage(Utility.getImage(receive.get(2).username));
-        imgHolder4.setImage(Utility.getImage(receive.get(3).username));
-        imgHolder5.setImage(Utility.getImage(receive.get(4).username));
-        imgHolder6.setImage(Utility.getImage(receive.get(5).username));
-        imgHolder6.setImage(Utility.getImage(receive.get(6).username));
+        imgHolder1.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 0).username));
+        imgHolder2.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 1).username));
+        imgHolder3.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 2).username));
+        imgHolder4.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 3).username));
+        imgHolder5.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 4).username));
+        imgHolder6.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 5).username));
+        imgHolder6.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 6).username));
         Forum obj = new Forum();
         obj.connection();
-        lblForumUser1.setText("Asked by " + receive.get(0).username);
-        lblShowTitle1.setText(receive.get(0).title);
-        lblVote1.setText(receive.get(0).vote + " ");        
-        lblAns1.setText(obj.readAnsCount(receive.get(0).postID));    
-        lblForumUser2.setText("Asked by " + receive.get(1).username);
-        lblShowTitle2.setText(receive.get(1).title);
-        lblVote2.setText(receive.get(1).vote + " ");
-        lblAns2.setText(obj.readAnsCount(receive.get(1).postID));
-        lblForumUser3.setText("Asked by " + receive.get(2).username);
-        lblShowTitle3.setText(receive.get(2).title);
-        lblVote3.setText(receive.get(2).vote + " ");
-        lblAns3.setText(obj.readAnsCount(receive.get(2).postID));
-        lblForumUser4.setText("Asked by " + receive.get(3).username);
-        lblShowTitle4.setText(receive.get(3).title);
-        lblVote4.setText(receive.get(3).vote + " ");
-        lblAns4.setText(obj.readAnsCount(receive.get(3).postID));
-        lblForumUser5.setText("Asked by " + receive.get(4).username);
-        lblShowTitle5.setText(receive.get(4).title);
-        lblVote5.setText(receive.get(4).vote + " ");
-        lblAns5.setText(obj.readAnsCount(receive.get(4).postID));
-        lblForumUser6.setText("Asked by " + receive.get(5).username);
-        lblShowTitle6.setText(receive.get(5).title);
-        lblVote6.setText(receive.get(5).vote + " ");
-        lblAns6.setText(obj.readAnsCount(receive.get(5).postID));
-        lblForumUser7.setText("Asked by " + receive.get(6).username);
-        lblShowTitle7.setText(receive.get(6).title);
-        lblVote7.setText(receive.get(6).vote + " ");
-        lblAns7.setText(obj.readAnsCount(receive.get(6).postID));
-        
+        lblForumUser1.setText("Asked by " + receive.get(currPage * QuesPerPage + 0).username);
+        lblShowTitle1.setText(receive.get(currPage * QuesPerPage + 0).title);
+        lblVote1.setText(receive.get(currPage * QuesPerPage + 0).vote + " ");        
+        lblAns1.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 0).postID));    
+        lblForumUser2.setText("Asked by " + receive.get(currPage * QuesPerPage + 1).username);
+        lblShowTitle2.setText(receive.get(currPage * QuesPerPage + 1).title);
+        lblVote2.setText(receive.get(currPage * QuesPerPage + 1).vote + " ");
+        lblAns2.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 1).postID));
+        lblForumUser3.setText("Asked by " + receive.get(currPage * QuesPerPage + 2).username);
+        lblShowTitle3.setText(receive.get(currPage * QuesPerPage + 2).title);
+        lblVote3.setText(receive.get(currPage * QuesPerPage + 2).vote + " ");
+        lblAns3.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 2).postID));
+        lblForumUser4.setText("Asked by " + receive.get(currPage * QuesPerPage + 3).username);
+        lblShowTitle4.setText(receive.get(currPage * QuesPerPage + 3).title);
+        lblVote4.setText(receive.get(currPage * QuesPerPage + 3).vote + " ");
+        lblAns4.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 3).postID));
+        lblForumUser5.setText("Asked by " + receive.get(currPage * QuesPerPage + 4).username);
+        lblShowTitle5.setText(receive.get(currPage * QuesPerPage + 4).title);
+        lblVote5.setText(receive.get(currPage * QuesPerPage + 4).vote + " ");
+        lblAns5.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 4).postID));
+        lblForumUser6.setText("Asked by " + receive.get(currPage * QuesPerPage + 5).username);
+        lblShowTitle6.setText(receive.get(currPage * QuesPerPage + 5).title);
+        lblVote6.setText(receive.get(currPage * QuesPerPage + 5).vote + " ");
+        lblAns6.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 5).postID));
+        lblForumUser7.setText("Asked by " + receive.get(currPage * QuesPerPage + 6).username);
+        lblShowTitle7.setText(receive.get(currPage * QuesPerPage + 6).title);
+        lblVote7.setText(receive.get(currPage * QuesPerPage + 6).vote + " ");
+        lblAns7.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 6).postID));
     }
 
     @FXML
     private void lblShowTitle1Clicked(MouseEvent event) throws IOException{
-        ShowQuesController.showObj = receive.get(0);        
+        ShowQuesController.showObj = receive.get(currPage * QuesPerPage + 0);        
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
         Main.Utility.Home.getTestContent().setCenter(ForumShowQ);       
        
@@ -232,44 +248,130 @@ public class ForumBaseController implements Initializable {
 
     @FXML
     private void lblShowTitle2Clicked(MouseEvent event) throws IOException { //
-        ShowQuesController.showObj = receive.get(1);
+        ShowQuesController.showObj = receive.get(currPage * QuesPerPage + 1);
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
         Main.Utility.Home.getTestContent().setCenter(ForumShowQ);       
     }
 
     @FXML
     private void lblShowTitle3Clicked(MouseEvent event) throws IOException {
-        ShowQuesController.showObj = receive.get(2);
+        ShowQuesController.showObj = receive.get(currPage * QuesPerPage + 2);
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
         Main.Utility.Home.getTestContent().setCenter(ForumShowQ);
     }
 
     @FXML
     private void lblShowTitle4Clicked(MouseEvent event) throws IOException {
-        ShowQuesController.showObj = receive.get(3);
+        ShowQuesController.showObj = receive.get(currPage * QuesPerPage + 3);
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
         Main.Utility.Home.getTestContent().setCenter(ForumShowQ);
     }
 
     @FXML
     private void lblShowTitle5Clicked(MouseEvent event) throws IOException {
-        ShowQuesController.showObj = receive.get(4);
+        ShowQuesController.showObj = receive.get(currPage * QuesPerPage + 4);
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
         Main.Utility.Home.getTestContent().setCenter(ForumShowQ);
     }
 
     @FXML
     private void lblShowTitle6Clicked(MouseEvent event) throws IOException {
-        ShowQuesController.showObj = receive.get(5);
+        ShowQuesController.showObj = receive.get(currPage * QuesPerPage + 5);
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
         Main.Utility.Home.getTestContent().setCenter(ForumShowQ);
     }
 
     @FXML
     private void lblShowTitle7Clicked(MouseEvent event) throws IOException {
-        ShowQuesController.showObj = receive.get(6);       
+        ShowQuesController.showObj = receive.get(currPage * QuesPerPage + 6);       
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
         Main.Utility.Home.getTestContent().setCenter(ForumShowQ);
     }
-   
+    
+    public void checkAvailability() {
+        if (receive.get(currPage * QuesPerPage + 0).postID == -1) {
+            p1Title.setOpacity(0);
+            p1Title.setDisable(true);
+        } else {
+            p1Title.setOpacity(1);
+            p1Title.setDisable(false);
+        }
+        if (receive.get(currPage * QuesPerPage + 1).postID == -1) {
+            p2Title.setOpacity(0);
+            p2Title.setDisable(true);
+        } else {
+            p2Title.setOpacity(1);
+            p2Title.setDisable(false);
+        }
+        if (receive.get(currPage * QuesPerPage + 2).postID == -1) {
+            p3Title.setOpacity(0);
+            p3Title.setDisable(true);
+        } else {
+            p3Title.setOpacity(1);
+            p3Title.setDisable(false);
+        }
+        if (receive.get(currPage * QuesPerPage + 3).postID == -1) {
+            p4Title.setOpacity(0);
+            p4Title.setDisable(true);
+        } else {
+            p4Title.setOpacity(1);
+            p4Title.setDisable(false);
+        }
+        if (receive.get(currPage * QuesPerPage + 4).postID == -1) {
+            p5Title.setOpacity(0);
+            p5Title.setDisable(true);
+        } else {
+            p5Title.setOpacity(1);
+            p5Title.setDisable(false);
+        }
+        if (receive.get(currPage * QuesPerPage + 5).postID == -1) {
+            p6Title.setOpacity(0);
+            p6Title.setDisable(true);
+        } else {
+            p6Title.setOpacity(1);
+            p6Title.setDisable(false);
+        }
+        if (receive.get(currPage * QuesPerPage + 6).postID == -1) {
+            p7Title.setOpacity(0);
+            p7Title.setDisable(true);
+        } else {
+            p7Title.setOpacity(1);
+            p7Title.setDisable(false);
+        }
+    }
+
+    @FXML
+    private void btnPreviousForumClicked(ActionEvent event) {
+        currPage--;
+        try {
+            loadForumBase();
+        } catch (SQLException ex) {
+            System.out.println("Loading failed");
+        }
+        if (currPage == 0) {
+            btnPreviousForum.setDisable(true);
+        }
+        btnNextForum.setDisable(false);
+        btnCenterForum.setText(currPage + 1 + "");
+        checkAvailability();
+
+    }
+
+    @FXML
+    private void btnNextForumClicked(ActionEvent event) {
+        currPage++;
+        try {
+            loadForumBase();
+        } catch (SQLException ex) {
+            System.out.println("Loading Failed");
+        }
+        if (currPage + 1 == quesCount / QuesPerPage) {
+            btnNextForum.setDisable(true);
+        }
+        btnPreviousForum.setDisable(false);
+        btnCenterForum.setText(currPage + 1 + "");
+        checkAvailability();
+
+    }
+
 }
