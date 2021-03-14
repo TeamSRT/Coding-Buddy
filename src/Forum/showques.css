@@ -1,41 +1,4 @@
 
 .mainFxmlClass {
 
-
 }
-.textStyle {
-    
-    -fx-background-color: transparent;
-    -fx-background-radius: 15;
-    -fx-border-radius: 15;
-    -fx-border-color:  lightgrey;
-}
-.btnStyle:hover
-{
-    -fx-background-color: black;
-    -fx-cursor: hand;
-}
-.btnStyle
-{
-    -fx-background-color: #333;
-}
-.separator{
-  
-    -fx-background-color : #C0C0C0;
-    -fx-background-radius: 1;
-}
-.font
-{
-    -fx-cursor: text; 
-}
-.lbl
-{
-    -fx-text-fill: #707070;
-    
-}
-.lbl:hover
-{
-    -fx-text-fill:  #888888;
-    -fx-cursor : text;
-}
-

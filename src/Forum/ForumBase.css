@@ -17,13 +17,3 @@
 .PaneClass:hover {
     
 }
-.btnClass:hover
-{
-    -fx-background-color: black;
-    -fx-text-fill: white;
-    -fx-cursor: hand;
-}
-.btnClass
-{
-    -fx-background-color:  #D3D4D6;
-}

@@ -5,7 +5,6 @@
  */
 package Forum;
 
-import static Forum.ShowQuesController.showObj;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -80,9 +79,9 @@ public class AskQuesController implements Initializable {
          }
          else
          {  
-             Forum sendObj = new Forum();            
+             Forum sendObj = new Forum();
              sendObj.connection();
-             sendObj.writeForum(titleText, bodyText, tagText);
+             sendObj.writeForum(titleText,bodyText,tagText);
              taTitle.setText(null);
              taBody.setText(null);
              taTag.setText(null);

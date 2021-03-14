@@ -5,19 +5,19 @@
  */
 package Forum;
 
+import Main.Utility;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -137,12 +137,22 @@ public class ForumBaseController implements Initializable {
     @FXML
     private AnchorPane apShowQues;
     @FXML
-    private Button btnPreviousForum;
+    private Button btnPrevious;
     @FXML
-    private Button btnNextForum;
-    
-    
-    
+    private Button btnNext;
+    @FXML
+    private ImageView imgHolder1;
+    @FXML
+    private ImageView imgHolder2;
+    @FXML
+    private ImageView imgHolder3;
+    @FXML
+    private ImageView imgHolder4;
+    @FXML
+    private ImageView imgHolder5;
+    @FXML
+    private ImageView imgHolder6;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Forum reader = new Forum();
@@ -152,12 +162,7 @@ public class ForumBaseController implements Initializable {
             System.out.println("Connection failed");
         }
         receive = reader.readForum(this);
-        try {
-            loadForumBase();
-        } catch (SQLException ex) {
-            Logger.getLogger(ForumBaseController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        loadForumBase();
     }
 
     @FXML
@@ -165,52 +170,55 @@ public class ForumBaseController implements Initializable {
         new Main.Utility().loadPane("/Forum/AskQues.fxml");
     }
 
-    private void loadForumBase() throws SQLException {
-        Forum obj = new Forum();
-        obj.connection();
+    private void loadForumBase() {
+        imgHolder1.setImage(Utility.getImage(receive.get(0).username));
+        imgHolder2.setImage(Utility.getImage(receive.get(1).username));
+        imgHolder3.setImage(Utility.getImage(receive.get(2).username));
+        imgHolder4.setImage(Utility.getImage(receive.get(3).username));
+        imgHolder5.setImage(Utility.getImage(receive.get(4).username));
+        imgHolder6.setImage(Utility.getImage(receive.get(5).username));
         lblForumUser1.setText("Asked by " + receive.get(0).username);
         lblShowTitle1.setText(receive.get(0).title);
-        lblVote1.setText(receive.get(0).vote + " ");        
-        lblAns1.setText(obj.readAnsCount(receive.get(0).postID));    
+        lblVote1.setText(receive.get(0).vote + " ");
+        lblAns1.setText(receive.get(0).answer + " ");
         lblForumUser2.setText("Asked by " + receive.get(1).username);
         lblShowTitle2.setText(receive.get(1).title);
         lblVote2.setText(receive.get(1).vote + " ");
-        lblAns2.setText(obj.readAnsCount(receive.get(1).postID));
+        lblAns2.setText(receive.get(1).answer + " ");
         lblForumUser3.setText("Asked by " + receive.get(2).username);
         lblShowTitle3.setText(receive.get(2).title);
         lblVote3.setText(receive.get(2).vote + " ");
-        lblAns3.setText(obj.readAnsCount(receive.get(2).postID));
+        lblAns3.setText(receive.get(2).answer + " ");
         lblForumUser4.setText("Asked by " + receive.get(3).username);
         lblShowTitle4.setText(receive.get(3).title);
         lblVote4.setText(receive.get(3).vote + " ");
-        lblAns4.setText(obj.readAnsCount(receive.get(3).postID));
+        lblAns4.setText(receive.get(3).answer + " ");
         lblForumUser5.setText("Asked by " + receive.get(4).username);
         lblShowTitle5.setText(receive.get(4).title);
         lblVote5.setText(receive.get(4).vote + " ");
-        lblAns5.setText(obj.readAnsCount(receive.get(4).postID));
+        lblAns5.setText(receive.get(4).answer + " ");
         lblForumUser6.setText("Asked by " + receive.get(5).username);
         lblShowTitle6.setText(receive.get(5).title);
         lblVote6.setText(receive.get(5).vote + " ");
-        lblAns6.setText(obj.readAnsCount(receive.get(5).postID));
+        lblAns6.setText(receive.get(5).answer + " ");
         lblForumUser7.setText("Asked by " + receive.get(6).username);
         lblShowTitle7.setText(receive.get(6).title);
         lblVote7.setText(receive.get(6).vote + " ");
-        lblAns7.setText(obj.readAnsCount(receive.get(6).postID));
+        lblAns7.setText(receive.get(6).answer + " ");
     }
 
     @FXML
-    private void lblShowTitle1Clicked(MouseEvent event) throws IOException{
-        ShowQuesController.showObj = receive.get(0);        
+    private void lblShowTitle1Clicked(MouseEvent event) throws IOException {
+        ShowQuesController.showObj = receive.get(0);
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
-        Main.Utility.Home.getTestContent().setCenter(ForumShowQ);       
-       
+        Main.Utility.Home.getTestContent().setCenter(ForumShowQ);
     }
 
     @FXML
-    private void lblShowTitle2Clicked(MouseEvent event) throws IOException { //
+    private void lblShowTitle2Clicked(MouseEvent event) throws IOException {
         ShowQuesController.showObj = receive.get(1);
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
-        Main.Utility.Home.getTestContent().setCenter(ForumShowQ);       
+        Main.Utility.Home.getTestContent().setCenter(ForumShowQ);
     }
 
     @FXML
@@ -243,9 +251,8 @@ public class ForumBaseController implements Initializable {
 
     @FXML
     private void lblShowTitle7Clicked(MouseEvent event) throws IOException {
-        ShowQuesController.showObj = receive.get(6);       
+        ShowQuesController.showObj = receive.get(6);
         Pane ForumShowQ = FXMLLoader.load(getClass().getResource("/Forum/ShowQues.fxml"));
         Main.Utility.Home.getTestContent().setCenter(ForumShowQ);
     }
-   
 }

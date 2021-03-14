@@ -14,6 +14,7 @@ public class Home extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
+        Utility.setConnection();
         Parent root = FXMLLoader.load(getClass().getResource("/Login/mainGUI.fxml"));
         Scene scene1 = new Scene(root);
         primaryStage.setTitle("Coding Buddy");

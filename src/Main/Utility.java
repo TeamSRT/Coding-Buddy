@@ -6,7 +6,17 @@
 package Main;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
 /**
@@ -17,6 +27,15 @@ public class Utility {
     
     public static String username;
     public static HomeController Home;
+    private static Connection conn;
+    
+    public static void setConnection() {
+        try {
+            Utility.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/codingbuddydb", "root", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public static void setHome(HomeController Home) {
         Utility.Home = Home;
@@ -29,5 +48,21 @@ public class Utility {
     public void loadPane(String path) throws IOException {
         Pane loader = FXMLLoader.load(getClass().getResource(path));
         Home.getTestContent().setCenter(loader);
+    }
+    
+    public static Image getImage(String username) {
+        Image img = null;
+        try {
+            Statement query = conn.createStatement();
+            ResultSet answer = query.executeQuery("select * from profilepic where username = '" + username + "'");
+            while (answer.next()) {
+                Blob imgBlob = answer.getBlob(2);
+                InputStream imgIn = imgBlob.getBinaryStream();
+                img = new Image(imgIn, 72, 65, false, false);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return img;
     }
 }
