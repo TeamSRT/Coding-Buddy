@@ -5,6 +5,7 @@
  */
 package Forum;
 
+import Main.Utility;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -140,6 +142,20 @@ public class ForumBaseController implements Initializable {
     private Button btnPreviousForum;
     @FXML
     private Button btnNextForum;
+    @FXML
+    private ImageView imgHolder1;
+    @FXML
+    private ImageView imgHolder3;
+    @FXML
+    private ImageView imgHolder2;
+    @FXML
+    private ImageView imgHolder4;
+    @FXML
+    private ImageView imgHolder5;
+    @FXML
+    private ImageView imgHolder6;
+    @FXML
+    private ImageView imgHolder7;
     
     
     
@@ -166,6 +182,13 @@ public class ForumBaseController implements Initializable {
     }
 
     private void loadForumBase() throws SQLException {
+        imgHolder1.setImage(Utility.getImage(receive.get(0).username));
+        imgHolder2.setImage(Utility.getImage(receive.get(1).username));
+        imgHolder3.setImage(Utility.getImage(receive.get(2).username));
+        imgHolder4.setImage(Utility.getImage(receive.get(3).username));
+        imgHolder5.setImage(Utility.getImage(receive.get(4).username));
+        imgHolder6.setImage(Utility.getImage(receive.get(5).username));
+        imgHolder6.setImage(Utility.getImage(receive.get(6).username));
         Forum obj = new Forum();
         obj.connection();
         lblForumUser1.setText("Asked by " + receive.get(0).username);
@@ -196,6 +219,7 @@ public class ForumBaseController implements Initializable {
         lblShowTitle7.setText(receive.get(6).title);
         lblVote7.setText(receive.get(6).vote + " ");
         lblAns7.setText(obj.readAnsCount(receive.get(6).postID));
+        
     }
 
     @FXML
