@@ -1,0 +1,19 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.lbl1Class:hover {
+    -fx-cursor: hand;
+}
+
+.lbl2Class:hover {
+    -fx-cursor: hand;
+}
+
+.PaneClass:hover {
+    
+}
