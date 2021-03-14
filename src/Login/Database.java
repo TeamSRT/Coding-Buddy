@@ -20,7 +20,7 @@ public class Database {
         try {
 
             ResultSet r;
-            String url = "jdbc:mysql://127.0.0.1/dblogin";
+            String url = "jdbc:mysql://127.0.0.1/codingbuddydb";
             String username = "root";
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
@@ -40,7 +40,7 @@ public class Database {
             }
 
         } catch (SQLException ex) {
-            System.out.println("check hoy nai");
+            System.out.println("Not Checked");
         }
         return check;
     }
@@ -53,7 +53,7 @@ public class Database {
             //int rand= (int) Math.random()+1000;
             // EController.sent_otp=rand;
             //data_taken= Email.send("samirsarker055@gmail.com","Samir1234",email,"Emai Varification",rand);
-            String url = "jdbc:mysql://127.0.0.1/dblogin";
+            String url = "jdbc:mysql://127.0.0.1/codingbuddydb";
             String username = "root";
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
@@ -87,18 +87,17 @@ public class Database {
         try {
 
             ResultSet r;
-            String url = "jdbc:mysql://127.0.0.1/dblogin";
+            String url = "jdbc:mysql://127.0.0.1/codingbuddydb";
             String username = "root";
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
-            String qrr = "SELECT * FROM `info`";
-            
+            String qrr = "SELECT * FROM `userinfo`";
+
             Statement stmt = conn.createStatement();
             r = stmt.executeQuery(qrr);
 
             System.out.println("sign in  connected");
             while (r.next()) {
-
                 if ((r.getString(2).equals(user)) && (r.getString(4).equals(password))) {
                     System.out.println("Log in data matched ");
                     data_match = true;
@@ -112,7 +111,11 @@ public class Database {
             }
 
         } catch (SQLException ex) {
-            System.out.println("hoy nai");
+            a.setAlertType(AlertType.INFORMATION);
+            a.setContentText("Username or Password is Invalid Exception");
+            a.show();
+            System.out.println("Incorrect");
+            System.out.println(ex);
         }
         return data_match;
     }
@@ -121,64 +124,59 @@ public class Database {
         //if(UpdatePassword == null ? confirmpass == null : UpdatePassword.equals(confirmpass))
 
         ResultSet r;
-      
-            try {
-                boolean c = false;
-                String url = "jdbc:mysql://127.0.0.1/dblogin";
-                String username = "root";
-                String pass = "";
-                Connection conn = DriverManager.getConnection(url, username, pass);
 
-                String qrr = "SELECT * FROM `info`";
-                Statement stmt = conn.createStatement();
-                r = stmt.executeQuery(qrr);
-                System.out.println("sign in connected for password");
+        try {
+            boolean c = false;
+            String url = "jdbc:mysql://127.0.0.1/codingbuddydb";
+            String username = "root";
+            String pass = "";
+            Connection conn = DriverManager.getConnection(url, username, pass);
 
-                while (r.next()) {
+            String qrr = "SELECT * FROM `userinfo`";
+            Statement stmt = conn.createStatement();
+            r = stmt.executeQuery(qrr);
+            System.out.println("sign in connected for password");
 
-                    if ((r.getString(2).equals(user)) || (r.getString(3).equals(email))) {
-                        
-                       // String s = r.getString(2);
-                       
-                        System.out.println(" data matched");
+            while (r.next()) {
 
-                        String qr = "UPDATE `info` SET `Password`=? WHERE UserName=? ";
+                if ((r.getString(2).equals(user)) || (r.getString(3).equals(email))) {
 
-                        PreparedStatement pstmt = conn.prepareStatement(qr);
+                    // String s = r.getString(2);
+                    System.out.println(" data matched");
 
-                        pstmt.setString(1, UpdatePassword);
+                    String qr = "UPDATE `username` SET `password`=? WHERE username=? ";
 
-                        pstmt.setString(2, user);
+                    PreparedStatement pstmt = conn.prepareStatement(qr);
 
-                        pstmt.executeUpdate();
+                    pstmt.setString(1, UpdatePassword);
 
-                      
-                        c = true;
+                    pstmt.setString(2, user);
 
-                        Alert a = new Alert(AlertType.NONE);
-                        a.setAlertType(AlertType.INFORMATION);
-                        a.setContentText("Password has been Updated");
-                        a.show();
+                    pstmt.executeUpdate();
 
-                    }
+                    c = true;
 
-                }
-                if (c == false) {
                     Alert a = new Alert(AlertType.NONE);
                     a.setAlertType(AlertType.INFORMATION);
-                    a.setContentText("invalid Username or Password");
+                    a.setContentText("Password has been Updated");
                     a.show();
+
                 }
 
-                conn.close();
-            } catch (SQLException e) {
-
-                System.out.println("Password not updated");
-
             }
-        }
-            
-        
+            if (c == false) {
+                Alert a = new Alert(AlertType.NONE);
+                a.setAlertType(AlertType.INFORMATION);
+                a.setContentText("invalid Username or Password");
+                a.show();
+            }
 
+            conn.close();
+        } catch (SQLException e) {
+
+            System.out.println("Password not updated");
+
+        }
     }
 
+}
