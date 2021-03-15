@@ -34,6 +34,7 @@ public class Email {
         //get Session   
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(from, password);
             }
@@ -52,6 +53,7 @@ public class Email {
 
         } catch (MessagingException e) {
             System.out.println("message not sent");
+            System.out.println(e);
         }
 
         return emailsent_or_not;

@@ -43,7 +43,7 @@ public class Forum {
 
     public void writeForum(String rec_title, String rec_body, String rec_tag) throws SQLException {
                
-        String query = "INSERT INTO `forum`(`username`, `title`, `body`, `tag`) VALUES (?,?,?)";
+        String query = "INSERT INTO `forum`(`username`, `title`, `body`, `tag`) VALUES (?,?,?,?)";
         PreparedStatement wF = conn.prepareStatement(query);
         wF.setString(1, Main.Utility.username);       
         wF.setString(2, rec_title);

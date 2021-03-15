@@ -95,4 +95,9 @@ public class HomeController implements Initializable {
     private void btnSignOutClicked(ActionEvent event) {
 
     }
+
+    @FXML
+    private void btnDashboardOnAction(ActionEvent event) throws IOException {
+        new Utility().loadPane("/Dashboard/Dashboard.fxml");
+    }
 }

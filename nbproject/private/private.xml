@@ -3,17 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Problemset/Problemset.css</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Problemset/Problem.java</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Problemset/ProblemsetController.java</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Problemset/ProblemView.css</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Main/Utility.java</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Problemset/Problemset.fxml</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Forum/Post.java</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Forum/ShowQuesController.java</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Problemset/SubmitCodeController.java</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Problemset/ProblemViewController.java</file>
-            <file>file:/C:/Users/ktouf/Documents/NetBeansProjects/CodingBuddy_Base/src/Problemset/Compiler.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Problemset/SubmitSolutionController.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Problemset/SubmitCodeController.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Login/Confirm_var_emailController.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Forum/Forum.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Forum/AskQuesController.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Problemset/Compiler.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Login/EController.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Forum/ShowQuesController.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Login/Email.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Forum/askques.css</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Main/Home.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Login/Database.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Forum/ForumBaseController.java</file>
+            <file>file:/C:/Users/ktouf/Documents/CodingBuddy_Base/src/Login/SignupController.java</file>
         </group>
     </open-files>
 </project-private>

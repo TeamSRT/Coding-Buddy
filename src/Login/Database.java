@@ -24,7 +24,7 @@ public class Database {
             String username = "root";
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
-            String qrr = "SELECT * FROM `info`";
+            String qrr = "SELECT * FROM `userinfo`";
             //"SELECT `UserName`, `Password` FROM `info`";
             Statement stmt = conn.createStatement();
             r = stmt.executeQuery(qrr);
@@ -58,7 +58,7 @@ public class Database {
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
 
-            String qr = "insert into Info values(?,?,?,?,?)";
+            String qr = "insert into userinfo values(?,?,?,?,?)";
 
             PreparedStatement pstmt = conn.prepareStatement(qr);
 
@@ -139,12 +139,12 @@ public class Database {
 
             while (r.next()) {
 
-                if ((r.getString(2).equals(user)) || (r.getString(3).equals(email))) {
+                if ((r.getString(2).equals(user)) && (r.getString(3).equals(email))) {
 
                     // String s = r.getString(2);
                     System.out.println(" data matched");
 
-                    String qr = "UPDATE `username` SET `password`=? WHERE username=? ";
+                    String qr = "UPDATE `userinfo` SET `password`=? WHERE username=? ";
 
                     PreparedStatement pstmt = conn.prepareStatement(qr);
 
@@ -173,7 +173,7 @@ public class Database {
 
             conn.close();
         } catch (SQLException e) {
-
+            System.out.println(e);
             System.out.println("Password not updated");
 
         }

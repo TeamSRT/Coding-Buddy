@@ -26,8 +26,10 @@ import javafx.scene.layout.Pane;
 public class Utility {
     
     public static String username;
+    public static String name;
+    public static String mail;
     public static HomeController Home;
-    private static Connection conn;
+    public static Connection conn;
     
     public static void setConnection() {
         try {
@@ -35,6 +37,20 @@ public class Utility {
         } catch (SQLException ex) {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void initUser() {
+        try {
+            Statement query = conn.createStatement();
+            ResultSet answer = query.executeQuery("SELECT `name`, `email` FROM `userinfo` WHERE `username`= '" + Utility.username + "'");
+            if(answer.next()) {
+                Utility.name = answer.getString(1);
+                Utility.mail = answer.getString(2);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
     
     public static void setHome(HomeController Home) {
@@ -50,15 +66,15 @@ public class Utility {
         Home.getTestContent().setCenter(loader);
     }
     
-    public static Image getImage(String username) {
-        Image img = null;
+    public static Image getImage(String username, int width, int height) {
+        Image img = new Image("/Image/default.png");
         try {
             Statement query = conn.createStatement();
             ResultSet answer = query.executeQuery("select * from profilepic where username = '" + username + "'");
             while (answer.next()) {
                 Blob imgBlob = answer.getBlob(2);
                 InputStream imgIn = imgBlob.getBinaryStream();
-                img = new Image(imgIn, 72, 65, false, false);
+                img = new Image(imgIn, width, height, false, false);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);

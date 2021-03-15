@@ -152,6 +152,7 @@ public class ShowQuesController implements Initializable {
                System.out.println("SQl Exception");
             }
         }
+        //loadComment();
     }
 
     @FXML

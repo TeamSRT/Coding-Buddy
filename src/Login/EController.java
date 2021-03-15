@@ -36,7 +36,6 @@ public class EController implements Initializable {
     private JFXButton Back_btn;
     @FXML
     private Label otp_check_show;
- 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,36 +47,27 @@ public class EController implements Initializable {
 
         String lebel = "Not matched!";
 
-        
-
         String tf_get_otp = tf_OTP.getText();
 
         String final_sent_otp = String.valueOf(sent_otp); //int to string conversion
 
-      
-if(!(tf_get_otp.isEmpty()))
-{
-        if (tf_get_otp.equals(final_sent_otp)) {
+        if (!(tf_get_otp.isEmpty())) {
+            if (tf_get_otp.equals(final_sent_otp)) {
 
-            d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
+                d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
 
-            Parent root = FXMLLoader.load(getClass().getResource("confirm_var_email.fxml"));
-            Scene src = new Scene(root);
-            Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            s.setScene(src);
-            s.show();
+                Parent root = FXMLLoader.load(getClass().getResource("confirm_var_email.fxml"));
+                Scene src = new Scene(root);
+                Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                s.setScene(src);
+                s.show();
+            } else {
+                otp_check_show.setText(lebel);
+
+            }
+
         } else {
-            otp_check_show.setText(lebel);
-            
-            
-            
-            
-        }
-
-    }
-else 
-{
-     Alert a = new Alert(Alert.AlertType.NONE);
+            Alert a = new Alert(Alert.AlertType.NONE);
             a.setAlertType(Alert.AlertType.INFORMATION);
 
             //set content text 
@@ -85,8 +75,9 @@ else
 
             //show the dialog 
             a.show();
-}
+        }
     }
+
     @FXML
     private void back_btn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));

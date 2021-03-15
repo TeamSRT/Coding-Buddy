@@ -5,6 +5,8 @@
  */
 package Problemset;
 
+import Main.Utility;
+import static Main.Utility.conn;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,23 +24,23 @@ import javafx.scene.control.Alert.AlertType;
  * @author ktouf
  */
 public class ProblemSQL {
-    
+
     private Connection conn;
-    
+
     public ProblemSQL() {
         try {
             this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/codingbuddydb", "root", "");
         } catch (SQLException ex) {
-            Logger.getLogger(ProblemSQL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex + "At ProblemSQL constructor");
         }
     }
-    
+
     public ArrayList<Problem> readProblem() {
         ArrayList<Problem> problemList = new ArrayList<>();
         try {
             Statement currStatement = conn.createStatement();
             ResultSet currSet = currStatement.executeQuery("SELECT * FROM problemset");
-            while(currSet.next()) {
+            while (currSet.next()) {
                 problemList.add(new Problem(currSet.getString("title"), currSet.getString("problemBody"), currSet.getString("input"), currSet.getString("output"), currSet.getString("username"), currSet.getInt("submission"), currSet.getInt("problemID")));
             }
         } catch (SQLException e) {
@@ -47,7 +49,7 @@ public class ProblemSQL {
         //System.out.println(problemList.get(0).body);
         return problemList;
     }
-    
+
     public void writeProblem(String title, String body, String input, String output, CreateProblemController cpcObj) {
         Alert error = new Alert(AlertType.ERROR);
         Alert success = new Alert(AlertType.INFORMATION);
@@ -78,6 +80,24 @@ public class ProblemSQL {
                 Logger.getLogger(ProblemSQL.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public String getOutput(int problemID) throws SQLException {
+        Statement query = conn.createStatement();
+        ResultSet answer = query.executeQuery("SELECT `output` FROM `problemset` WHERE `problemID`= '" + problemID + "'");
+        if(answer.next()) {
+            return answer.getString(1);
+        }
+        return null;
+    }
+    
+    public String getInput(int problemID) throws SQLException {
+        Statement query = conn.createStatement();
+        ResultSet answer = query.executeQuery("SELECT `input` FROM `problemset` WHERE `problemID`= '" + problemID + "'");
+        if(answer.next()) {
+            return answer.getString(1);
+        }
+        return null;
     }
 
 }

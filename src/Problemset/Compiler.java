@@ -53,6 +53,7 @@ public class Compiler implements Runnable {
         } else {
             curr.settxtOutput(stderr);
         }
+        SubmitCodeController.output = output;
         curr.flipbtnSubmit();
     }
     
@@ -109,7 +110,7 @@ public class Compiler implements Runnable {
     
     public String parseOutput(String toProcess) {
         String processedOutput = parseString(toProcess, "\"stdout\": ", "\"stderr\": ");
-        processedOutput  = (processedOutput.replace("\\n", System.lineSeparator())).replace("\\t", "\t");
+        processedOutput  = (processedOutput.replace("\\n", "\n")).replace("\\t", "\t");
         return processedOutput;
     }
     

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="539.0" prefWidth="328.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.EController">
+   <children>
+      <ImageView fitHeight="299.0" fitWidth="330.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/v3.png" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="tf_OTP" layoutX="101.0" layoutY="337.0" maxWidth="258.0" minWidth="127.0" onAction="#tf_OTP" prefHeight="31.0" prefWidth="127.0" promptText="OTP" />
+      <JFXButton fx:id="valid_btn" buttonType="RAISED" layoutX="208.0" layoutY="487.0" onAction="#valid_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #E77471;" text="NEXT" />
+      <Label layoutX="66.0" layoutY="291.0" text="Email Varification">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#972d2d" />
+                  <Stop color="#541010" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font name="System Bold Italic" size="26.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="Back_btn" buttonType="RAISED" layoutX="24.0" layoutY="487.0" onAction="#back_btn" prefHeight="25.0" prefWidth="86.0" style="-fx-background-color: #E77471;" text="Back" />
+      <Label fx:id="otp_check_show" layoutX="110.0" layoutY="368.0" prefHeight="25.0" prefWidth="106.0" textFill="#eb0000">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="GIvenEmailWrong_lebel" layoutX="66.0" layoutY="393.0" prefHeight="17.0" prefWidth="179.0" textFill="#f50000" />
+      <Label fx:id="goback_lebel" layoutX="68.0" layoutY="419.0" prefHeight="17.0" prefWidth="222.0" textFill="RED" />
+   </children>
+</AnchorPane>

@@ -39,8 +39,7 @@ public class Confirm_var_emailController implements Initializable {
 
     @FXML
     private void Next_btn(ActionEvent event) throws IOException {
-        
-        Parent root = FXMLLoader.load(getClass().getResource("/Main/Home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainGUI.fxml"));
         Scene src = new Scene(root);
         Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
         s.setScene(src);

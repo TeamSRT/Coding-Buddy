@@ -70,6 +70,7 @@ public class MainGUIController implements Initializable {
 
         if (data_match == true) {
             Utility.setUsername(tfLoginUsername.getText());
+            Utility.initUser();
             Parent root = FXMLLoader.load(getClass().getResource("/Main/Home.fxml"));
             Scene src = new Scene(root);
             Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();

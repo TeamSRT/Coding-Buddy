@@ -199,13 +199,13 @@ public class ForumBaseController implements Initializable {
     }
 
     private void loadForumBase() throws SQLException {
-        imgHolder1.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 0).username));
-        imgHolder2.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 1).username));
-        imgHolder3.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 2).username));
-        imgHolder4.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 3).username));
-        imgHolder5.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 4).username));
-        imgHolder6.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 5).username));
-        imgHolder6.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 6).username));
+        imgHolder1.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 0).username, 72, 65));
+        imgHolder2.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 1).username, 72, 65));
+        imgHolder3.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 2).username, 72, 65));
+        imgHolder4.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 3).username, 72, 65));
+        imgHolder5.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 4).username, 72, 65));
+        imgHolder6.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 5).username, 72, 65));
+        imgHolder7.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 6).username, 72, 65));
         Forum obj = new Forum();
         obj.connection();
         lblForumUser1.setText("Asked by " + receive.get(currPage * QuesPerPage + 0).username);

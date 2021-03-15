@@ -50,7 +50,9 @@ public class ProblemViewController implements Initializable {
     }    
 
     @FXML
-    private void btnSubmitPressed(ActionEvent event) {
+    private void btnSubmitPressed(ActionEvent event) throws IOException {
+        SubmitSolutionController.problemID = currProblem.problemID;
+        new Utility().loadPane("/Problemset/SubmitSolution.fxml");
         
     }
 

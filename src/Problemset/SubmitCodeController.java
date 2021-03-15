@@ -8,12 +8,14 @@ package Problemset;
 import Main.Utility;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
@@ -49,25 +51,30 @@ public class SubmitCodeController implements Initializable {
     private MenuItem btnLangJava;
     @FXML
     private MenuItem btnLangPython;
-    
+
     /**
      * Utility variables and Functions
      */
     private String currLang = "c";
-    
+    @FXML
+    private Label lblInput;
+
+    public static int problemID;
+    public static String output;
+    private boolean isCustom;
+
     public void flipbtnSubmit() {
         btnSubmit.setDisable(!btnSubmit.isDisable());
     }
-    
+
     public void settxtOutput(String output) {
         txtOutput.setText(output);
     }
-    
+
     /**
-     * 
-     * Combo Button Functions 
+     *
+     * Combo Button Functions
      */
-    
     @FXML
     private void btnLangCPressed(ActionEvent event) {
         currLang = "c";
@@ -91,22 +98,24 @@ public class SubmitCodeController implements Initializable {
         currLang = "python3";
         btnLang.setText("Python3");
     }
-    
+
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
     @FXML
-    private void btnSubmitPressed(ActionEvent event) {
+    private void btnSubmitPressed(ActionEvent event) throws SQLException {
+        
         String code = txtCode.getText();
         String input = txtInput.getText();
+        
         Compiler submission = new Compiler(code, input, currLang, this);
         Thread subThread = new Thread(submission);
         subThread.start();
@@ -116,5 +125,5 @@ public class SubmitCodeController implements Initializable {
     private void btnCustomBackPressed(ActionEvent event) throws IOException {
         new Utility().loadPane("/Problemset/Problemset.fxml");
     }
-    
+
 }
