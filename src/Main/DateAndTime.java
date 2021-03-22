@@ -35,5 +35,8 @@ public class DateAndTime {
     {
        return obj.get(Calendar.DAY_OF_YEAR);
     }
-   
+    public int getDayOfMonth()
+    {
+        return obj.get(Calendar.DAY_OF_MONTH);
+    }
 }
