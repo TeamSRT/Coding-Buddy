@@ -66,7 +66,6 @@ public class Compiler implements Runnable {
             curr.settxtOutput(stderr);
         }
         SubmitCodeController.output = output;
-        System.out.println(num);
         if (num == 1) {
             expectedOutput1 = output;
         } else if (num == 2) {
