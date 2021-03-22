@@ -98,6 +98,6 @@ public class HomeController implements Initializable {
 
     @FXML
     private void btnDashboardOnAction(ActionEvent event) throws IOException {
-        new Utility().loadPane("/DashBoard/Dashboard.fxml");
+        new Utility().loadPane("/Dashboard/Dashboard.fxml");
     }
 }
