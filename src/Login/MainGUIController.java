@@ -86,8 +86,7 @@ public class MainGUIController implements Initializable {
             } catch (SQLException ex) {
                 System.out.println("Login writing failed");
             }
-            obj.readLoginTime();
-            
+            obj.readLoginTime();            
             Parent root = FXMLLoader.load(getClass().getResource("/Main/Home.fxml"));
             Scene src = new Scene(root);
             Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();

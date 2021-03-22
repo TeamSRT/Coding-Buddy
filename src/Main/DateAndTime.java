@@ -15,7 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class DateAndTime {
+    public class DateAndTime {
     public Connection conn;
     Calendar obj = Calendar.getInstance();
     public String getDate()
@@ -83,4 +83,6 @@ public class DateAndTime {
         }
         
     }
+    
+   
 }

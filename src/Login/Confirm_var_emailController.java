@@ -29,9 +29,7 @@ public class Confirm_var_emailController implements Initializable {
     @FXML
     private JFXButton Next_btn;
 
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

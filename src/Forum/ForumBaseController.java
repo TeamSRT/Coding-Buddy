@@ -180,7 +180,7 @@ public class ForumBaseController implements Initializable {
         }
         if (quesCount % 7 != 0) {
             for (int i = 0; i < 7 - (quesCount % 7); i++) {
-                Post obj = new Post("", "", "", "", -1, 0, 0);
+                Post obj = new Post("", "", "", "", -1, 0, 0,"","");
                 receive.add(obj);
             }
         }
