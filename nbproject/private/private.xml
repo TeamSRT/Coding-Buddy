@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/G:/GitHub/Coding-Buddy/src/Problemset/SubmitCodeController.java</file>
             <file>file:/G:/GitHub/Coding-Buddy/src/Problemset/ProblemView.fxml</file>
             <file>file:/G:/GitHub/Coding-Buddy/src/Problemset/ProblemSQL.java</file>
@@ -18,6 +19,9 @@
             <file>file:/G:/GitHub/Coding-Buddy/src/Main/DateAndTime.java</file>
             <file>file:/G:/GitHub/Coding-Buddy/src/Problemset/ProblemView.css</file>
             <file>file:/G:/GitHub/Coding-Buddy/src/Dashboard/DashboardController.java</file>
+=======
+            <file>file:/C:/Users/Srishti/Documents/Git/Coding-Buddy/src/Main/DateAndTime.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
