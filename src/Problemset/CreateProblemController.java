@@ -25,10 +25,7 @@ import javafx.scene.layout.Pane;
  * @author ktouf
  */
 public class CreateProblemController implements Initializable {
-    @FXML
-    private TextArea txtInput;
-    @FXML
-    private TextArea txtOutput;
+
     @FXML
     private TextArea txtProblem;
     @FXML
@@ -39,8 +36,19 @@ public class CreateProblemController implements Initializable {
     private Button btnSubmit;
     @FXML
     private Button btnBack;
-    
-    
+    @FXML
+    private TextArea txtInput1;
+    @FXML
+    private TextArea txtOutput2;
+    @FXML
+    private TextArea txtInput2;
+    @FXML
+    private TextArea txtInput3;
+    @FXML
+    private TextArea txtOutput1;
+    @FXML
+    private TextArea txtOutput3;
+
     /**
      * Initializes the controller class.
      */
@@ -48,22 +56,26 @@ public class CreateProblemController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
+
     @FXML
     private void btnSubmitPressed(ActionEvent event) {
-        new ProblemSQL().writeProblem(txtTitle.getText(), txtProblem.getText(), txtInput.getText(), txtOutput.getText(), this);
+        new ProblemSQL().writeProblem(txtTitle.getText(), txtProblem.getText(), txtInput1.getText(), txtOutput1.getText(), txtInput2.getText(), txtOutput2.getText(), txtInput3.getText(), txtOutput3.getText(), this);
     }
-    
+
     @FXML
     private void btnBackPressed(ActionEvent event) throws IOException {
         new Utility().loadPane("/Problemset/Problemset.fxml");
     }
-    
+
     public void clearFields() {
-        txtTitle.setText(""); 
-        txtProblem.setText(""); 
-        txtInput.setText("");
-        txtOutput.setText("");
+        txtTitle.setText("");
+        txtProblem.setText("");
+        txtInput1.setText("");
+        txtOutput1.setText("");
+        txtInput2.setText("");
+        txtOutput2.setText("");
+        txtInput3.setText("");
+        txtOutput3.setText("");
     }
-    
+
 }

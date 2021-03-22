@@ -62,6 +62,8 @@ public class SubmitCodeController implements Initializable {
     public static int problemID;
     public static String output;
     private boolean isCustom;
+    @FXML
+    private MenuItem btnLangCsharp;
 
     public void flipbtnSubmit() {
         btnSubmit.setDisable(!btnSubmit.isDisable());
@@ -124,6 +126,12 @@ public class SubmitCodeController implements Initializable {
     @FXML
     private void btnCustomBackPressed(ActionEvent event) throws IOException {
         new Utility().loadPane("/Problemset/Problemset.fxml");
+    }
+
+    @FXML
+    private void btnLangCsharpPressed(ActionEvent event) {
+        currLang = "csharp";
+        btnLang.setText("C#");
     }
 
 }

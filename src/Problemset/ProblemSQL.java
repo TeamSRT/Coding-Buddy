@@ -41,7 +41,7 @@ public class ProblemSQL {
             Statement currStatement = conn.createStatement();
             ResultSet currSet = currStatement.executeQuery("SELECT * FROM problemset");
             while (currSet.next()) {
-                problemList.add(new Problem(currSet.getString("title"), currSet.getString("problemBody"), currSet.getString("input"), currSet.getString("output"), currSet.getString("username"), currSet.getInt("submission"), currSet.getInt("problemID")));
+                problemList.add(new Problem(currSet.getString("title"), currSet.getString("problemBody"), currSet.getString("input1"), currSet.getString("output1"), currSet.getString("input2"), currSet.getString("output2"), currSet.getString("input3"), currSet.getString("output3"), currSet.getString("username"), currSet.getInt("submission"), currSet.getInt("problemID")));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -50,7 +50,7 @@ public class ProblemSQL {
         return problemList;
     }
 
-    public void writeProblem(String title, String body, String input, String output, CreateProblemController cpcObj) {
+    public void writeProblem(String title, String body, String input1, String output1, String input2, String output2, String input3, String output3, CreateProblemController cpcObj) {
         Alert error = new Alert(AlertType.ERROR);
         Alert success = new Alert(AlertType.INFORMATION);
         error.setTitle("Submission Error");
@@ -62,17 +62,21 @@ public class ProblemSQL {
         } else if (body.equals("")) {
             error.setContentText("Problem body can not be empty");
             error.show();
-        } else if (output.equals("")) {
-            error.setContentText("Output can not be empty");
+        } else if (output1.equals("") && output2.equals("") && output3.equals("")) {
+            error.setContentText("All Output fields can not be empty");
             error.show();
         } else {
             try {
-                PreparedStatement currStatement = conn.prepareStatement("INSERT INTO `problemset`(`title`, `problemBody`, `input`, `output`, `username`) VALUES (?,?,?,?,?)");
+                PreparedStatement currStatement = conn.prepareStatement("INSERT INTO `problemset`(`title`, `problemBody`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `username`) VALUES (?,?,?,?,?,?,?,?,?)");
                 currStatement.setString(1, title);
                 currStatement.setString(2, body);
-                currStatement.setString(3, input);
-                currStatement.setString(4, output);
-                currStatement.setString(5, Main.Utility.username);
+                currStatement.setString(3, input1);
+                currStatement.setString(4, output1);
+                currStatement.setString(5, input2);
+                currStatement.setString(6, output2);
+                currStatement.setString(7, input3);
+                currStatement.setString(8, output3);
+                currStatement.setString(9, Main.Utility.username);
                 currStatement.execute();
                 cpcObj.clearFields();
                 success.show();
@@ -82,22 +86,33 @@ public class ProblemSQL {
         }
     }
     
-    public String getOutput(int problemID) throws SQLException {
+    public String getOutput(int problemID, int num) throws SQLException {
         Statement query = conn.createStatement();
-        ResultSet answer = query.executeQuery("SELECT `output` FROM `problemset` WHERE `problemID`= '" + problemID + "'");
+        ResultSet answer = query.executeQuery("SELECT `output" + num + "` FROM `problemset` WHERE `problemID`= '" + problemID + "'");
         if(answer.next()) {
             return answer.getString(1);
         }
         return null;
     }
     
-    public String getInput(int problemID) throws SQLException {
+    public String getInput(int problemID, int num) throws SQLException {
         Statement query = conn.createStatement();
-        ResultSet answer = query.executeQuery("SELECT `input` FROM `problemset` WHERE `problemID`= '" + problemID + "'");
+        ResultSet answer = query.executeQuery("SELECT `input" + num + "` FROM `problemset` WHERE `problemID`= '" + problemID + "'");
         if(answer.next()) {
             return answer.getString(1);
         }
         return null;
+    }
+    
+    public int sqlOperation(String Operation, String Condition) throws SQLException {
+        String Query = "SELECT COUNT(`problemID`) AS ans FROM `submission` WHERE " + Condition + " AND `userName` = '" + Main.Utility.username + "'";
+        PreparedStatement st = conn.prepareStatement(Query);
+        ResultSet rs = st.executeQuery();
+        int ans = 0;
+        if(rs.next()) {
+            ans = rs.getInt("ans");
+        }
+        return ans;
     }
 
 }

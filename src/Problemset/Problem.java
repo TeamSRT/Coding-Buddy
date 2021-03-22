@@ -10,17 +10,21 @@ package Problemset;
  * @author ktouf
  */
 public class Problem {
-    public String title, body, input, output, author;
+
+    public String title, body, input1, output1, input2, output2, input3, output3, author;
     public int submission, problemID;
 
-    public Problem(String title, String body, String input, String output, String author, int submission, int problemID) {
+    public Problem(String title, String body, String input1, String output1, String input2, String output2, String input3, String output3, String author, int submission, int problemID) {
         this.title = title;
         this.body = body;
-        this.input = input;
-        this.output = output;
+        this.input1 = input1;
+        this.output1 = output1;
+        this.input2 = input1;
+        this.output2 = output1;
+        this.input3 = input1;
+        this.output3 = output1;
         this.author = author;
         this.submission = submission;
         this.problemID = problemID;
     }
-    
 }

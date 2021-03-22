@@ -63,8 +63,8 @@ public class ProblemViewController implements Initializable {
     
     public void loadProblem() {
         txtTitle.setText(currProblem.title);
-        txtInput.setText(currProblem.input);
-        txtOutput.setText(currProblem.output);
+        txtInput.setText(currProblem.input1);
+        txtOutput.setText(currProblem.output1);
         txtProblem.setText(currProblem.body);
     }
     

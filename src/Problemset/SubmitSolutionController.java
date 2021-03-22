@@ -59,7 +59,13 @@ public class SubmitSolutionController extends SubmitCodeController implements In
     private String currLang = "c";
     public static int problemID;
     //public static String output;
-    private String expectedOutput;
+    private String expectedOutput1 = "";
+    private String expectedOutput2 = "";
+    private String expectedOutput3 = "";
+    private String input;
+    Thread tSub1, tSub2, tSub3;
+    @FXML
+    private MenuItem btnLangCsharp;
 
     /**
      * Initializes the controller class.
@@ -72,12 +78,18 @@ public class SubmitSolutionController extends SubmitCodeController implements In
     @FXML
     private void btnSubmitPressed(ActionEvent event) throws SQLException {
         String code = txtCode.getText();
-        String input = new ProblemSQL().getInput(problemID);
-        expectedOutput = new ProblemSQL().getOutput(problemID);
-        Compiler submission = new Compiler(code, input, currLang, this);
-        Thread subThread = new Thread(submission);
-        subThread.start();
-
+        input = new ProblemSQL().getInput(problemID, 1);
+        expectedOutput1 = new ProblemSQL().getOutput(problemID, 1);
+        tSub1 = new Thread(new Compiler(code, input, currLang, 1, this));
+        tSub1.start();
+        input = new ProblemSQL().getInput(problemID, 2);
+        expectedOutput2 = new ProblemSQL().getOutput(problemID, 2);
+        tSub2 = new Thread(new Compiler(code, input, currLang, 2, this));
+        tSub2.start();
+        input = new ProblemSQL().getInput(problemID, 3);
+        expectedOutput3 = new ProblemSQL().getOutput(problemID, 3);
+        tSub3 = new Thread(new Compiler(code, input, currLang, 3, this));
+        tSub3.start();
     }
 
     @FXML
@@ -112,19 +124,35 @@ public class SubmitSolutionController extends SubmitCodeController implements In
     @Override
     public void flipbtnSubmit() {
         btnSubmit.setDisable(!btnSubmit.isDisable());
-        if(!btnSubmit.isDisable()) {
-            Platform.runLater(()-> updateStatus());
+        if (!btnSubmit.isDisable()) {
+            Platform.runLater(() -> updateStatus());
         }
     }
 
     public void updateStatus() {
-        System.out.println(expectedOutput.length() + " " + output.length());
-        if (expectedOutput.equals(output)) {
-            lblStatus.setText("Status: Accepted.");
-            lblStatus.setStyle("-fx-text-fill : green");
-        } else {
-            lblStatus.setText("Status: Wrong Answer.");
-            lblStatus.setStyle("-fx-text-fill : red");
+        if (!tSub1.isAlive() && !tSub2.isAlive() && !tSub3.isAlive()) {
+            boolean m1 = expectedOutput1.equals(Compiler.expectedOutput1);
+            boolean m2 = expectedOutput2.equals(Compiler.expectedOutput2);
+            boolean m3 = expectedOutput3.equals(Compiler.expectedOutput3);
+            if (!m1) {
+                lblStatus.setText("Status: Wrong Answer in Test Case 1.");
+                lblStatus.setStyle("-fx-text-fill : red");
+            } else if (!m2) {
+                lblStatus.setText("Status: Wrong Answer in Test Case 2.");
+                lblStatus.setStyle("-fx-text-fill : red");
+            } else if (!m3) {
+                lblStatus.setText("Status: Wrong Answer in Test Case 3.");
+                lblStatus.setStyle("-fx-text-fill : red");
+            } else {
+                lblStatus.setText("Status: Accepted.");
+                lblStatus.setStyle("-fx-text-fill : green");
+            }
         }
+    }
+
+    @FXML
+    private void btnLangCsharpPressed(ActionEvent event) {
+        currLang = "csharp";
+        btnLang.setText("C#");
     }
 }

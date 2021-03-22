@@ -109,7 +109,7 @@ public class ProblemsetController implements Initializable {
         showProblem();
         if(problemCount % 6 != 0) {
             for(int i = 0; i < 6 - (problemCount % 6); ++i) {
-                listProblem.add(new Problem("", "", "", "", "", 0, -1));
+                listProblem.add(new Problem("", "", "", "", "", "", "", "", "", 0, -1));
             }
         }
         problemCount = listProblem.size();
