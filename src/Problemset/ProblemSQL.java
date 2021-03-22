@@ -5,8 +5,6 @@
  */
 package Problemset;
 
-import Main.Utility;
-import static Main.Utility.conn;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -129,5 +127,5 @@ public class ProblemSQL {
         currStatement.setString(4, lang);
         currStatement.execute();
     }
-
+    
 }
