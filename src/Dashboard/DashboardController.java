@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -37,10 +38,16 @@ public class DashboardController implements Initializable {
     private BarChart<?, ?> barChart;
     @FXML
     private ImageView ivPieLegend;
+    @FXML
+    private Label lblSolved;
+    @FXML
+    private Label lblSubmissions;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
+            lblSolved.setText(new ProblemSQL().sqlOperation("COUNT", "verdict = 1 AND problemID != 0") + "");
+            lblSubmissions.setText(new ProblemSQL().sqlOperation("COUNT", "1") + "");
             pieChart();
             barChart();
         } catch (Exception ex) {

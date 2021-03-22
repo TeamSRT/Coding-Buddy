@@ -101,7 +101,7 @@
                               <Insets bottom="2.0" left="4.0" right="2.0" top="2.0" />
                            </padding>
                         </Label>
-                        <Label alignment="CENTER" layoutX="18.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0" text="1">
+                        <Label fx:id="lblSolved" alignment="CENTER" layoutX="18.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0" text="1">
                            <font>
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>
@@ -111,7 +111,7 @@
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="144.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0" text="1">
+                        <Label fx:id="lblSubmissions" alignment="CENTER" layoutX="144.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0" text="1">
                            <font>
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>
