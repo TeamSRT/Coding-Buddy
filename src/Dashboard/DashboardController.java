@@ -3,78 +3,56 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dashboard;
+package DashBoard;
 
-import Main.Utility;
-import static Main.Utility.conn;
-import static Main.Utility.username;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
- * @author ktouf
+ * @author Srishti
  */
 public class DashboardController implements Initializable {
 
     @FXML
-    private ImageView imgUser;
+    private PieChart pieChart;
     @FXML
-    private Button btnChangePic;
+    private AnchorPane apTarget;
     @FXML
-    private Label lblName;
-    @FXML
-    private Label lblUsername;
-    @FXML
-    private Label lblMail;
+    private BarChart<?, ?> barChart;
 
-    /**
-     * Initializes the controller class.
-     */
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        lblName.setText("Name: " + Utility.name);
-        lblUsername.setText("Username: " + Utility.username);
-        lblMail.setText("Mail: " + Utility.mail);
-        imgUser.setImage(Utility.getImage(Utility.username, 200, 200));
+     pieChart();
+     barChart();
+    }   
+    public void pieChart()
+    {
+         ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
+         list.addAll(new PieChart.Data("C",21));
+         list.addAll(new PieChart.Data("C++",31));
+         list.addAll(new PieChart.Data("Python",22));
+         list.addAll(new PieChart.Data("Java",23));
+         list.addAll(new PieChart.Data("C#",3));
+         pieChart.setData(list);
+         pieChart.setStartAngle(0);         
     }
-
-    @FXML
-    private void btnChangePicOnAction(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        File selectedFile = fileChooser.showOpenDialog((Stage)((Node)event.getSource()).getScene().getWindow());
-        try {
-            FileInputStream imgObj = new FileInputStream(selectedFile);
-            Statement delete = Utility.conn.createStatement();
-            delete.executeUpdate("delete from `profilepic` where `username` = '" + username + "'");
-            String query = "INSERT INTO `profilepic`(`username`, `userImg`) VALUES (?,?)";
-            PreparedStatement ps = Utility.conn.prepareStatement(query);
-            ps.setString(1, Utility.username);
-            ps.setBlob(2, imgObj);
-            ps.execute();
-        } catch (SQLException e) {
-            System.out.println("Connection Error");
-        } catch (FileNotFoundException ex) {
-            System.out.println("FILE NOT FOUND");
-        }
-        imgUser.setImage(Utility.getImage(Utility.username, 200, 200));
+    public void barChart()
+    {
+        XYChart.Series bar1 = new XYChart.Series();
+        XYChart.Series bar2 = new XYChart.Series();
+        bar1.getData().add(new XYChart.Data<>("Right",32));
+        bar2.getData().add(new XYChart.Data<>("Wrong",68));
+        barChart.getData().addAll(bar1, bar2);
     }
-    
 }

@@ -59,7 +59,7 @@ public class Forum {
             ResultSet comm = query.executeQuery("SELECT `commentID`, `userName`, `commentBody` FROM `comment` WHERE postID = "+postID);
             while(comm.next())
             {
-                System.out.println("1");
+              //  System.out.println("1");
                 Comment commObj = new Comment();
                 commObj.userName = comm.getString("userName");
                 commObj.commentID = comm.getInt("commentID");

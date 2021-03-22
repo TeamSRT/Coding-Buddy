@@ -50,7 +50,7 @@ public class Utility {
         } catch (SQLException ex) {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+       
     }
     
     public static void setHome(HomeController Home) {

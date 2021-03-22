@@ -20,7 +20,6 @@
          <content>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <VBox fx:id="vbSQ" fillWidth="false" layoutX="3.0" layoutY="505.0" prefWidth="683.0" />
                   <Label fx:id="lblSQTitle" alignment="BASELINE_LEFT" layoutX="28.0" layoutY="14.0" prefHeight="45.0" prefWidth="657.0" styleClass="font" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -31,7 +30,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="taSQBody" layoutX="28.0" layoutY="85.0" prefHeight="271.0" prefWidth="630.0" wrapText="true">
+                  <TextArea fx:id="taSQBody" layoutX="28.0" layoutY="85.0" prefHeight="271.0" prefWidth="630.0" wrapText="true" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="27.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -41,7 +40,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="taSQComm" layoutX="28.0" layoutY="407.0" prefHeight="52.0" prefWidth="630.0" promptText="Write your comment here..." style="-fx-prompt-text-fill: #989898;" wrapText="true">
+                  <TextArea fx:id="taSQComm" layoutX="28.0" layoutY="407.0" prefHeight="52.0" prefWidth="630.0" promptText="Write your comment here..." style="-fx-prompt-text-fill: #989898;" wrapText="true" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="27.0">
                      <font>
                         <Font size="13.0" />
                      </font></TextArea>
@@ -69,6 +68,7 @@
                         <Font name="Times New Roman Bold" size="15.0" />
                      </font>
                   </Label>
+                  <VBox fx:id="vbComment" layoutY="505.0" prefWidth="685.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>
          </content>

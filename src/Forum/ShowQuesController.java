@@ -14,8 +14,12 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
@@ -28,6 +32,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -52,7 +57,6 @@ public class ShowQuesController implements Initializable {
     public static Post showObj;
     @FXML
     private Label lblSQTag;
-    @FXML
     private VBox vbSQ;
     private ArrayList<Comment> commInfo;
     @FXML
@@ -65,9 +69,15 @@ public class ShowQuesController implements Initializable {
     private ImageView ivDownVote;
     @FXML
     private Label lblCommVote;
-    public static boolean upvoted = false, downvoted = false;
+    public static boolean upvoted = false, downvoted = false, commUpVoted = false, commDownVoted = false;
+    
+    
     @FXML
     private Label lblShowCommCount;
+ //   private VBox vbContent;
+   
+    @FXML
+    private VBox vbComment;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -105,30 +115,80 @@ public class ShowQuesController implements Initializable {
         {
             Text error = new Text("There are no comments yet");
             error.setFont(Font.font("System", 18));            
-            vbSQ.setAlignment(Pos.CENTER);
-            vbSQ.getChildren().add(error);
+            vbComment.setAlignment(Pos.CENTER);
+            vbComment.getChildren().add(error);
         }
         else
         {
             for (int i = 0; i < commInfo.size(); i++) {
-                Text user = new Text(commInfo.get(i).userName);
+                VBox vbCommVote = new VBox();
+                VBox vbCommContent = new VBox();
+                HBox addVbox = new HBox();
+                Text user = new Text(commInfo.get(i).userName);            
+                Image upVote = new Image("/Image/Up1.png");                
+                ImageView ivCommUpVote = new ImageView(upVote);
+                ivCommUpVote.setFitWidth(15);
+                ivCommUpVote.setFitHeight(25);
+                Image downVote = new Image("/Image/Down1.png");
+                ImageView ivCommDownVote = new ImageView(downVote);                
+                ivCommDownVote.setFitWidth(15);
+                ivCommDownVote.setFitHeight(25);
+                Image upVoteP = new Image("/Image/Up2.png");
+                ImageView ivCommUpVoteP = new ImageView(upVoteP);
+                ivCommUpVoteP.setFitWidth(15);
+                ivCommUpVoteP.setFitHeight(25);                
+                Image downVoteP = new Image("/Image/Down2.png");
+                ImageView ivCommDownVoteP = new ImageView(downVoteP);
+                ivCommDownVoteP.setFitWidth(15);
+                ivCommDownVoteP.setFitHeight(25);
+                ivCommUpVote.setOnMouseClicked(new EventHandler() {
+                    @Override
+                    public void handle(Event event) {
+                       commUpVoted = true;
+                    }                    
+                });
+                ivCommDownVote.setOnMouseClicked(new EventHandler() {
+                    @Override
+                    public void handle(Event event) {
+                       commDownVoted = true;
+                    }                    
+                });
                 Text whiteSpace1 = new Text();
                 Text whiteSpace2 = new Text();
+                Button btn = new Button();                
                 Text body = new Text(commInfo.get(i).commentBody);
+                Text commVote = new Text("30");
+                commVote.setTextAlignment(TextAlignment.CENTER);
+                commVote.setFont(Font.font("Times New Roman",18));
                 Separator sp = new Separator(Orientation.HORIZONTAL);
                 sp.isVisible();
                 sp.setPrefWidth(629);
                 user.setFont(Font.font("System", 19));
                 user.setFill(Color.DARKBLUE);
                 body.setFont(Font.font("System", 16));
-                body.setWrappingWidth(633);
-                vbSQ.setTranslateX(28.0f);
-                vbSQ.getChildren().add(sp);
-                vbSQ.getChildren().add(user);
-                vbSQ.getChildren().add(whiteSpace1);
-                vbSQ.getChildren().add(body);
-                vbSQ.getChildren().add(whiteSpace2);
-                vbSQ.setSpacing(5);
+                body.setWrappingWidth(633);                          
+                vbCommContent.getChildren().add(sp);
+                sp.setTranslateX(0.0f);
+                if(commUpVoted)
+                {
+                    vbCommVote.getChildren().addAll(ivCommUpVoteP,commVote, ivCommDownVote,whiteSpace2);
+                }
+                else if(commDownVoted)
+                {
+                    vbCommVote.getChildren().addAll(ivCommUpVote,commVote, ivCommDownVoteP,whiteSpace2);
+                }
+                else
+                {    
+                    vbCommVote.getChildren().addAll(ivCommUpVote,commVote, ivCommDownVote,whiteSpace2);
+                }
+                vbCommVote.setPrefWidth(28.0f);
+                vbCommVote.setSpacing(5);                             
+                vbCommContent.getChildren().addAll(user,body,whiteSpace1);                
+                vbCommContent.setSpacing(5);          
+                addVbox.getChildren().addAll(vbCommVote, vbCommContent);
+                vbComment.getChildren().add(addVbox);
+                commUpVoted = false;
+                commDownVoted = false;                
             }
         }
     }
@@ -215,6 +275,7 @@ public class ShowQuesController implements Initializable {
         obj.connection();
         obj.writeVote(showObj.postID, showObj.vote);
     }
-
+   
+    
 
 }
