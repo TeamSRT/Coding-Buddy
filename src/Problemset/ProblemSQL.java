@@ -105,7 +105,7 @@ public class ProblemSQL {
     }
     
     public int sqlOperation(String Operation, String Condition) throws SQLException {
-        String Query = "SELECT COUNT(`problemID`) AS ans FROM `submission` WHERE " + Condition + " AND `userName` = '" + Main.Utility.username + "'";
+        String Query = "SELECT " + Operation +"(`problemID`) AS ans FROM `submission` WHERE " + Condition + " AND `userName` = '" + Main.Utility.username + "'";
         PreparedStatement st = conn.prepareStatement(Query);
         ResultSet rs = st.executeQuery();
         int ans = 0;
@@ -113,6 +113,21 @@ public class ProblemSQL {
             ans = rs.getInt("ans");
         }
         return ans;
+    }
+    
+    public void recordSubmission(int problemID, int Verdict, String lang) throws SQLException {
+        if(Verdict == 1 && problemID == -1) {
+            int Check = sqlOperation("COUNT", "`verdict` = 1");
+            if(Check > 0) {
+                return;
+            }
+        }
+        PreparedStatement currStatement = conn.prepareStatement("INSERT INTO `submission`(`problemID`, `userName`, `verdict`, `lang`) VALUES (?,?,?,?)");
+        currStatement.setInt(1, problemID);
+        currStatement.setString(2, Main.Utility.username);
+        currStatement.setInt(3, Verdict);
+        currStatement.setString(4, lang);
+        currStatement.execute();
     }
 
 }
