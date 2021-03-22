@@ -26,6 +26,7 @@
                <items>
                   <MenuItem fx:id="btnLangC" mnemonicParsing="false" onAction="#btnLangCPressed" text="C" />
                   <MenuItem fx:id="btnLangCpp" mnemonicParsing="false" onAction="#btnLangCppPressed" text="C++" />
+                  <MenuItem fx:id="btnLangCsharp" mnemonicParsing="false" onAction="#btnLangCsharpPressed" text="C#" />
                   <MenuItem fx:id="btnLangJava" mnemonicParsing="false" onAction="#btnLangJavaPressed" text="Java" />
                   <MenuItem fx:id="btnLangPython" mnemonicParsing="false" onAction="#btnLangPythonPressed" text="Python" />
                </items>
