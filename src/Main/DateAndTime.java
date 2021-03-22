@@ -3,19 +3,37 @@ package Main;
 
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
 public class DateAndTime {
-    
-    public void getDate()
+    Calendar obj = Calendar.getInstance();
+    public String getDate()
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
-        System.out.println(sdf.format(new Date()));
-        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(new Date());        
     }
-    public void getTime()
+    public String getDateAndTime()
     {
-        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        return sdf.format(new Date());
     }
+    public int getHour()
+    {
+       return obj.get(Calendar.HOUR);
+    }
+    public int getMinute()
+    {
+        return obj.get(Calendar.MINUTE);
+    }
+    public int getSecond()
+    {
+       return obj.get(Calendar.SECOND);
+    }
+    public int getDayOfYear()
+    {
+       return obj.get(Calendar.DAY_OF_YEAR);
+    }
+   
 }
