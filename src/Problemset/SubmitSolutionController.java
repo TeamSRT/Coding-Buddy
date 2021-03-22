@@ -6,10 +6,6 @@
 package Problemset;
 
 import Main.Utility;
-import static Problemset.SubmitCodeController.output;
-import static Problemset.SubmitCodeController.problemID;
-import static com.sun.prism.paint.Paint.Type.COLOR;
-import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -146,6 +142,16 @@ public class SubmitSolutionController extends SubmitCodeController implements In
             } else {
                 lblStatus.setText("Status: Accepted.");
                 lblStatus.setStyle("-fx-text-fill : green");
+            }
+
+            try {
+                if (!m1 || !m2 || !m3) {
+                    new ProblemSQL().recordSubmission(problemID, -1, currLang);
+                } else {
+                    new ProblemSQL().recordSubmission(problemID, 1, currLang);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error While Submitting Record " + ex);
             }
         }
     }

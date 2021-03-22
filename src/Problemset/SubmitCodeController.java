@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,7 +19,6 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -67,6 +65,13 @@ public class SubmitCodeController implements Initializable {
 
     public void flipbtnSubmit() {
         btnSubmit.setDisable(!btnSubmit.isDisable());
+        if (!btnSubmit.isDisable()) {
+            try {
+                new ProblemSQL().recordSubmission(0, 0, currLang);
+            } catch (SQLException ex) {
+                System.out.println("Submission Error From Custom Code" + ex);
+            }
+        }
     }
 
     public void settxtOutput(String output) {
