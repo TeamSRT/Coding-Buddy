@@ -78,7 +78,7 @@ public class DashboardController implements Initializable {
                 list.addAll(new PieChart.Data("Python", countPython));
             }
             if (countJava != 0) {
-                list.addAll(new PieChart.Data("Java", 30));
+                list.addAll(new PieChart.Data("Java", countJava));
             }
             if (countCsharp != 0) {
                 list.addAll(new PieChart.Data("C#", countCsharp));

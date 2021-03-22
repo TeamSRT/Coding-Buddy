@@ -1,11 +1,15 @@
 package Login;
 
+import Main.DateAndTime;
 import Main.Utility;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,9 +72,22 @@ public class MainGUIController implements Initializable {
             data_match = d.getData(username, password);
         }
 
-        if (data_match == true) {
+        if (data_match == true) {            
             Utility.setUsername(tfLoginUsername.getText());
             Utility.initUser();
+            DateAndTime obj = new DateAndTime();
+            try {
+                obj.connection();              
+            } catch (SQLException ex) {
+                System.out.println("Login Connection failed");
+            }
+            try {
+                obj.writeLoginTime();
+            } catch (SQLException ex) {
+                System.out.println("Login writing failed");
+            }
+            obj.readLoginTime();
+            
             Parent root = FXMLLoader.load(getClass().getResource("/Main/Home.fxml"));
             Scene src = new Scene(root);
             Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -5,10 +5,31 @@
  */
 package Main;
 
+import java.sql.Date;
+
 /**
  *
  * @author Srishti
  */
 public class Time {
+    
+    public String username, loginDate, loginTime;
+   
+
+    public Time() 
+    {
+
+    }
+
+    public Time(String loginDate, String loginTime, String loginDateAndTime) {
+        this.loginDate = loginDate;
+        this.loginTime = loginTime;
+    }
+
+    
+
+   
+
+    
     
 }

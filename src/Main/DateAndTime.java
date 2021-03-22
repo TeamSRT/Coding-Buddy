@@ -2,11 +2,15 @@
 package Main;
 
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -16,19 +20,14 @@ public class DateAndTime {
     Calendar obj = Calendar.getInstance();
     public String getDate()
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(new Date());        
     }
     public String getTime()
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         return sdf.format(new Date());
-    }
-    public String getDateAndTime()
-    {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        return sdf.format(new Date());
-    }    
+    }   
     public int getHour()
     {
        return obj.get(Calendar.HOUR);
@@ -55,16 +54,33 @@ public class DateAndTime {
     }
     public void writeLoginTime() throws SQLException
     {
-        String query = "INSERT INTO `logintimeinfo`(`username`, `loginDate`, `loginTime`, `loginDateAndTime`) VALUES (?,?,?,?)";
+        String query = "INSERT INTO `logintimeinfo`(`username`, `loginDate`, `loginTime`) VALUES (?,?,?)";
         PreparedStatement wLT = conn.prepareStatement(query);
         wLT.setString(1, Main.Utility.username);
         wLT.setString(2, getDate());
-        wLT.setString(3, getTime());
-        wLT.setString(4, getDateAndTime());
+        wLT.setString(3, getTime());        
         wLT.execute();
     }
-    public void readLoginTime()            
+    public void readLoginTime()         
     {
+       
+        ArrayList<Time> loginTime = new ArrayList<>();
+        try {
+            
+            Statement query = conn.createStatement();            
+            ResultSet rs = query.executeQuery("SELECT `loginDate`, `loginTime` FROM `logintimeinfo` WHERE username = '"+Utility.username+"'");
+            while(rs.next())
+            {
+              
+                System.out.println("loginDate = "+rs.getDate("loginDate").toString() + " loginTime = " +rs.getTime("loginTime").toString());
+                Time tobj = new Time();
+                tobj.loginDate = rs.getDate("loginDate").toString();
+                tobj.loginTime = rs.getTime("loginTime").toString();        
+                loginTime.add(tobj);
+            }
+        } catch (Exception ex) {
+            System.out.println("Login Time Exception Occured");
+        }
         
     }
 }
