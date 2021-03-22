@@ -116,7 +116,13 @@ public class SubmitSolutionController extends SubmitCodeController implements In
         currLang = "python3";
         btnLang.setText("Python3");
     }
-
+    
+    @FXML
+    private void btnLangCsharpPressed(ActionEvent event) {
+        currLang = "csharp";
+        btnLang.setText("C#");
+    }
+    
     @Override
     public void flipbtnSubmit() {
         btnSubmit.setDisable(!btnSubmit.isDisable());
@@ -156,9 +162,5 @@ public class SubmitSolutionController extends SubmitCodeController implements In
         }
     }
 
-    @FXML
-    private void btnLangCsharpPressed(ActionEvent event) {
-        currLang = "csharp";
-        btnLang.setText("C#");
-    }
+   
 }

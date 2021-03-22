@@ -11,6 +11,7 @@
 .default-color2.chart-pie { -fx-pie-color: #0000ff; }
 .default-color3.chart-pie { -fx-pie-color: #b30086; }
 .default-color4.chart-pie { -fx-pie-color: #6600ff; }
+
  
 .chart-pie-label-line {
     -fx-stroke: #333;

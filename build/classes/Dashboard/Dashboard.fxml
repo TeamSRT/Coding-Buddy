@@ -10,14 +10,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="805.0" prefWidth="685.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: #f2f2f2;" fx:controller="Dashboard.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="805.0" prefWidth="685.0" style="-fx-background-color: #f2f2f2;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard.DashboardController">
     <stylesheets>
-        <URL value="@Dashboard.css"/>
+        <URL value="@Dashboard.css" />
     </stylesheets>
     <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="805.0" prefWidth="685.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -37,6 +39,11 @@
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
+                        <ImageView fx:id="ivPieLegend" fitHeight="124.0" fitWidth="70.0" layoutX="295.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/pieLegend.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane layoutX="7.0" layoutY="405.0" prefHeight="382.0" prefWidth="380.0" style="-fx-background-color: white; -fx-border-color: #333;">
