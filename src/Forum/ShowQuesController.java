@@ -6,10 +6,17 @@
 package Forum;
 
 
+
+import Main.DateAndTime;
 import java.net.URL;
+import Main.*;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,15 +93,19 @@ public class ShowQuesController implements Initializable {
             loadShowPost();
         } catch (SQLException ex) {
             Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
         }
         loadComment();              
     }
-    public void loadShowPost() throws SQLException
+    public void loadShowPost() throws SQLException, ParseException
     {
         Forum obj = new Forum();
         obj.connection();
         lblSQTitle.setText(showObj.title);
-        lblSQUser.setText("Asked by "+ showObj.username);
+        lblSQUser.setText("Asked by "+ showObj.username);      
+        String timeAgo = new DateAndTime().passedTime(new Date(),new SimpleDateFormat("yyyy-MM-dd").parse(showObj.postDate));
+        lblSQPostTime.setText("Posted " + timeAgo);
         taSQBody.setText(showObj.body);
         lblSQTag.setText(showObj.tag);
         lblCommVote.setText(Integer.toString(showObj.vote));   

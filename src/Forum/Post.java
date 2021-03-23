@@ -1,8 +1,13 @@
 package Forum;
 
+import java.sql.Date;
+import java.sql.Time;
+
 public class Post {
 
-    public String username, title, body, tag, postDate, postTime;
+    public String username, title, body, tag;
+    String postDate;
+    String postTime;
     public int postID, vote, answer;
     
     Post() {

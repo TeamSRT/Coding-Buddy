@@ -9,6 +9,8 @@ import Main.Utility;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import static java.sql.Types.NULL;
+
 import java.util.*;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
