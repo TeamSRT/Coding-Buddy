@@ -87,16 +87,22 @@ public class ShowQuesController implements Initializable {
     private VBox vbComment;
     @FXML
     private Label lblSQPostTime;
+   
+    SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            loadShowPost();
-        } catch (SQLException ex) {
-            Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                loadShowPost();
+            } catch (SQLException ex) {
+                Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
+                Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            loadComment();
         } catch (ParseException ex) {
-            Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Comment time loading error occured");
         }
-        loadComment();              
     }
     public void loadShowPost() throws SQLException, ParseException
     {
@@ -104,7 +110,7 @@ public class ShowQuesController implements Initializable {
         obj.connection();
         lblSQTitle.setText(showObj.title);
         lblSQUser.setText("Asked by "+ showObj.username);      
-        String timeAgo = new DateAndTime().passedTime(new Date(),new SimpleDateFormat("yyyy-MM-dd").parse(showObj.postDate));
+        String timeAgo = new DateAndTime().passedTime(new Date(),format.parse(showObj.postDate + showObj.postTime));        
         lblSQPostTime.setText("Posted " + timeAgo);
         taSQBody.setText(showObj.body);
         lblSQTag.setText(showObj.tag);
@@ -115,7 +121,7 @@ public class ShowQuesController implements Initializable {
             System.out.println("SQl Exception");
         }
     }
-    public void loadComment() {
+    public void loadComment() throws ParseException {
         Forum obj = new Forum();
         try {
             obj.connection();
@@ -124,32 +130,32 @@ public class ShowQuesController implements Initializable {
         }
         commInfo = obj.readComment(showObj.postID);
         showObj.answer = commInfo.size();
-        if (commInfo.size() == 0)
-        {
+        if (commInfo.size() == 0) {
             Text error = new Text("There are no comments yet");
-            error.setFont(Font.font("System", 18));            
+            error.setFont(Font.font("System", 18));
             vbComment.setAlignment(Pos.CENTER);
             vbComment.getChildren().add(error);
-        }
-        else
+        } else
         {
             for (int i = 0; i < commInfo.size(); i++) {
                 VBox vbCommVote = new VBox();
                 VBox vbCommContent = new VBox();
                 HBox addVbox = new HBox();
-                Text user = new Text(commInfo.get(i).userName);            
-                Image upVote = new Image("/Image/Up1.png");                
+                Text user = new Text(commInfo.get(i).userName);
+                Text commTime = new Text("Posted "+ new DateAndTime().passedTime(new Date(), format.parse(commInfo.get(i).commDate + commInfo.get(i).commTime)));
+                commTime.setTranslateX(508.0f);               
+                Image upVote = new Image("/Image/Up1.png");
                 ImageView ivCommUpVote = new ImageView(upVote);
                 ivCommUpVote.setFitWidth(15);
                 ivCommUpVote.setFitHeight(25);
                 Image downVote = new Image("/Image/Down1.png");
-                ImageView ivCommDownVote = new ImageView(downVote);                
+                ImageView ivCommDownVote = new ImageView(downVote);
                 ivCommDownVote.setFitWidth(15);
                 ivCommDownVote.setFitHeight(25);
                 Image upVoteP = new Image("/Image/Up2.png");
                 ImageView ivCommUpVoteP = new ImageView(upVoteP);
                 ivCommUpVoteP.setFitWidth(15);
-                ivCommUpVoteP.setFitHeight(25);                
+                ivCommUpVoteP.setFitHeight(25);
                 Image downVoteP = new Image("/Image/Down2.png");
                 ImageView ivCommDownVoteP = new ImageView(downVoteP);
                 ivCommDownVoteP.setFitWidth(15);
@@ -157,51 +163,50 @@ public class ShowQuesController implements Initializable {
                 ivCommUpVote.setOnMouseClicked(new EventHandler() {
                     @Override
                     public void handle(Event event) {
-                       commUpVoted = true;
-                    }                    
+                        commUpVoted = true;
+                    }
                 });
                 ivCommDownVote.setOnMouseClicked(new EventHandler() {
                     @Override
                     public void handle(Event event) {
-                       commDownVoted = true;
-                    }                    
+                        commDownVoted = true;
+                    }
                 });
                 Text whiteSpace1 = new Text();
                 Text whiteSpace2 = new Text();
-                Button btn = new Button();                
+                Text whiteSpace3 = new Text();
+                Text whiteSpace4 = new Text();
+                Button btn = new Button();
                 Text body = new Text(commInfo.get(i).commentBody);
                 Text commVote = new Text("30");
                 commVote.setTextAlignment(TextAlignment.CENTER);
-                commVote.setFont(Font.font("Times New Roman",18));
+                commVote.setFont(Font.font("Times New Roman", 18));
                 Separator sp = new Separator(Orientation.HORIZONTAL);
                 sp.isVisible();
                 sp.setPrefWidth(629);
                 user.setFont(Font.font("System", 19));
                 user.setFill(Color.DARKBLUE);
+                commTime.setFont(Font.font("System", 12));
+                commTime.setFill(Color.LIGHTSLATEGRAY);
                 body.setFont(Font.font("System", 16));
-                body.setWrappingWidth(633);                          
+                body.setWrappingWidth(633);
                 vbCommContent.getChildren().add(sp);
                 sp.setTranslateX(0.0f);
-                if(commUpVoted)
-                {
-                    vbCommVote.getChildren().addAll(ivCommUpVoteP,commVote, ivCommDownVote,whiteSpace2);
-                }
-                else if(commDownVoted)
-                {
-                    vbCommVote.getChildren().addAll(ivCommUpVote,commVote, ivCommDownVoteP,whiteSpace2);
-                }
-                else
-                {    
-                    vbCommVote.getChildren().addAll(ivCommUpVote,commVote, ivCommDownVote,whiteSpace2);
+                if (commUpVoted) {
+                    vbCommVote.getChildren().addAll(ivCommUpVoteP, commVote, ivCommDownVote, whiteSpace2);
+                } else if (commDownVoted) {
+                    vbCommVote.getChildren().addAll(ivCommUpVote, commVote, ivCommDownVoteP, whiteSpace2);
+                } else {
+                    vbCommVote.getChildren().addAll(ivCommUpVote, commVote, ivCommDownVote, whiteSpace2);
                 }
                 vbCommVote.setPrefWidth(28.0f);
-                vbCommVote.setSpacing(5);                             
-                vbCommContent.getChildren().addAll(user,body,whiteSpace1);                
-                vbCommContent.setSpacing(5);          
+                vbCommVote.setSpacing(5);
+                vbCommContent.getChildren().addAll(user, body, whiteSpace1, commTime, whiteSpace2);
+                vbCommContent.setSpacing(5);
                 addVbox.getChildren().addAll(vbCommVote, vbCommContent);
                 vbComment.getChildren().add(addVbox);
                 commUpVoted = false;
-                commDownVoted = false;                
+                commDownVoted = false;
             }
         }
     }

@@ -5,11 +5,14 @@
  */
 package Forum;
 
+import Main.DateAndTime;
 import Main.Utility;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import static java.sql.Types.NULL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import java.util.*;
 import java.util.ResourceBundle;
@@ -163,7 +166,22 @@ public class ForumBaseController implements Initializable {
     private final int QuesPerPage = 7;
     @FXML
     private Button btnCenterForum;
-
+    @FXML
+    private Label lblPostTime1;
+    @FXML
+    private Label lblPostTime2;
+    @FXML
+    private Label lblPostTime3;
+    @FXML
+    private Label lblPostTime4;
+    @FXML
+    private Label lblPostTime5;
+    @FXML
+    private Label lblPostTime6;
+    @FXML
+    private Label lblPostTime7;
+    
+    SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Forum reader = new Forum();
@@ -179,6 +197,8 @@ public class ForumBaseController implements Initializable {
             loadForumBase();
         } catch (SQLException ex) {
             System.out.println("Loading failed");
+        } catch (ParseException ex) {
+            System.out.println("File error occured");
         }
         if (quesCount % 7 != 0) {
             for (int i = 0; i < 7 - (quesCount % 7); i++) {
@@ -200,7 +220,7 @@ public class ForumBaseController implements Initializable {
         new Main.Utility().loadPane("/Forum/AskQues.fxml");
     }
 
-    private void loadForumBase() throws SQLException {
+    private void loadForumBase() throws SQLException, ParseException {
         imgHolder1.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 0).username, 72, 65));
         imgHolder2.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 1).username, 72, 65));
         imgHolder3.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 2).username, 72, 65));
@@ -212,29 +232,36 @@ public class ForumBaseController implements Initializable {
         obj.connection();
         lblForumUser1.setText("Asked by " + receive.get(currPage * QuesPerPage + 0).username);
         lblShowTitle1.setText(receive.get(currPage * QuesPerPage + 0).title);
+        lblPostTime1.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 0).postDate +  receive.get(currPage * QuesPerPage + 0).postTime)));
         lblVote1.setText(receive.get(currPage * QuesPerPage + 0).vote + " ");        
         lblAns1.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 0).postID));    
         lblForumUser2.setText("Asked by " + receive.get(currPage * QuesPerPage + 1).username);
         lblShowTitle2.setText(receive.get(currPage * QuesPerPage + 1).title);
+        lblPostTime2.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 1).postDate + receive.get(currPage * QuesPerPage + 1).postTime)));
         lblVote2.setText(receive.get(currPage * QuesPerPage + 1).vote + " ");
         lblAns2.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 1).postID));
         lblForumUser3.setText("Asked by " + receive.get(currPage * QuesPerPage + 2).username);
-        lblShowTitle3.setText(receive.get(currPage * QuesPerPage + 2).title);
+        lblShowTitle3.setText(receive.get(currPage * QuesPerPage + 2).title);        
+        lblPostTime3.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 2).postDate +  receive.get(currPage * QuesPerPage + 2).postTime)));       
         lblVote3.setText(receive.get(currPage * QuesPerPage + 2).vote + " ");
         lblAns3.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 2).postID));
         lblForumUser4.setText("Asked by " + receive.get(currPage * QuesPerPage + 3).username);
         lblShowTitle4.setText(receive.get(currPage * QuesPerPage + 3).title);
+        lblPostTime4.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 3).postDate + receive.get(currPage * QuesPerPage + 3).postTime)));
         lblVote4.setText(receive.get(currPage * QuesPerPage + 3).vote + " ");
         lblAns4.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 3).postID));
         lblForumUser5.setText("Asked by " + receive.get(currPage * QuesPerPage + 4).username);
         lblShowTitle5.setText(receive.get(currPage * QuesPerPage + 4).title);
+        lblPostTime5.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 4).postDate + receive.get(currPage * QuesPerPage + 4).postTime)));
         lblVote5.setText(receive.get(currPage * QuesPerPage + 4).vote + " ");
         lblAns5.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 4).postID));
         lblForumUser6.setText("Asked by " + receive.get(currPage * QuesPerPage + 5).username);
         lblShowTitle6.setText(receive.get(currPage * QuesPerPage + 5).title);
+        lblPostTime6.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 5).postDate + receive.get(currPage * QuesPerPage + 5).postTime)));
         lblVote6.setText(receive.get(currPage * QuesPerPage + 5).vote + " ");
         lblAns6.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 5).postID));
         lblForumUser7.setText("Asked by " + receive.get(currPage * QuesPerPage + 6).username);
+        lblPostTime7.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 6).postDate + receive.get(currPage * QuesPerPage + 6).postTime)));
         lblShowTitle7.setText(receive.get(currPage * QuesPerPage + 6).title);
         lblVote7.setText(receive.get(currPage * QuesPerPage + 6).vote + " ");
         lblAns7.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 6).postID));
@@ -343,7 +370,7 @@ public class ForumBaseController implements Initializable {
     }
 
     @FXML
-    private void btnPreviousForumClicked(ActionEvent event) {
+    private void btnPreviousForumClicked(ActionEvent event) throws ParseException {
         currPage--;
         try {
             loadForumBase();
@@ -360,7 +387,7 @@ public class ForumBaseController implements Initializable {
     }
 
     @FXML
-    private void btnNextForumClicked(ActionEvent event) {
+    private void btnNextForumClicked(ActionEvent event) throws ParseException {
         currPage++;
         try {
             loadForumBase();
