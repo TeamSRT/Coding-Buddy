@@ -78,6 +78,8 @@ public class ShowQuesController implements Initializable {
    
     @FXML
     private VBox vbComment;
+    @FXML
+    private Label lblSQPostTime;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
