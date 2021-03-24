@@ -91,17 +91,15 @@ public class ShowQuesController implements Initializable {
     SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+      
         try {
-            try {
-                loadShowPost();
-            } catch (SQLException ex) {
-                Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ParseException ex) {
-                Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            loadShowPost();
             loadComment();
+            pVoteStatus();
         } catch (ParseException ex) {
             System.out.println("Comment time loading error occured");
+        } catch (SQLException ex) {
+            System.out.println(ex);
         }
     }
     public void loadShowPost() throws SQLException, ParseException
@@ -130,7 +128,7 @@ public class ShowQuesController implements Initializable {
         }
         commInfo = obj.readComment(showObj.postID);
         showObj.answer = commInfo.size();
-        if (commInfo.size() == 0) {
+        if (commInfo.isEmpty()) {
             Text error = new Text("There are no comments yet");
             error.setFont(Font.font("System", 18));
             vbComment.setAlignment(Pos.CENTER);
@@ -214,7 +212,7 @@ public class ShowQuesController implements Initializable {
     @FXML
     private void btnpostCommClicked(ActionEvent event) throws SQLException {
         String commContent = taSQComm.getText();
-        if (commContent.equals(null)) {
+        if (commContent == null) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Content box empty");
             alert.setContentText("Please fill the comment box first");
@@ -235,6 +233,9 @@ public class ShowQuesController implements Initializable {
 
     @FXML
     private void ivUpVoteClicked(MouseEvent event) throws SQLException {
+        
+     
+        
         if(downvoted)
         {
             showObj.vote++;
@@ -247,7 +248,7 @@ public class ShowQuesController implements Initializable {
             upvoted = true;
             downvoted = false;
             ivUpVote.setImage(new Image("/Image/Up2.png"));
-            setVote();
+            setVote(1);
         }
         else
         {
@@ -256,7 +257,7 @@ public class ShowQuesController implements Initializable {
             upvoted = false;
             downvoted = false;
             ivUpVote.setImage(new Image("/Image/Up1.png"));
-            setVote();
+            setVote(0);
         }
     }
 
@@ -274,7 +275,7 @@ public class ShowQuesController implements Initializable {
             downvoted = true;
             upvoted = false;
             ivDownVote.setImage(new Image("/Image/Down2.png"));            
-            setVote();
+            setVote(-1);
         }
         else
         {
@@ -283,17 +284,43 @@ public class ShowQuesController implements Initializable {
             downvoted = false;
             upvoted = false;
             ivDownVote.setImage(new Image("/Image/Down1.png"));
-            setVote();
+            setVote(0);
             
         }
     }
 
-    public void setVote() throws SQLException {
+    public void setVote(int postVote) throws SQLException {
         Forum obj = new Forum();
         obj.connection();
         obj.writeVote(showObj.postID, showObj.vote);
+        obj.updateVote(postVote, showObj.postID);
     }
    
-    
+    public void pVoteStatus() throws SQLException
+    {
+        Forum obj = new Forum();
+        obj.connection();
+        int status = obj.readVoteStatus(showObj.postID);
+        switch (status) {
+            case 0:
+                ivUpVote.setImage(new Image("/Image/Up1.png"));
+                ivDownVote.setImage(new Image("/Image/Down1.png"));
+                upvoted = false;
+                downvoted = false;
+                break;
+            case 1:
+                ivUpVote.setImage(new Image("/Image/Up2.png"));
+                ivDownVote.setImage(new Image("/Image/Down1.png"));
+                upvoted = true;
+                downvoted = false;
+                break;
+            case -1:
+                ivUpVote.setImage(new Image("/Image/Up1.png"));
+                ivDownVote.setImage(new Image("/Image/Down2.png"));
+                upvoted = false;
+                downvoted = true;
+                break;
+        }
+    }
 
 }

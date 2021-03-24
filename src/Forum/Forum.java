@@ -98,6 +98,32 @@ public class Forum {
         sV.setInt(2, postID);
         sV.executeUpdate();
     }
+    public void updateVote(int track, int postID) throws SQLException 
+    {
+        //String query =  "INSERT OR REPLACE INTO `postvote`(postTrack, postID, username) VALUES('" + track + "','" + postID + "','" + Main.Utility.username + "')";
+        int Store;
+        String query1 = "UPDATE `postvote` SET postTrack = ? WHERE postID = ? AND username = ?";    
+        try{
+        PreparedStatement uV1 = conn.prepareStatement(query1);
+        uV1.setInt(1 ,track);
+        uV1.setInt(2, postID);
+        uV1.setString(3, Main.Utility.username);                
+        Store = uV1.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            Store = 0;
+        }
+        if(Store == 0)
+        {    
+            String query2 = "INSERT INTO `postvote`(postTrack, postID, username) VALUES (?,?,?)";
+            PreparedStatement uV2 = conn.prepareStatement(query2);
+            uV2.setInt(1 ,track);
+            uV2.setInt(2, postID);
+            uV2.setString(3, Main.Utility.username);
+            uV2.execute();
+        }
+    }
     public String readAnsCount(int postID) throws SQLException
     {
         String sql = "Select count(commentID) from comment where postID = " +postID;               
@@ -110,6 +136,20 @@ public class Forum {
         }
         psAns.execute();
         return sum;
+    }
+    
+    public int readVoteStatus(int postID) throws SQLException
+    {
+        int status = 0;
+        String query = "SELECT `postTrack` FROM `postvote` WHERE postID = "+postID +" AND username = '"+Main.Utility.username +"'";
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next())
+        {
+            status = rs.getInt("postTrack");            
+        }
+        return status;
+        
     }
   
     
