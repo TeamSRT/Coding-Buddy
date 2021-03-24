@@ -5,6 +5,7 @@
  */
 package Main;
 
+import Problemset.ProblemSQL;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
@@ -51,6 +52,22 @@ public class Utility {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
        
+    }
+    
+    public static boolean checkPrivillage() {
+        boolean author = false;
+        try {
+            int totalSolve = new ProblemSQL().sqlOperation("COUNT", "verdict = 1 AND problemID != 0");
+            if (totalSolve >= 10) {
+                author = true;
+            } else {
+                author = false;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            System.out.println("Error in Author Privillage Check");
+        }
+        return author;
     }
     
     public static void setHome(HomeController Home) {

@@ -102,6 +102,11 @@ public class ProblemsetController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        if(Utility.checkPrivillage()) {
+            btnCreate.setDisable(false);
+        } else {
+            btnCreate.setDisable(true);
+        }
         listProblem = new ProblemSQL().readProblem();
         problemCount = listProblem.size();
         //System.out.println(problemCount);
