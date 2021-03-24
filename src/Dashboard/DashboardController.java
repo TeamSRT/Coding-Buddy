@@ -19,7 +19,9 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
@@ -104,4 +106,9 @@ public class DashboardController implements Initializable {
         barChart.getData().addAll(bar1, bar2);
        
     }
+
+    @FXML
+    private void iv1Hover(MouseEvent event) {
+    }
+  
 }
