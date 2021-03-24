@@ -152,6 +152,59 @@ public class Forum {
         
     }
   
+    public int readCommVoteStatus(int postID, int commentID) throws SQLException
+    {
+        int status = 0;
+        String query = "SELECT `commTrack` FROM `commvote` WHERE postID = "+postID +" AND username = '"+Main.Utility.username +"' AND commentID = "+commentID;
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        while(rs.next())
+        {
+            status = rs.getInt("commTrack");            
+        }
+        return status;
+    }
     
-    
+    public void updateCommVote(int track, int postID, int commentID) throws SQLException 
+    {
+        //String query =  "INSERT OR REPLACE INTO `postvote`(postTrack, postID, username) VALUES('" + track + "','" + postID + "','" + Main.Utility.username + "')";
+        int Store;
+        String query1 = "UPDATE `commvote` SET commTrack = ? WHERE postID = ? AND username = ? AND commentID = ?";    
+        try{
+        PreparedStatement uV1 = conn.prepareStatement(query1);
+        uV1.setInt(1 ,track);
+        uV1.setInt(2, postID);
+        uV1.setString(3, Main.Utility.username);
+        uV1.setInt(4, commentID);
+        Store = uV1.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            Store = 0;
+        }
+        if(Store == 0)
+        {    
+            String query2 = "INSERT INTO `commvote`(commTrack, postID, username, commentID) VALUES (?,?,?,?)";
+            PreparedStatement uV2 = conn.prepareStatement(query2);
+            uV2.setInt(1 ,track);
+            uV2.setInt(2, postID);
+            uV2.setString(3, Main.Utility.username);
+            uV2.setInt(4, commentID);
+            uV2.execute();
+        }
+    }
+    public int commVoteCount(int postID, int commentID) throws SQLException
+    {
+        String sql = "Select sum(commTrack) from `commvote` where postID = " + postID + " AND commentID = "+ commentID;               
+        PreparedStatement psAns = conn.prepareStatement(sql);
+        ResultSet rsAns = psAns.executeQuery();
+        int sum = 0;
+        if(rsAns.next())
+        {
+            sum = rsAns.getInt("sum(commTrack)");            
+        }        
+        psAns.execute();
+        
+        return sum;
+    }
 }
