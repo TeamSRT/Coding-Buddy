@@ -5,9 +5,19 @@
  */
 package Dashboard;
 
+import Main.DateAndTime;
+import Main.Time;
 import Problemset.ProblemSQL;
 import java.net.URL;
+
+
+
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +29,6 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -44,6 +53,8 @@ public class DashboardController implements Initializable {
     private Label lblSolved;
     @FXML
     private Label lblSubmissions;
+    @FXML
+    private Label lblTotalDay;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,8 +63,9 @@ public class DashboardController implements Initializable {
             lblSubmissions.setText(new ProblemSQL().sqlOperation("COUNT", "1") + "");
             pieChart();
             barChart();
+            showTotalDay();
         } catch (Exception ex) {
-            System.out.println("Exception occured in dashboard");
+            System.out.println(ex);
         }
     }
 
@@ -106,9 +118,16 @@ public class DashboardController implements Initializable {
         barChart.getData().addAll(bar1, bar2);
        
     }
-
-    @FXML
-    private void iv1Hover(MouseEvent event) {
+        
+    public void showTotalDay() throws SQLException, ParseException
+    {
+        DateAndTime obj = new DateAndTime();
+        obj.connection();
+        Time tObj = obj.totalDay();           
+        long diff = new Date().getTime() - new SimpleDateFormat("yyyy-MM-ddHH:mm:ss").parse(tObj.signupDate + tObj.signupTime).getTime();
+        long mSecPerDay = 86400000;
+        int dayCount = Math.round(diff / mSecPerDay);      
+        lblTotalDay.setText(dayCount+"");
     }
   
 }

@@ -9,10 +9,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
     public class DateAndTime {
@@ -82,6 +85,20 @@ import java.util.Date;
         } catch (Exception ex) {
             System.out.println("Login Time Exception Occured");
         }
+        
+    }
+    public Time totalDay() throws SQLException,ParseException
+    {
+        String query = "SELECT `signupdate`,`signuptime` FROM `userinfo` WHERE username = '"+Main.Utility.username +"'";
+        Statement sT = conn.createStatement();
+        ResultSet rs = sT.executeQuery(query);
+        Time tobj = new Time();        
+        while(rs.next())
+        {    
+            tobj.signupDate = rs.getString("signupDate");         
+            tobj.signupTime = rs.getString("signupTime");          
+        }
+        return tobj;       
         
     }
     public String passedTime(Date currentDate, Date postDate)

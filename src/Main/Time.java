@@ -13,18 +13,12 @@ import java.sql.Date;
  */
 public class Time {
     
-    public String username, loginDate, loginTime;
+    public String username, loginDate, loginTime, signupDate, signupTime;
    
 
-    public Time() 
-    {
+   
 
-    }
-
-    public Time(String loginDate, String loginTime, String loginDateAndTime) {
-        this.loginDate = loginDate;
-        this.loginTime = loginTime;
-    }
+  
 
     
 

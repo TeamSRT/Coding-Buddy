@@ -167,7 +167,7 @@ public class Forum {
     
     public void updateCommVote(int track, int postID, int commentID) throws SQLException 
     {
-        //String query =  "INSERT OR REPLACE INTO `postvote`(postTrack, postID, username) VALUES('" + track + "','" + postID + "','" + Main.Utility.username + "')";
+       
         int Store;
         String query1 = "UPDATE `commvote` SET commTrack = ? WHERE postID = ? AND username = ? AND commentID = ?";    
         try{

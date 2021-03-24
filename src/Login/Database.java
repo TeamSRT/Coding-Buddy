@@ -1,5 +1,6 @@
 package Login;
 
+import Main.DateAndTime;
 import java.io.IOException;
 import java.sql.*;
 import java.sql.Connection;
@@ -58,7 +59,7 @@ public class Database {
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
 
-            String qr = "insert into userinfo values(?,?,?,?,?)";
+            String qr = "insert into userinfo values(?,?,?,?,?,?,?)";//(suDate,suTime)
 
             PreparedStatement pstmt = conn.prepareStatement(qr);
 
@@ -67,7 +68,13 @@ public class Database {
             pstmt.setString(3, email);
             pstmt.setString(4, Password);
             pstmt.setString(5, Occupation);
-
+            //Time//
+            Main.Time obj = new Main.Time();
+            obj.signupDate = new DateAndTime().getDate();
+            obj.signupTime = new DateAndTime().getTime();
+            pstmt.setString(6, obj.signupDate);
+            pstmt.setString(7, obj.signupTime);
+            //Time//    
             pstmt.executeUpdate();
 
             System.out.println("signup database conected");
