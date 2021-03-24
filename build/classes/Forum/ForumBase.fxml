@@ -87,6 +87,7 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Label fx:id="lblPostTime3" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="46.0" prefHeight="17.0" prefWidth="236.0" />
                </children>
             </Pane>
             <Pane fx:id="p2Title" prefHeight="65.0" prefWidth="200.0" style="-fx-border-color: #d9d9d9; -fx-background-color: #e6e6e6;" styleClass="PaneClass" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
@@ -120,6 +121,7 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Label fx:id="lblPostTime2" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="46.0" prefHeight="17.0" prefWidth="236.0" />
                </children>
             </Pane>
             <Pane fx:id="p4Title" prefHeight="65.0" prefWidth="200.0" style="-fx-border-color: #e6e6e6 #d9d9d9; -fx-background-color: #e6e6e6;" styleClass="PaneClass" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="195.0">
@@ -153,6 +155,7 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Label fx:id="lblPostTime4" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="46.0" prefHeight="17.0" prefWidth="236.0" />
                </children>
             </Pane>
             <Pane fx:id="p5Title" prefHeight="65.0" prefWidth="200.0" style="-fx-border-color: #d9d9d9; -fx-background-color: #f2f2f2;" styleClass="PaneClass" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="260.0">
@@ -186,6 +189,7 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Label fx:id="lblPostTime5" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="46.0" prefHeight="17.0" prefWidth="236.0" />
                </children>
             </Pane>
             <Pane fx:id="p6Title" prefHeight="65.0" prefWidth="200.0" style="-fx-border-color: #d9d9d9; -fx-background-color: #e6e6e6;" styleClass="PaneClass" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="325.0">
@@ -219,6 +223,7 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Label fx:id="lblPostTime6" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="46.0" prefHeight="17.0" prefWidth="236.0" />
                </children>
             </Pane>
             <Pane fx:id="p7Title" prefHeight="65.0" prefWidth="200.0" style="-fx-border-color: #d9d9d9; -fx-background-color: #f2f2f2;" styleClass="PaneClass" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="390.0">
@@ -252,14 +257,9 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Label fx:id="lblPostTime7" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="46.0" prefHeight="17.0" prefWidth="236.0" />
                </children>
             </Pane>
-            <Label fx:id="lblPostTime2" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="111.0" prefHeight="17.0" prefWidth="236.0" />
-            <Label fx:id="lblPostTime3" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="175.0" prefHeight="17.0" prefWidth="236.0" />
-            <Label fx:id="lblPostTime4" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="241.0" prefHeight="17.0" prefWidth="236.0" />
-            <Label fx:id="lblPostTime5" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="305.0" prefHeight="17.0" prefWidth="236.0" />
-            <Label fx:id="lblPostTime6" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="371.0" prefHeight="17.0" prefWidth="236.0" />
-            <Label fx:id="lblPostTime7" alignment="BASELINE_LEFT" layoutX="82.0" layoutY="435.0" prefHeight="17.0" prefWidth="236.0" />
          </children>
       </AnchorPane>
       <Button fx:id="btnCenterForum" layoutX="322.0" layoutY="515.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" styleClass="btnClass" text="1" AnchorPane.bottomAnchor="10.0" />
