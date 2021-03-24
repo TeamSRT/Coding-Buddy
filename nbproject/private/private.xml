@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/GitHub/Coding-Buddy/src/Problemset/Compiler.java</file>
-            <file>file:/G:/GitHub/Coding-Buddy/src/Problemset/ProblemViewController.java</file>
             <file>file:/G:/GitHub/Coding-Buddy/src/Problemset/ProblemsetController.java</file>
-            <file>file:/G:/GitHub/Coding-Buddy/src/Main/Utility.java</file>
-            <file>file:/G:/GitHub/Coding-Buddy/src/Problemset/ProblemSQL.java</file>
-            <file>file:/G:/GitHub/Coding-Buddy/src/Forum/ShowQuesController.java</file>
-            <file>file:/G:/GitHub/Coding-Buddy/src/Main/DateAndTime.java</file>
-            <file>file:/G:/GitHub/Coding-Buddy/src/Dashboard/DashboardController.java</file>
             <file>file:/G:/GitHub/Coding-Buddy/src/Forum/Forum.java</file>
+            <file>file:/G:/GitHub/Coding-Buddy/src/Forum/ForumBaseController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -102,6 +102,10 @@ public class ProblemsetController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loadAll();
+    }
+    
+    public void loadAll() {
         if(Utility.checkPrivillage()) {
             btnCreate.setDisable(false);
         } else {

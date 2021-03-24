@@ -184,6 +184,10 @@ public class ForumBaseController implements Initializable {
     SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loadAll();
+    }
+    
+    public void loadAll() {
         Forum reader = new Forum();
         try {
             reader.connection();
@@ -202,7 +206,7 @@ public class ForumBaseController implements Initializable {
         }
         if (quesCount % 7 != 0) {
             for (int i = 0; i < 7 - (quesCount % 7); i++) {
-                Post obj = new Post("", "", "", "", -1, 0, 0,"2021-01-21","10:00:02");
+                Post obj = new Post("", "", "", "", -1, 0, 0, "2021-01-21", "10:00:02");
                 receive.add(obj);
             }
         }
