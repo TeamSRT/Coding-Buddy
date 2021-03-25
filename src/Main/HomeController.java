@@ -116,7 +116,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void btnHomeOnAction(ActionEvent event) {
-        
+    private void btnHomeOnAction(ActionEvent event) throws IOException {
+        new Utility().loadPane("/Home/Home.fxml");
     }
 }

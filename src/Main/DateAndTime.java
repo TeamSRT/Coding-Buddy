@@ -14,11 +14,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
-    public class DateAndTime {
+public class DateAndTime {
     public Connection conn;
   
     Calendar obj = Calendar.getInstance();
@@ -149,7 +147,8 @@ import java.util.logging.Logger;
             if(Math.round(diff / mSecPerDay) == 1)
             {
                 text = String.valueOf(Math.round(diff / mSecPerDay)) + " day ago";
-            }            else
+            }
+            else
             {
                 text = String.valueOf(Math.round(diff / mSecPerDay)) + " days ago";
             }          
