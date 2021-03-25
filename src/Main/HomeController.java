@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -48,8 +49,6 @@ public class HomeController implements Initializable {
     @FXML
     private FontAwesomeIconView iconDashboard;
     @FXML
-    private FontAwesomeIconView iconSignout;
-    @FXML
     private Pane PaneNavigation;
     private AnchorPane APContent;
     @FXML
@@ -64,6 +63,16 @@ public class HomeController implements Initializable {
     private JFXButton btnSignOut;
     @FXML
     private AnchorPane apTop;
+    @FXML
+    private JFXButton btnProfile;
+    @FXML
+    private FontAwesomeIconView iconProfile;
+    @FXML
+    private ImageView iconSIgnOut;
+    @FXML
+    private JFXButton btnComplier;
+    @FXML
+    private FontAwesomeIconView iconComplier;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -99,5 +108,10 @@ public class HomeController implements Initializable {
     @FXML
     private void btnDashboardOnAction(ActionEvent event) throws IOException {
         new Utility().loadPane("/Dashboard/Dashboard.fxml");
+    }
+
+    @FXML
+    private void btnCompilerOnAction(ActionEvent event) throws IOException {
+        new Utility().loadPane("/Problemset/SubmitCode.fxml");
     }
 }

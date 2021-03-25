@@ -6,6 +6,7 @@
 package Problemset;
 
 import Main.Utility;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,8 +31,6 @@ public class ProblemsetController implements Initializable {
 
     @FXML
     private AnchorPane anchorPracticeMain;
-    @FXML
-    private Button btnPracticeCustom;
     @FXML
     private Button btnCreate;
     @FXML
@@ -72,11 +71,6 @@ public class ProblemsetController implements Initializable {
     private Label lblCount6;
     @FXML
     private Text txtPageCount;
-    
-    private ArrayList<Problem> listProblem;
-    private int problemCount; 
-    private int currPage;
-    private final int problemPerPage = 6;
     @FXML
     private Button btnNext;
     @FXML
@@ -93,7 +87,16 @@ public class ProblemsetController implements Initializable {
     private Pane problemPane5;
     @FXML
     private Pane problemPane6;
+    @FXML
+    private Button btnRefresh;
+    @FXML
+    private FontAwesomeIconView iconRefresh;
 
+    private ArrayList<Problem> listProblem;
+    private int problemCount; 
+    private int currPage;
+    private final int problemPerPage = 6;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -149,11 +152,6 @@ public class ProblemsetController implements Initializable {
         lblCount4.setText("" + listProblem.get(currPage * problemPerPage + 3).submission);
         lblCount5.setText("" + listProblem.get(currPage * problemPerPage + 4).submission);
         lblCount6.setText("" + listProblem.get(currPage * problemPerPage + 5).submission);
-    }
-
-    @FXML
-    private void btnCustomPressed(ActionEvent event) throws IOException {
-        new Utility().loadPane("/Problemset/SubmitCode.fxml");
     }
 
     @FXML
@@ -270,6 +268,11 @@ public class ProblemsetController implements Initializable {
             problemPane6.setOpacity(1);
             problemPane6.setDisable(false);
         }
+    }
+
+    @FXML
+    private void btnRefreshOnAction(ActionEvent event) {
+        loadAll();
     }
     
 }

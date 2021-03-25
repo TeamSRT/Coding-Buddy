@@ -6,6 +6,7 @@
 package Forum;
 
 import Main.DateAndTime;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -55,7 +56,6 @@ public class ShowQuesController implements Initializable {
     @FXML
     private Label lblSQTag;
     private VBox vbSQ;
-    private ArrayList<Comment> commInfo;
     @FXML
     private TextArea taSQComm;
     @FXML
@@ -78,10 +78,17 @@ public class ShowQuesController implements Initializable {
     private Label lblSQPostTime;
 
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+    @FXML
+    private Button btnRefresh;
+    @FXML
+    private FontAwesomeIconView iconRefresh;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        loadAll();
+    }
+    
+    public void loadAll() {
         try {
             loadShowPost();
             loadComment();
@@ -120,8 +127,9 @@ public class ShowQuesController implements Initializable {
         } catch (SQLException ex) {
             System.out.println("Exception");
         }
-        commInfo = obj.readComment(showObj.postID);
+        ArrayList<Comment> commInfo = obj.readComment(showObj.postID);
         showObj.answer = commInfo.size();
+        vbComment.getChildren().clear();
         if (commInfo.isEmpty()) {
             Text error = new Text("There are no comments yet");
             error.setFont(Font.font("System", 18));
@@ -327,6 +335,11 @@ public class ShowQuesController implements Initializable {
                 downvoted = true;
                 break;
         }
+    }
+
+    @FXML
+    private void btnRefreshOnAction(ActionEvent event) {
+        loadAll();
     }
 
 }

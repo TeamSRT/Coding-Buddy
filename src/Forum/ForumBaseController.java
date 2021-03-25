@@ -7,17 +7,15 @@ package Forum;
 
 import Main.DateAndTime;
 import Main.Utility;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import static java.sql.Types.NULL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import java.util.*;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -182,6 +180,11 @@ public class ForumBaseController implements Initializable {
     private Label lblPostTime7;
     
     SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+    @FXML
+    private Button btnRefresh;
+    @FXML
+    private FontAwesomeIconView iconRefresh;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadAll();
@@ -405,6 +408,11 @@ public class ForumBaseController implements Initializable {
         btnCenterForum.setText(currPage + 1 + "");
         checkAvailability();
 
+    }
+
+    @FXML
+    private void btnRefreshOnAction(ActionEvent event) {
+        loadAll();
     }
 
 }

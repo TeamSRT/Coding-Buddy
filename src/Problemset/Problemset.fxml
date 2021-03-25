@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,8 +17,7 @@
     <children>
       <AnchorPane fx:id="anchorPracticeMain" layoutX="255.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btnCreate" layoutX="454.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnCreatePressed" prefHeight="25.0" prefWidth="110.0" text="Create a Problem" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="10.0" />
-            <Button fx:id="btnPracticeCustom" layoutX="310.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnCustomPressed" prefHeight="25.0" prefWidth="75.0" text="Test Code" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Button fx:id="btnCreate" layoutX="565.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnCreatePressed" prefHeight="25.0" prefWidth="110.0" text="Create a Problem" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
             <VBox layoutX="14.0" layoutY="45.0" prefHeight="450.0" prefWidth="660.0" styleClass="VboxClass" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
                <children>
                   <Pane fx:id="problemPane1" onMousePressed="#paneProb1Pressed" prefHeight="75.0" prefWidth="200.0" styleClass="PaneClass">
@@ -121,6 +121,8 @@
             <Button fx:id="btnNext" layoutX="379.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnNextPressed" text="Next Page" AnchorPane.topAnchor="511.0" />
             <Button fx:id="btnPrevious" layoutX="235.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnPreviousPressed" text="Previous Page" AnchorPane.topAnchor="511.0" />
             <Text fx:id="txtPageCount" layoutX="326.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page" textAlignment="CENTER" wrappingWidth="53.13671875" AnchorPane.topAnchor="515.0" />
+            <Button fx:id="btnRefresh" layoutX="528.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="25.0" prefWidth="30.0" styleClass="btnClass" />
+            <FontAwesomeIconView fx:id="iconRefresh" fill="#333333" glyphName="REFRESH" layoutX="536.0" layoutY="29.0" size="16.0" text="" />
          </children>
       </AnchorPane>
    </children>
