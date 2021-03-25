@@ -114,4 +114,9 @@ public class HomeController implements Initializable {
     private void btnCompilerOnAction(ActionEvent event) throws IOException {
         new Utility().loadPane("/Problemset/SubmitCode.fxml");
     }
+
+    @FXML
+    private void btnHomeOnAction(ActionEvent event) {
+        
+    }
 }

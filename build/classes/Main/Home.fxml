@@ -75,7 +75,7 @@
                   <FontAwesomeIconView disable="true" fill="#f8f8f8" glyphName="BARS" layoutX="14.0" layoutY="23.0" opacity="0.0" size="17.0" />
                </children>
             </Pane>
-            <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="82.0" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" text="Home" textFill="#f8f3f3">
+            <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="82.0" onAction="#btnHomeOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" text="Home" textFill="#f8f3f3">
                <font>
                   <Font size="16.0" />
                </font>
