@@ -8,6 +8,7 @@ package Main;
 import Problemset.ProblemSQL;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,9 +17,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 /**
  *
@@ -97,5 +102,20 @@ public class Utility {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
         return img;
+    }
+    public static void hackTooltipStartTiming(Tooltip tooltip) {
+        try {
+            Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
+            fieldBehavior.setAccessible(true);
+            Object objBehavior = fieldBehavior.get(tooltip);
+
+            Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
+            fieldTimer.setAccessible(true);
+            Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
+
+            objTimer.getKeyFrames().clear();
+            objTimer.getKeyFrames().add(new KeyFrame(new Duration(250)));
+        } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException e) {
+        }
     }
 }

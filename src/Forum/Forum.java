@@ -2,11 +2,8 @@ package Forum;
 
 
 import Main.*;
-import com.mysql.cj.protocol.Resultset;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Forum {
 
@@ -55,6 +52,17 @@ public class Forum {
         wF.setString(5, obj.getDate());
         wF.setString(6, obj.getTime());
         wF.execute();
+    }
+    public void updateForum(String rec_title, String rec_body, String rec_tag, int postID) throws SQLException
+    {
+        String query = "UPDATE forum SET title = ?,body = ?,tag = ? WHERE postID = ? AND username = ?";
+        PreparedStatement uF = conn.prepareStatement(query); 
+        uF.setString(1, rec_title);
+        uF.setString(2, rec_body);
+        uF.setString(3, rec_tag);
+        uF.setInt(4, postID);
+        uF.setString(5, Main.Utility.username);
+        uF.execute();
     }
     public ArrayList<Comment> readComment(int postID)
     {
