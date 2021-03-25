@@ -39,3 +39,7 @@
     -fx-cursor : text;
 }
 
+.image:hover
+{
+    -fx-cursor : hand;
+}

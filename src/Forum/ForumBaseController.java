@@ -22,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -188,6 +189,7 @@ public class ForumBaseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadAll();
+        Tooltip.install(btnRefresh, new Tooltip("Refresh this page"));
     }
     
     public void loadAll() {

@@ -75,8 +75,7 @@ public class HomeController implements Initializable {
     private FontAwesomeIconView iconComplier;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        btnHome.setTooltip(new Tooltip("Home"));
+    public void initialize(URL url, ResourceBundle rb) {      
         Utility.setHome(this);
         lblUserName.setText("Welcome " + Utility.username + "!");
     }

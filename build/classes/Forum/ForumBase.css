@@ -15,15 +15,23 @@
 }
 
 .PaneClass:hover {
-    
+    -fx-cursor:text;
 }
 .btnClass:hover
 {
     -fx-background-color: black;
-    -fx-text-fill: white;
+    -fx-text-fill: white;   
     -fx-cursor: hand;
 }
 .btnClass
 {
     -fx-background-color:  #D3D4D6;
+}
+.icon
+{
+   -fx-icon-color:black;
+}
+.icon:hover
+{
+    -fx-icon-color: white;
 }

@@ -31,7 +31,7 @@
                      </font>
                      </Label>
                   <Label fx:id="lblForumUser1" alignment="BASELINE_LEFT" layoutX="412.0" layoutY="46.0" prefHeight="17.0" prefWidth="120.0" />
-                  <Pane fx:id="p1Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;">
+                  <Pane fx:id="p1Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="votes" textFill="WHITE" />
@@ -42,7 +42,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="p1Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;">
+                  <Pane fx:id="p1Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="answers" />
@@ -66,7 +66,7 @@
                      </font>
                      </Label>
                   <Label fx:id="lblForumUser3" alignment="BASELINE_LEFT" layoutX="412.0" layoutY="46.0" prefHeight="17.0" prefWidth="120.0" />
-                  <Pane fx:id="p3Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;">
+                  <Pane fx:id="p3Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="votes" textFill="WHITE" />
@@ -77,7 +77,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="p3Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;">
+                  <Pane fx:id="p3Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="answers" />
@@ -100,7 +100,7 @@
                      </font>
                      </Label>
                   <Label fx:id="lblForumUser2" alignment="BASELINE_LEFT" layoutX="412.0" layoutY="46.0" prefHeight="17.0" prefWidth="120.0" />
-                  <Pane fx:id="p2Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;">
+                  <Pane fx:id="p2Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="votes" textFill="WHITE" />
@@ -111,7 +111,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="p2Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;">
+                  <Pane fx:id="p2Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="answers" />
@@ -134,7 +134,7 @@
                      </font>
                      </Label>
                   <Label fx:id="lblForumUser4" alignment="BASELINE_LEFT" layoutX="412.0" layoutY="46.0" prefHeight="17.0" prefWidth="120.0" />
-                  <Pane fx:id="p4Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;">
+                  <Pane fx:id="p4Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="votes" textFill="WHITE" />
@@ -145,7 +145,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="p4Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;">
+                  <Pane fx:id="p4Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="answers" />
@@ -168,7 +168,7 @@
                      </font>
                      </Label>
                   <Label fx:id="lblForumUser5" alignment="BASELINE_LEFT" layoutX="412.0" layoutY="46.0" prefHeight="17.0" prefWidth="120.0" />
-                  <Pane fx:id="p5Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;">
+                  <Pane fx:id="p5Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="votes" textFill="WHITE" />
@@ -179,7 +179,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="p5Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;">
+                  <Pane fx:id="p5Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="answers" />
@@ -202,7 +202,7 @@
                      </font>
                      </Label>
                   <Label fx:id="lblForumUser6" alignment="BASELINE_LEFT" layoutX="412.0" layoutY="46.0" prefHeight="17.0" prefWidth="120.0" />
-                  <Pane fx:id="p6Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;">
+                  <Pane fx:id="p6Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="votes" textFill="WHITE" />
@@ -213,7 +213,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="p6Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;">
+                  <Pane fx:id="p6Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="answers" />
@@ -236,7 +236,7 @@
                      </font>
                      </Label>
                   <Label fx:id="lblForumUser7" alignment="BASELINE_LEFT" layoutX="412.0" layoutY="46.0" prefHeight="17.0" prefWidth="120.0" />
-                  <Pane fx:id="p7Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;">
+                  <Pane fx:id="p7Vote" layoutX="539.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #00aaff;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="votes" textFill="WHITE" />
@@ -247,7 +247,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="p7Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;">
+                  <Pane fx:id="p7Ans" layoutX="595.0" prefHeight="63.0" prefWidth="50.0" style="-fx-background-color: #66ffe0;" styleClass="PaneClass" stylesheets="@ForumBase.css">
                      <children>
                         <Separator layoutY="37.0" prefHeight="17.0" prefWidth="50.0" />
                         <Label alignment="CENTER" layoutY="46.0" prefHeight="17.0" prefWidth="50.0" text="answers" />
@@ -267,6 +267,6 @@
       <Button fx:id="btnPreviousForum" layoutX="243.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnPreviousForumClicked" prefHeight="25.0" prefWidth="72.0" styleClass="btnClass" text="Previous" AnchorPane.bottomAnchor="10.0" />
       <Button fx:id="btnNextForum" layoutX="360.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnNextForumClicked" prefHeight="25.0" prefWidth="72.0" styleClass="btnClass" text="Next" AnchorPane.bottomAnchor="10.0" />
       <Button fx:id="btnRefresh" layoutX="526.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="30.0" prefWidth="30.0" styleClass="btnClass" AnchorPane.topAnchor="14.0" />
-      <FontAwesomeIconView fx:id="iconRefresh" fill="#333333" glyphName="REFRESH" layoutX="534.0" layoutY="36.0" size="16.0" text="" />
+      <FontAwesomeIconView fx:id="iconRefresh" fill="#333333" glyphName="REFRESH" layoutX="534.0" layoutY="36.0" size="16.0" styleClass="icon" text="" />
    </children>
 </AnchorPane>

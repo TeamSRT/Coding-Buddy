@@ -95,7 +95,7 @@
       </AnchorPane>
       <AnchorPane fx:id="apTop" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="lblUserName" alignment="TOP_RIGHT" layoutX="646.0" layoutY="11.0" prefHeight="29.0" prefWidth="240.0" text="user_name" textFill="#f8f8f8" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="11.0">
+            <Label fx:id="lblUserName" alignment="TOP_RIGHT" layoutX="646.0" layoutY="11.0" prefHeight="29.0" prefWidth="225.0" stylesheets="@Home.css" text="user_name" textFill="#f8f8f8" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="11.0">
                <font>
                   <Font size="15.0" />
                </font>

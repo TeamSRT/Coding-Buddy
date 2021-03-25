@@ -8,11 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-<<<<<<< HEAD
-    <jar href="CodingBuddy_Base.jar" size="698898" download="eager" />
-=======
-    <jar href="CodingBuddy_Base.jar" size="700818" download="eager" />
->>>>>>> 624318f72538736ec5ba30bfb3c2d67e5ba7210d
+    <jar href="CodingBuddy_Base.jar" size="703561" download="eager" />
     <jar href="lib\activation.jar" size="55147" download="eager" />
     <jar href="lib\fontawesomefx-8.5.jar" size="181458" download="eager" />
     <jar href="lib\jfoenix.jar" size="2211776" download="eager" />

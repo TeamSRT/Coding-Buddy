@@ -107,7 +107,7 @@
             <Label alignment="CENTER" layoutX="580.0" layoutY="55.0" prefHeight="20.0" prefWidth="65.0" style="-fx-background-color: #00aaff;" styleClass="LabelClass" text="Submission" textFill="WHITE" />
             <Label fx:id="lblCount1" alignment="CENTER" layoutX="580.0" layoutY="1.0" prefHeight="55.0" prefWidth="65.0" style="-fx-background-color: #00aaff;" styleClass="LabelClass" text="Count">
                <font>
-                  <Font name="Times New Roman" size="20.0" />
+                  <Font name="Times New Roman Bold" size="20.0" />
                </font>
             </Label>
             <Separator layoutX="580.0" layoutY="46.0" prefHeight="17.0" prefWidth="65.0" />

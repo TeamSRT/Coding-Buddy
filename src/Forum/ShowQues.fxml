@@ -49,12 +49,12 @@
                      <font>
                         <Font name="Times New Roman" size="15.0" />
                      </font></Button>
-                  <ImageView fx:id="ivUpVote" fitHeight="31.0" fitWidth="17.0" layoutX="3.0" layoutY="2.0" onMouseClicked="#ivUpVoteClicked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ivUpVote" fitHeight="31.0" fitWidth="17.0" layoutX="3.0" layoutY="2.0" onMouseClicked="#ivUpVoteClicked" pickOnBounds="true" preserveRatio="true" styleClass="image">
                      <image>
                         <Image url="@../Image/Up1.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ivDownVote" fitHeight="31.0" fitWidth="17.0" layoutX="3.0" layoutY="57.0" onMouseClicked="#ivDownVoteClicked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ivDownVote" fitHeight="31.0" fitWidth="17.0" layoutX="3.0" layoutY="57.0" onMouseClicked="#ivDownVoteClicked" pickOnBounds="true" preserveRatio="true" styleClass="image">
                      <image>
                         <Image url="@../Image/Down1.png" />
                      </image>

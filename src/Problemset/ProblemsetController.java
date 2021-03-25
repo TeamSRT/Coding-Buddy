@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -106,6 +107,7 @@ public class ProblemsetController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadAll();
+        Tooltip.install(btnRefresh, new Tooltip("Refresh this page"));
     }
     
     public void loadAll() {
