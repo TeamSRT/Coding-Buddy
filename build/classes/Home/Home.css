@@ -5,3 +5,11 @@
 .mainFxmlClass {
 
 }
+
+.PaneClass {
+    
+}
+
+.PaneClass:hover {
+    -fx-cursor: hand;
+}
