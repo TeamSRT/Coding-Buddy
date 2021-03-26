@@ -139,4 +139,26 @@ public class ProblemSQL {
         return count;
     }
     
+    public void recordToDo(int problemID) throws SQLException {
+        String Query = "INSERT INTO todo(problemID, userName) VALUES ('" + problemID + "', '" + Main.Utility.username + "')";
+        Statement st = conn.createStatement();
+        st.execute(Query);
+    }
+
+    public boolean checkToDo(int problemID) {
+        try {
+            String Query = "SELECT COUNT(problemID) FROM todo WHERE problemID = " + problemID + " AND username = '" + Main.Utility.username + "'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(Query);
+            if (rs.next()) {
+                if (rs.getInt(1) > 0) {
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
 }

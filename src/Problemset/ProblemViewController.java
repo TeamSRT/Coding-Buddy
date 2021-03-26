@@ -8,6 +8,7 @@ package Problemset;
 import Main.Utility;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,6 +41,8 @@ public class ProblemViewController implements Initializable {
     private Button btnBack;
     
     public static Problem currProblem;
+    @FXML
+    private Button btnToDo;
 
     /**
      * Initializes the controller class.
@@ -62,10 +65,17 @@ public class ProblemViewController implements Initializable {
     }
     
     public void loadProblem() {
+        btnToDo.setDisable(new ProblemSQL().checkToDo(currProblem.problemID));
         txtTitle.setText(currProblem.title);
         txtInput.setText(currProblem.input1);
         txtOutput.setText(currProblem.output1);
         txtProblem.setText(currProblem.body);
+    }
+
+    @FXML
+    private void btnToDoOnAction(ActionEvent event) throws SQLException {
+        new ProblemSQL().recordToDo(currProblem.problemID);
+        loadProblem();
     }
     
 }

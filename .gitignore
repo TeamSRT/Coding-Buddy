@@ -27,3 +27,7 @@ build/built-jar.properties
 dist/CodingBuddy_Base.jar
 nbproject/private/private.xml
 nbproject/private/private.properties
+dist/CodingBuddy_Base.jnlp
+dist/CodingBuddy_Base.jar
+dist/CodingBuddy_Base.html
+build/built-jar.properties
