@@ -87,8 +87,26 @@ public class HomeController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    Post topComm, topVoted;
+    Post topComm, topVoted, recentPost;
     Problem lastTried;
+    @FXML
+    private Pane p1Title11;
+    @FXML
+    private Label lblShowTitle3;
+    @FXML
+    private Label lblForumUser3;
+    @FXML
+    private Pane p1Vote11;
+    @FXML
+    private Label lblVote3;
+    @FXML
+    private Pane p1Ans11;
+    @FXML
+    private Label lblAns3;
+    @FXML
+    private ImageView imgHolder3;
+    @FXML
+    private Label lblPostTime3;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -102,6 +120,8 @@ public class HomeController implements Initializable {
             topComm = getTopCommPost();
             topVoted = getTopVotedPost();
             lastTried = getLastProblem();
+            recentPost = getRecentProblem();
+            
             lblShowTitle1.setText(topVoted.title);
             lblForumUser1.setText("Asked By " + topVoted.username);
             lblPostTime1.setText("Posted " + new DateAndTime().passedTime(new Date(), format.parse(topVoted.postDate + topVoted.postTime)));
@@ -115,6 +135,15 @@ public class HomeController implements Initializable {
             lblVote2.setText("" + topComm.vote);
             lblAns2.setText(obj.readAnsCount(topComm.postID));
             imgHolder2.setImage(Main.Utility.getImage(topComm.username, 65, 55));
+            
+            lblShowTitle3.setText(recentPost.title);
+            lblForumUser3.setText("Asked By " + recentPost.username);
+            lblPostTime3.setText("Posted " + new DateAndTime().passedTime(new Date(), format.parse(recentPost.postDate + recentPost.postTime)));
+            lblVote3.setText("" + recentPost.vote);
+            lblAns3.setText(obj.readAnsCount(recentPost.postID));
+            imgHolder3.setImage(Main.Utility.getImage(recentPost.username, 65, 55));
+            
+            
             if (lastTried == null) {
                 problemPane1.setDisable(true);
                 problemPane1.setOpacity(0);
@@ -221,6 +250,30 @@ public class HomeController implements Initializable {
         }
         return last;
     }
+    
+    public Post getRecentProblem() {
+        Post recent = null;
+        try {
+            String query = "SELECT * FROM forum ORDER BY postID DESC";
+            Statement st = Main.Utility.conn.createStatement();
+            ResultSet answer = st.executeQuery(query);
+            if (answer.next()) {
+                recent = new Post();
+                recent.username = answer.getString("username");
+                recent.title = answer.getString("title");
+                recent.body = answer.getString("body");
+                recent.tag = answer.getString("tag");
+                recent.vote = answer.getInt("vote");
+                recent.answer = answer.getInt("answer");
+                recent.postID = answer.getInt("postID");
+                recent.postDate = answer.getDate("postDate").toString();
+                recent.postTime = answer.getTime("postTime").toString();
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return recent;
+    }
 
 
     @FXML
@@ -239,6 +292,10 @@ public class HomeController implements Initializable {
     private void paneCommOnClick(MouseEvent event) throws IOException {
         ShowQuesController.showObj = topComm;
         new Utility().loadPane("/Forum/ShowQues.fxml");
+    }
+
+    @FXML
+    private void paneRecentOnClick(MouseEvent event) {
     }
 
 }

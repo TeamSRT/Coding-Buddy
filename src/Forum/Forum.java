@@ -19,7 +19,7 @@ public class Forum {
         ArrayList<Post> info = new ArrayList<>();
         try {
             Statement query = conn.createStatement();
-            ResultSet answer = query.executeQuery("SELECT * FROM forum");
+            ResultSet answer = query.executeQuery("SELECT * FROM forum ORDER BY postID DESC");
 
             while (answer.next()) {
            //     System.out.println("ID = " + answer.getInt("postID") + "Username = " + answer.getString("username") + "Title = " + answer.getString("title") + "Body = " + answer.getString("body") + "Tag = " + answer.getString("tag")+" postDate = " +answer.getDate("postDate").toString()+" postTime = "+answer.getTime("postTime").toString());

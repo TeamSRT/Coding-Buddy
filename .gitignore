@@ -31,3 +31,15 @@ dist/CodingBuddy_Base.jnlp
 dist/CodingBuddy_Base.jar
 dist/CodingBuddy_Base.html
 build/built-jar.properties
+dist/CodingBuddy_Base.jnlp
+dist/CodingBuddy_Base.jar
+dist/CodingBuddy_Base.html
+build/built-jar.properties
+nbproject/private/private.properties
+nbproject/private/private.xml
+build/classes/Problemset/Problem.class
+build/classes/Home/HomeController.class
+build/classes/Home/Home.fxml
+build/classes/Forum/Forum.class
+build/classes/Dashboard/SubmissionController.class
+build/classes/Dashboard/submission.fxml
