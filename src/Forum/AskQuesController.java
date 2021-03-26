@@ -48,63 +48,65 @@ public class AskQuesController implements Initializable {
     public ArrayList<Post> rec;
     public static Post recObj;
     boolean update = false;
-  
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if (recObj != null) {
+        if (recObj != null) 
+        {
             update = true;
             editPost();
         }
     }
-        
 
     @FXML
     private void btnPostClicked(ActionEvent event) throws SQLException {
-         String titleText = taTitle.getText();
-         String bodyText = taBody.getText();
-         String tagText = taTag.getText();
-         if(titleText.equals(""))
-         {
-             Alert alertText = new Alert(AlertType.ERROR);
-             alertText.setTitle("Title box empty");
-             alertText.setContentText("Please enter a title");
-             alertText.show();
-         }
-         else if(bodyText.equals(""))
-         {
-             Alert alertText = new Alert(AlertType.ERROR);
-             alertText.setTitle("Body box empty");
-             alertText.setContentText("Please enter information about the problem");
-             alertText.show();
-         }
-         else if(tagText.equals(""))
-         {  
-             Alert alertText = new Alert(AlertType.ERROR);
-             alertText.setTitle("Tag box empty");
-             alertText.setContentText("Please enter atleast one tag");
-             alertText.show(); 
-         }
-         else
-         {  
-             Forum sendObj = new Forum();            
-             sendObj.connection();     
-             if(!update)
-               sendObj.writeForum(titleText, bodyText, tagText);
-             else
-             {
-                 sendObj.updateForum(titleText, bodyText, tagText, recObj.postID);
-                 recObj = null;
-             }
-             taTitle.setText(null);
-             taBody.setText(null);
-             taTag.setText(null);
-         }
-    }    
-    void editPost()
-    {
+        String titleText = taTitle.getText();
+        String bodyText = taBody.getText();
+        String tagText = taTag.getText();
+        if (titleText.equals("")) 
+        {
+            Alert alertText = new Alert(AlertType.ERROR);
+            alertText.setTitle("Title box empty");
+            alertText.setContentText("Please enter a title");
+            alertText.show();
+        } 
+        else if (bodyText.equals("")) 
+        {
+            Alert alertText = new Alert(AlertType.ERROR);
+            alertText.setTitle("Body box empty");
+            alertText.setContentText("Please enter information about the problem");
+            alertText.show();
+        } 
+        else if (tagText.equals("")) 
+        {
+            Alert alertText = new Alert(AlertType.ERROR);
+            alertText.setTitle("Tag box empty");
+            alertText.setContentText("Please enter atleast one tag");
+            alertText.show();
+        } 
+        else 
+        {
+            Forum sendObj = new Forum();
+            sendObj.connection();
+            if (!update) 
+            {
+                sendObj.writeForum(titleText, bodyText, tagText);
+            }
+            else 
+            {
+                sendObj.updateForum(titleText, bodyText, tagText, recObj.postID);
+                recObj = null;
+            }
+            taTitle.setText(null);
+            taBody.setText(null);
+            taTag.setText(null);
+        }
+    }
+
+    private void editPost() {
         taTitle.setText(recObj.title);
         taBody.setText(recObj.body);
         taTag.setText(recObj.tag);
     }
-    
+
 }

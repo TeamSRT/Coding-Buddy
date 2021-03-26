@@ -226,6 +226,7 @@ public class ForumBaseController implements Initializable {
 
     @FXML
     private void btnAskQClicked(ActionEvent event) throws IOException {
+        AskQuesController.recObj = null;
         new Main.Utility().loadPane("/Forum/AskQues.fxml");
     }
 

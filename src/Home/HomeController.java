@@ -11,6 +11,7 @@ import Forum.ShowQuesController;
 import Main.DateAndTime;
 import Main.Utility;
 import Problemset.Problem;
+import Problemset.ProblemSQL;
 import Problemset.ProblemViewController;
 import java.io.IOException;
 import java.net.URL;
@@ -122,7 +123,7 @@ public class HomeController implements Initializable {
                 problemPane1.setOpacity(1);
                 lblProblem1.setText(lastTried.title);
                 lblAuthor1.setText("Author: " + lastTried.author);
-                lblCount1.setText(lastTried.submission + "");
+                lblCount1.setText("" + new ProblemSQL().countSubmission(lastTried.problemID));
             }
 
         } catch (ParseException ex) {

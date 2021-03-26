@@ -128,4 +128,15 @@ public class ProblemSQL {
         currStatement.execute();
     }
     
+    public int countSubmission(int problemID) throws SQLException {
+        String Query = "SELECT COUNT(problemID) as subCount FROM submission WHERE problemID = " + problemID;
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery(Query);
+        int count = 0;
+        if (rs.next()) {
+            count = rs.getInt("subCount");
+        }
+        return count;
+    }
+    
 }

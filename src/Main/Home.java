@@ -21,6 +21,7 @@ public class Home extends Application {
         Scene scene1 = new Scene(root);
         primaryStage.setTitle("Coding Buddy");
         primaryStage.setScene(scene1);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

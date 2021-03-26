@@ -9,6 +9,7 @@ import Main.Utility;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -111,31 +112,36 @@ public class ProblemsetController implements Initializable {
     }
     
     public void loadAll() {
-        if(Utility.checkPrivillage()) {
-            btnCreate.setDisable(false);
-        } else {
-            btnCreate.setDisable(true);
-        }
-        listProblem = new ProblemSQL().readProblem();
-        problemCount = listProblem.size();
-        //System.out.println(problemCount);
-        currPage = 0;
-        showProblem();
-        if(problemCount % 6 != 0) {
-            for(int i = 0; i < 6 - (problemCount % 6); ++i) {
-                listProblem.add(new Problem("", "", "", "", "", "", "", "", "", 0, -1));
+        try {
+            if (Utility.checkPrivillage()) {
+                btnCreate.setDisable(false);
+            } else {
+                btnCreate.setDisable(true);
             }
+            listProblem = new ProblemSQL().readProblem();
+            problemCount = listProblem.size();
+            //System.out.println(problemCount);
+            currPage = 0;
+            showProblem();
+            if (problemCount % 6 != 0) {
+                for (int i = 0; i < 6 - (problemCount % 6); ++i) {
+                    listProblem.add(new Problem("", "", "", "", "", "", "", "", "", 0, -1));
+                }
+            }
+            problemCount = listProblem.size();
+            if (currPage >= problemCount / problemPerPage - 1) {
+                btnNext.setDisable(true);
+            }
+            btnPrevious.setDisable(true);
+            txtPageCount.setText(currPage + "");
+            checkAvailability();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            System.out.println("Error in loadAll of ProblemsetController.");
         }
-        problemCount = listProblem.size();
-        if(currPage >= problemCount / problemPerPage - 1) {
-            btnNext.setDisable(true);
-        }
-        btnPrevious.setDisable(true);
-        txtPageCount.setText(currPage + "");
-        checkAvailability();
     }
     
-    public void showProblem() {
+    public void showProblem() throws SQLException {
         lblProblem1.setText(listProblem.get(currPage * problemPerPage + 0).title);
         lblProblem2.setText(listProblem.get(currPage * problemPerPage + 1).title);
         lblProblem3.setText(listProblem.get(currPage * problemPerPage + 2).title);
@@ -148,12 +154,12 @@ public class ProblemsetController implements Initializable {
         lblAuthro4.setText("Author: " + listProblem.get(currPage * problemPerPage + 3).author);
         lblAuthor5.setText("Author: " + listProblem.get(currPage * problemPerPage + 4).author);
         lblAuthor6.setText("Author: " + listProblem.get(currPage * problemPerPage + 5).author);
-        lblCount1.setText("" + listProblem.get(currPage * problemPerPage + 0).submission);
-        lblCount2.setText("" + listProblem.get(currPage * problemPerPage + 1).submission);
-        lblCount3.setText("" + listProblem.get(currPage * problemPerPage + 2).submission);
-        lblCount4.setText("" + listProblem.get(currPage * problemPerPage + 3).submission);
-        lblCount5.setText("" + listProblem.get(currPage * problemPerPage + 4).submission);
-        lblCount6.setText("" + listProblem.get(currPage * problemPerPage + 5).submission);
+        lblCount1.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 0).problemID));
+        lblCount2.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 1).problemID));
+        lblCount3.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 2).problemID));
+        lblCount4.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 3).problemID));
+        lblCount5.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 4).problemID));
+        lblCount6.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 5).problemID));
     }
 
     @FXML
@@ -198,7 +204,7 @@ public class ProblemsetController implements Initializable {
     }
 
     @FXML
-    private void btnNextPressed(ActionEvent event) {
+    private void btnNextPressed(ActionEvent event) throws SQLException {
         currPage++;
         showProblem();
         if(currPage + 1 == problemCount / problemPerPage) {
@@ -210,7 +216,7 @@ public class ProblemsetController implements Initializable {
     }
 
     @FXML
-    private void btnPreviousPressed(ActionEvent event) {
+    private void btnPreviousPressed(ActionEvent event) throws SQLException {
         currPage--;
         showProblem();
         if(currPage == 0) {
