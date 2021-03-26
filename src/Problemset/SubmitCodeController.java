@@ -106,12 +106,6 @@ public class SubmitCodeController implements Initializable {
         btnLang.setText("Python3");
     }
 
-    /**
-     * Initializes the controller class.
-     *
-     * @param url
-     * @param rb
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
