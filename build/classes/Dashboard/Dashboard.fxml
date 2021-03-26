@@ -101,17 +101,17 @@
                               <Insets bottom="2.0" left="4.0" right="2.0" top="2.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="lblSolved" alignment="CENTER" layoutX="18.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0" text="1">
+                        <Label fx:id="lblSolved" alignment="CENTER" layoutX="18.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0">
                            <font>
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblTotalDay" alignment="CENTER" layoutX="271.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0" text="5">
+                        <Label fx:id="lblTotalDay" alignment="CENTER" layoutX="271.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0">
                            <font>
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblSubmissions" alignment="CENTER" layoutX="144.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0" text="1">
+                        <Label fx:id="lblSubmissions" alignment="CENTER" layoutX="144.0" layoutY="49.0" prefHeight="35.0" prefWidth="99.0">
                            <font>
                               <Font name="Times New Roman Bold" size="21.0" />
                            </font>
@@ -155,7 +155,6 @@
                            </font>
                         </Label>
                         <Separator layoutX="12.0" layoutY="418.0" prefHeight="3.0" prefWidth="252.0" style="-fx-background-color: black;" />
-                        <Label alignment="CENTER" layoutX="14.0" layoutY="138.0" prefHeight="17.0" prefWidth="26.0" text="S" />
                      </children>
                   </AnchorPane>
                </children>

@@ -5,3 +5,13 @@
 .mainFxmlClass {
 
 }
+.btnClass:hover
+{
+    -fx-background-color: black;
+    -fx-text-fill: white;   
+    -fx-cursor: hand;
+}
+.btnClass
+{
+    -fx-background-color: #b3b3b3;
+}

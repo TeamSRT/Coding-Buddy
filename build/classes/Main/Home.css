@@ -1,5 +1,13 @@
 
 .mainFxmlClass {
 
-    
+   
+}
+.homebtn:hover
+{
+      -fx-cursor: hand;
+}
+.homelbl:hover
+{
+    -fx-cursor: text;
 }

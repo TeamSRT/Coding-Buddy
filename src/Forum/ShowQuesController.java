@@ -6,7 +6,9 @@
 package Forum;
 
 import Main.DateAndTime;
+import Main.Utility;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -16,16 +18,19 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -36,6 +41,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -82,9 +88,17 @@ public class ShowQuesController implements Initializable {
     private Button btnRefresh;
     @FXML
     private FontAwesomeIconView iconRefresh;
+    @FXML
+    private Button btnEdit;
+    @FXML
+    private FontAwesomeIconView iconEdit;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb){             
+        Tooltip.install(btnRefresh, new Tooltip("Refresh this page"));
+        Tooltip.install(ivUpVote, new Tooltip("This post is helpful and clear"));
+        Tooltip.install(ivDownVote, new Tooltip("This post is not helpful and unclear"));
+        Tooltip.install(btnEdit, new Tooltip("Edit post"));
         loadAll();
     }
     
@@ -104,6 +118,16 @@ public class ShowQuesController implements Initializable {
         Forum obj = new Forum();
         obj.connection();
         lblSQTitle.setText(showObj.title);
+        if(showObj.username.equals(Main.Utility.username))
+        {
+            btnEdit.setDisable(false);
+            btnEdit.setOpacity(1);
+        }
+        else
+        {
+            btnEdit.setDisable(true);
+            btnEdit.setOpacity(0);
+        }
         lblSQUser.setText("Asked by " + showObj.username);
         String timeAgo = new DateAndTime().passedTime(new Date(), format.parse(showObj.postDate + showObj.postTime));
         lblSQPostTime.setText("Posted " + timeAgo);
@@ -120,8 +144,7 @@ public class ShowQuesController implements Initializable {
     public void loadComment() throws ParseException, SQLException {
         Forum obj = new Forum();
         Image upVote = new Image("/Image/Up1.png");
-        Image upVoteP = new Image("/Image/Up2.png");
-
+        Image upVoteP = new Image("/Image/Up2.png");      
         try {
             obj.connection();
         } catch (SQLException ex) {
@@ -142,7 +165,18 @@ public class ShowQuesController implements Initializable {
                 VBox vbCommContent = new VBox();
                 HBox addVbox = new HBox();
                 Text user = new Text(commInfo.get(i).userName);
+                Text body = new Text(commInfo.get(i).commentBody);
                 Text commTime = new Text("Posted " + new DateAndTime().passedTime(new Date(), format.parse(commInfo.get(i).commDate + commInfo.get(i).commTime)));
+                user.setOnMouseEntered((Event event) -> {
+                    user.setCursor(Cursor.TEXT);
+                });
+               body.setOnMouseEntered((Event event) -> {
+                     body.setCursor(Cursor.TEXT);
+                });
+                 commTime.setOnMouseEntered((Event event) -> {
+                     commTime.setCursor(Cursor.TEXT);
+                });
+                
                 commTime.setTranslateX(508.0f);
                 ImageView ivCommUpVote = new ImageView(upVote);
                 ivCommUpVote.setFitWidth(15);
@@ -151,7 +185,7 @@ public class ShowQuesController implements Initializable {
                 ImageView ivCommDownVote = new ImageView(downVote);
                 ivCommDownVote.setFitWidth(15);
                 ivCommDownVote.setFitHeight(25);
-                Image downVoteP = new Image("/Image/Down2.png");
+                Image downVoteP = new Image("/Image/Down2.png");            
                 final int postID = showObj.postID;
                 final int commentID = commInfo.get(i).commentID;                
                 final Text commVote = new Text(obj.commVoteCount(postID, commentID)+"");
@@ -170,6 +204,10 @@ public class ShowQuesController implements Initializable {
                         ivCommDownVote.setImage(downVoteP);
                         break;
                 }
+                ivCommUpVote.setOnMouseEntered((Event event) -> {
+                    Tooltip.install(ivCommUpVote, new Tooltip("This comment is helpful"));
+                    ivCommUpVote.setCursor(Cursor.HAND);
+                });
                 ivCommUpVote.setOnMouseClicked((Event event) -> {
                     try {
                         int curr = obj.readCommVoteStatus(postID, commentID);
@@ -187,6 +225,10 @@ public class ShowQuesController implements Initializable {
                     } catch (SQLException ex) {
                         System.out.println(ex);
                     }
+                });
+                 ivCommDownVote.setOnMouseEntered((Event event) -> {
+                     Tooltip.install(ivCommDownVote, new Tooltip("This comment is not helpful"));
+                     ivCommDownVote.setCursor(Cursor.HAND);
                 });
                 ivCommDownVote.setOnMouseClicked((Event event) -> {
                     try {
@@ -208,8 +250,7 @@ public class ShowQuesController implements Initializable {
                 });
                 Text whiteSpace1 = new Text();
                 Text whiteSpace2 = new Text();           
-                Button btn = new Button();
-                Text body = new Text(commInfo.get(i).commentBody);
+                Button btn = new Button();                
                 commVote.setTextAlignment(TextAlignment.CENTER);
                 commVote.setFont(Font.font("Times New Roman", 18));
                 Separator sp = new Separator(Orientation.HORIZONTAL);
@@ -341,5 +382,13 @@ public class ShowQuesController implements Initializable {
     private void btnRefreshOnAction(ActionEvent event) {
         loadAll();
     }
+
+    @FXML
+    private void btnEditClicked(ActionEvent event) throws IOException{
+        AskQuesController.recObj = showObj;
+        new Utility().loadPane("/Forum/AskQues.fxml");              
+    }
+  
+
 
 }

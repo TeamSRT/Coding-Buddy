@@ -5,10 +5,9 @@
  */
 package Forum;
 
-import static Forum.ShowQuesController.showObj;
-import Main.DateAndTime;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,12 +45,18 @@ public class AskQuesController implements Initializable {
     private Label lblTag;
     @FXML
     private Pane PIntro;
-
-    
+    public ArrayList<Post> rec;
+    public static Post recObj;
+    boolean update = false;
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        if (recObj != null) {
+            update = true;
+            editPost();
+        }
+    }
         
-    }    
 
     @FXML
     private void btnPostClicked(ActionEvent event) throws SQLException {
@@ -82,12 +87,24 @@ public class AskQuesController implements Initializable {
          else
          {  
              Forum sendObj = new Forum();            
-             sendObj.connection();             
-             sendObj.writeForum(titleText, bodyText, tagText);         
+             sendObj.connection();     
+             if(!update)
+               sendObj.writeForum(titleText, bodyText, tagText);
+             else
+             {
+                 sendObj.updateForum(titleText, bodyText, tagText, recObj.postID);
+                 recObj = null;
+             }
              taTitle.setText(null);
              taBody.setText(null);
              taTag.setText(null);
          }
     }    
+    void editPost()
+    {
+        taTitle.setText(recObj.title);
+        taBody.setText(recObj.body);
+        taTag.setText(recObj.tag);
+    }
     
 }
