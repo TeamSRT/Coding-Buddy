@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="685.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard.SubmissionController">
+    <stylesheets>
+        <URL value="@submission.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="22.0" layoutY="40.0" prefHeight="490.0" prefWidth="645.0" style="-fx-background-color: white; -fx-border-color: #bfbfbf;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Pane prefHeight="35.0" prefWidth="643.0" style="-fx-border-color: #bfbfbf;" />
+            <HBox prefHeight="40.0" prefWidth="645.0" style="-fx-background-color: #BBB;" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Problem Name">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #cccccc;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #f2f2f2;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #cccccc;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #f2f2f2;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #cccccc;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #f2f2f2;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #cccccc;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #f2f2f2;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #cccccc;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #f2f2f2;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #cccccc;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="645.0" style="-fx-background-color: #f2f2f2;" styleClass="hbox" stylesheets="@submission.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="126.0" text="Problem Name" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="123.0" text="Answer" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Submission" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="117.0" text="Language" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="155.0" text="Submission Date" />
+               </children>
+            </HBox>
+            <Pane prefHeight="35.0" prefWidth="645.0" style="-fx-border-color: #bfbfbf;">
+               <children>
+                  <Button layoutX="236.0" layoutY="4.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" styleClass="btnClass" stylesheets="@submission.css" text="Previous" />
+                  <Button layoutX="370.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" styleClass="btnClass" stylesheets="@submission.css" text="Next" />
+                  <Button layoutX="319.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" styleClass="btnClass" stylesheets="@submission.css" />
+               </children></Pane>
+         </children>
+      </VBox>
+      <Button fx:id="btnRefresh" layoutX="631.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" styleClass="btnClass" stylesheets="@submission.css" AnchorPane.rightAnchor="20.0" />
+      <FontAwesomeIconView fx:id="iconRefresh" fill="#333333" glyphName="REFRESH" layoutX="642.0" layoutY="31.0" size="14.0" />
+      <Button fx:id="btnBack" layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnBackClicked" prefHeight="25.0" prefWidth="57.0" styleClass="btnClass" stylesheets="@submission.css" text="Back" AnchorPane.leftAnchor="20.0" />
+   </children>
+</AnchorPane>

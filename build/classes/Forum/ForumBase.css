@@ -16,6 +16,8 @@
 
 .PaneClass:hover {
     -fx-cursor:text;
+    -fx-border-color: #a6a6a6;
+    -fx-border-width: 2px; 
 }
 .btnClass:hover
 {

@@ -7,7 +7,9 @@ package Dashboard;
 
 import Main.DateAndTime;
 import Main.Time;
+import Main.Utility;
 import Problemset.ProblemSQL;
+import java.io.IOException;
 import java.net.URL;
 
 
@@ -20,14 +22,18 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -50,6 +56,18 @@ public class DashboardController implements Initializable {
     private Label lblSubmissions;
     @FXML
     private Label lblTotalDay;
+    @FXML
+    private Pane pShowSolved;
+    @FXML
+    private Label lblTitleSolved;
+    @FXML
+    private Pane pShowSub;
+    @FXML
+    private Label lblTitleSub;
+    @FXML
+    private Pane pTotalDay;
+    @FXML
+    private Label lblTitleDay;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -124,5 +142,16 @@ public class DashboardController implements Initializable {
         int dayCount = Math.round(diff / mSecPerDay);      
         lblTotalDay.setText(dayCount+"");
     }
+
+    @FXML
+    private void pShowSolvedClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void pShowSubClicked(MouseEvent event) throws IOException {
+        new Utility().loadPane("/Dashboard/submission.fxml");
+    }
+
+  
   
 }

@@ -19,10 +19,10 @@ public class Problem {
         this.body = body;
         this.input1 = input1;
         this.output1 = output1;
-        this.input2 = input1;
-        this.output2 = output1;
-        this.input3 = input1;
-        this.output3 = output1;
+        this.input2 = input2;
+        this.output2 = output2;
+        this.input3 = input3;
+        this.output3 = output3;
         this.author = author;
         this.submission = submission;
         this.problemID = problemID;
