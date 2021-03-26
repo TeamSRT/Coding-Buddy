@@ -89,7 +89,7 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Pane fx:id="pShowSub" layoutX="133.0" layoutY="13.0" onMouseClicked="#pShowSubClicked" prefHeight="82.0" prefWidth="120.0" style="-fx-border-color: #333; -fx-background-color: #f0e6ff; -fx-border-width: 2px;">
+                        <Pane fx:id="pShowSub" layoutX="133.0" layoutY="13.0" onMouseClicked="#pShowSubClicked" prefHeight="82.0" prefWidth="120.0" style="-fx-border-color: #333; -fx-background-color: #f0e6ff; -fx-border-width: 2px;" styleClass="pane" stylesheets="@Dashboard.css">
                            <children>
                               <Separator layoutX="2.0" layoutY="29.0" prefHeight="3.0" prefWidth="116.0" style="-fx-background-color: #333;" />
                               <Label fx:id="lblSubmissions" alignment="CENTER" layoutX="12.0" layoutY="38.0" prefHeight="35.0" prefWidth="99.0">

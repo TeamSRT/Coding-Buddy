@@ -162,11 +162,6 @@
                </children></Pane>
          </children>
       </VBox>
-<<<<<<< Updated upstream
-      <Button fx:id="btnRefresh" layoutX="631.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" styleClass="btnClass" stylesheets="@submission.css" AnchorPane.rightAnchor="20.0" />
-      <FontAwesomeIconView fx:id="iconRefresh" fill="#333333" glyphName="REFRESH" layoutX="642.0" layoutY="31.0" size="14.0" />
-=======
->>>>>>> Stashed changes
       <Button fx:id="btnBack" layoutX="20.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnCustomBackPressed" prefHeight="25.0" prefWidth="57.0" styleClass="btnClass" stylesheets="@submission.css" text="Back" AnchorPane.leftAnchor="20.0" />
    </children>
 </AnchorPane>
