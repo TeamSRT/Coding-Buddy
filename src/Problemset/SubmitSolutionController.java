@@ -152,9 +152,9 @@ public class SubmitSolutionController extends SubmitCodeController implements In
 
             try {
                 if (!m1 || !m2 || !m3) {
-                    new ProblemSQL().recordSubmission(problemID, -1, currLang);
+                    new ProblemSQL().recordSubmission(problemID, -1, currLang, txtCode.getText());
                 } else {
-                    new ProblemSQL().recordSubmission(problemID, 1, currLang);
+                    new ProblemSQL().recordSubmission(problemID, 1, currLang, txtCode.getText());
                 }
             } catch (SQLException ex) {
                 System.out.println("Error While Submitting Record " + ex);

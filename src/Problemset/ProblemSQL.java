@@ -113,18 +113,21 @@ public class ProblemSQL {
         return ans;
     }
     
-    public void recordSubmission(int problemID, int Verdict, String lang) throws SQLException {
+    public void recordSubmission(int problemID, int Verdict, String lang, String code) throws SQLException {
         if(Verdict == 1 && problemID == -1) {
             int Check = sqlOperation("COUNT", "`verdict` = 1");
             if(Check > 0) {
                 return;
             }
         }
-        PreparedStatement currStatement = conn.prepareStatement("INSERT INTO `submission`(`problemID`, `userName`, `verdict`, `lang`) VALUES (?,?,?,?)");
+        PreparedStatement currStatement = conn.prepareStatement("INSERT INTO `submission`(`problemID`, `userName`, `verdict`, `lang`, `code`, `subdate`, `subtime`) VALUES (?,?,?,?,?,?,?)");
         currStatement.setInt(1, problemID);
         currStatement.setString(2, Main.Utility.username);
         currStatement.setInt(3, Verdict);
         currStatement.setString(4, lang);
+        currStatement.setString(5, code);
+        currStatement.setString(6, new Main.DateAndTime().getDate());
+        currStatement.setString(7, new Main.DateAndTime().getTime());
         currStatement.execute();
     }
     

@@ -67,7 +67,7 @@ public class SubmitCodeController implements Initializable {
         btnSubmit.setDisable(!btnSubmit.isDisable());
         if (!btnSubmit.isDisable()) {
             try {
-                new ProblemSQL().recordSubmission(0, 0, currLang);
+                new ProblemSQL().recordSubmission(0, 0, currLang, txtCode.getText());
             } catch (SQLException ex) {
                 System.out.println("Submission Error From Custom Code" + ex);
             }
