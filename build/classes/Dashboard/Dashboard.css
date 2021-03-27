@@ -39,3 +39,17 @@
 {
     -fx-cursor: text;
 }
+.lbl:hover
+{
+    -fx-border-color: #bfbfbf;
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman";
+    -fx-border-width: 3px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+.btn:hover
+{
+    -fx-cursor: hand;
+}

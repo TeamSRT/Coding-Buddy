@@ -168,19 +168,46 @@ public class ProblemSQL {
     {
         ArrayList<Problem> prob = new ArrayList<>(); 
         try {
-            String query = "SELECT problemID FROM todo WHERE username = AND username = '" + Main.Utility.username + "'";
+            String query = "SELECT trackToDo, problemID as pID,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM todo WHERE username = '" + Main.Utility.username + "'";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             while(rs.next())
             {
                 Problem obj = new Problem();
-                obj.problemID = rs.getInt("problemID");
+                obj.problemID = rs.getInt("pID");
+                obj.title = rs.getString("pTitle");
+                obj.trackToDo = rs.getInt("trackToDo");
                 prob.add(obj);
             }
         } catch (SQLException ex) {
             System.out.println("To do = "+ex);
         }
         return prob;
+    }
+     public Problem readProblemForToDo(int problemID) {
+        Problem obj = new Problem();
+        try {
+            Statement currStatement = conn.createStatement();
+            ResultSet currSet = currStatement.executeQuery("SELECT title, problemBody, input1, output1, input2, output2, input3, output3, submission, username FROM problemset WHERE problemID = "+problemID);
+            if(currSet.next()) {
+                
+                obj.title = currSet.getString("title");
+                obj.body =  currSet.getString("problemBody");
+                obj.input1 = currSet.getString("input1");
+                obj.output1 = currSet.getString("output1");
+                obj.input2 = currSet.getString("input2");
+                obj.output2 = currSet.getString("output2");
+                obj.input3 = currSet.getString("input3");
+                obj.output3 = currSet.getString("output3");
+                obj.submission =  currSet.getInt("submission");
+                obj.problemID = problemID;
+                obj.author = currSet.getString("username");
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        
+        return obj;
     }
     
     public ArrayList<Submission> readSubmission() {

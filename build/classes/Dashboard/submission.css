@@ -18,6 +18,7 @@
 .hbox:hover
 {
     -fx-border-color: #a6a6a6;
+    -fx-font-size: 14px;
     -fx-border-width: 2px
 }
 .label:hover

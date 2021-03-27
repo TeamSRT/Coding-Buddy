@@ -14,7 +14,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="805.0" prefWidth="685.0" style="-fx-background-color: #f2f2f2;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard.DashboardController">
@@ -127,43 +127,77 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <AnchorPane fx:id="apTarget" layoutX="395.0" layoutY="8.0" prefHeight="538.0" prefWidth="275.0" style="-fx-background-color: #ffffff;">
+                  <AnchorPane fx:id="apTarget" layoutX="395.0" layoutY="8.0" prefHeight="709.0" prefWidth="275.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <Label alignment="BASELINE_LEFT" layoutX="14.0" layoutY="7.0" prefHeight="43.0" prefWidth="114.0" text="My Goal">
+                        <Label alignment="BASELINE_LEFT" layoutX="14.0" layoutY="7.0" prefHeight="43.0" prefWidth="123.0" text="To Do List ">
                            <font>
                               <Font name="Times New Roman Bold" size="25.0" />
                            </font>
                         </Label>
-                        <Button alignment="BASELINE_LEFT" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="252.0" style="-fx-background-color: linear-gradient(to left bottom, #000000, #262626, #474747, #6b6b6b, #929292, #a8a8a8, #bebebf, #d5d5d6, #dfdfe0, #e9eaeb, #f3f4f5, #fdffff);" text="Set Weekly Target">
+                        <Button fx:id="btnList" alignment="BASELINE_LEFT" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnListClicked" prefHeight="35.0" prefWidth="252.0" style="-fx-background-color: linear-gradient(to left bottom, #000000, #262626, #474747, #6b6b6b, #929292, #a8a8a8, #bebebf, #d5d5d6, #dfdfe0, #e9eaeb, #f3f4f5, #fdffff);" styleClass="btn" stylesheets="@Dashboard.css" text="See the full list">
                            <font>
                               <Font name="Times New Roman" size="17.0" />
                            </font>
                         </Button>
-                        <Separator layoutX="14.0" layoutY="188.0" prefHeight="3.0" prefWidth="252.0" style="-fx-background-color: black;" />
-                        <Label layoutX="14.0" layoutY="197.0" prefHeight="35.0" prefWidth="252.0" text="THIS WEEK">
-                           <font>
-                              <Font name="Times New Roman" size="17.0" />
-                           </font>
-                        </Label>
-                        <Circle fill="#cccccc" layoutX="14.0" layoutY="146.0" radius="12.0" stroke="#cccccc" strokeType="INSIDE" translateX="14.0" />
-                        <Circle fill="#cccccc" layoutX="50.0" layoutY="146.0" radius="12.0" stroke="#cccccc" strokeType="INSIDE" translateX="14.0" />
-                        <Circle fill="#cccccc" layoutX="86.0" layoutY="146.0" radius="12.0" stroke="#cccccc" strokeType="INSIDE" translateX="14.0" />
-                        <Circle fill="#cccccc" layoutX="122.0" layoutY="146.0" radius="12.0" stroke="#cccccc" strokeType="INSIDE" translateX="14.0" />
-                        <Circle fill="#cccccc" layoutX="158.0" layoutY="146.0" radius="12.0" stroke="#cccccc" strokeType="INSIDE" translateX="14.0" />
-                        <Circle fill="#cccccc" layoutX="194.0" layoutY="146.0" radius="12.0" stroke="#cccccc" strokeType="INSIDE" translateX="14.0" />
-                        <Circle fill="#cccccc" layoutX="230.0" layoutY="146.0" radius="12.0" stroke="#cccccc" strokeType="INSIDE" translateX="14.0" />
-                        <Separator layoutX="14.0" layoutY="304.0" prefHeight="3.0" prefWidth="252.0" style="-fx-background-color: black;" />
-                        <Label layoutX="14.0" layoutY="319.0" prefHeight="35.0" prefWidth="252.0" text="TARGET MET ">
-                           <font>
-                              <Font name="Times New Roman" size="17.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="12.0" layoutY="361.0" prefHeight="35.0" prefWidth="252.0" text="0 WEEKS IN A ROW">
-                           <font>
-                              <Font name="Times New Roman" size="13.0" />
-                           </font>
-                        </Label>
-                        <Separator layoutX="12.0" layoutY="418.0" prefHeight="3.0" prefWidth="252.0" style="-fx-background-color: black;" />
+                        <VBox fx:id="vbShowTD" layoutX="14.0" layoutY="114.0" prefHeight="582.0" prefWidth="252.0" spacing="10.0" style="-fx-border-color: #d9d9d9; -fx-border-width: 4px;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="47.0" prefWidth="243.0" style="-fx-border-color: #cccccc; -fx-border-width: 2px;" text="Latest">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="22.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD1" alignment="CENTER" onMouseClicked="#lblShowTD1Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #e6e6e6;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD2" alignment="CENTER" onMouseClicked="#lblShowTD2Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #f2f2f2;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD3" alignment="CENTER" onMouseClicked="#lblShowTD3Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #e6e6e6;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD4" alignment="CENTER" onMouseClicked="#lblShowTD4Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #f2f2f2;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD5" alignment="CENTER" onMouseClicked="#lblShowTD5Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #e6e6e6;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD6" alignment="CENTER" onMouseClicked="#lblShowTD6Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #f2f2f2;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD7" alignment="CENTER" onMouseClicked="#lblShowTD7Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #e6e6e6;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD8" alignment="CENTER" onMouseClicked="#lblShowTD8Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #f2f2f2;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD9" alignment="CENTER" onMouseClicked="#lblShowTD9Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #e6e6e6;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblShowTD10" alignment="CENTER" onMouseClicked="#lblShowTD10Clicked" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: #f2f2f2;" styleClass="lbl" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="Times New Roman" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
                </children>

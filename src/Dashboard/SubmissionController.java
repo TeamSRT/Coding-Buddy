@@ -8,7 +8,6 @@ package Dashboard;
 import Main.Utility;
 import Problemset.ProblemSQL;
 import Problemset.Submission;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -19,7 +18,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -31,10 +29,6 @@ import javafx.scene.paint.Color;
  */
 public class SubmissionController implements Initializable {
 
-    @FXML
-    private Button btnRefresh;
-    @FXML
-    private FontAwesomeIconView iconRefresh;
     @FXML
     private Button btnBack;
     private int sizeCount;

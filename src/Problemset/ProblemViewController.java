@@ -44,9 +44,6 @@ public class ProblemViewController implements Initializable {
     @FXML
     private Button btnToDo;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadProblem();
