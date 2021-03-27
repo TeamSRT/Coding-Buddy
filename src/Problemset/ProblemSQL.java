@@ -164,4 +164,28 @@ public class ProblemSQL {
         return false;
     }
     
+    public ArrayList<Submission> readSubmission() {
+        ArrayList<Submission> subObj = new ArrayList<>();
+        try {        
+            Statement st = conn.createStatement();
+            String query = "SELECT problemID as pID, track, verdict, lang, code, subdate, subtime,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM submission WHERE username = '" + Main.Utility.username + "'";         
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                Submission obj = new Submission();
+                obj.problemID = rs.getInt("pID");
+                obj.track = rs.getInt("track");
+                obj.verdict = rs.getInt("verdict");
+                obj.lang = rs.getString("lang");
+                obj.code = rs.getString("code");
+                obj.subdate = rs.getString("subdate");
+                obj.subtime = rs.getString("subtime");
+                obj.probName = rs.getString("pTitle");
+                subObj.add(obj);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Exception = " + ex);
+        }
+        return subObj;
+    }
+    
 }

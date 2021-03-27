@@ -31,3 +31,7 @@
 .default-color0.chart-bar { -fx-bar-fill:  #339966}
 .default-color1.chart-bar { -fx-bar-fill:  #990000}
 
+.pane:hover
+{
+    -fx-cursor: hand;
+}

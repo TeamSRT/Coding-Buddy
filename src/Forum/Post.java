@@ -1,8 +1,5 @@
 package Forum;
 
-import java.sql.Date;
-import java.sql.Time;
-
 public class Post {
 
     public String username, title, body, tag;
