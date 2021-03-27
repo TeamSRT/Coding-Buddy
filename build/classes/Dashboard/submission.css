@@ -20,3 +20,11 @@
     -fx-border-color: #a6a6a6;
     -fx-border-width: 2px
 }
+.label:hover
+{
+    -fx-cursor: hand;
+}
+.lbl:hover
+{
+    -fx-cursor: text;
+}
