@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="685.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Profile.DetailsController">
+    <stylesheets>
+        <URL value="@Profile.css" />
+    </stylesheets>
+   <children>
+      <JFXTextField fx:id="txtName" layoutX="231.0" layoutY="205.0" maxWidth="390.0" minWidth="360.0" prefHeight="40.0" prefWidth="390.0" />
+      <JFXTextField fx:id="txtOcc" layoutX="231.0" layoutY="255.0" maxWidth="390.0" minWidth="360.0" prefHeight="40.0" prefWidth="390.0" />
+      <JFXTextField fx:id="txtOrg" layoutX="231.0" layoutY="305.0" maxWidth="390.0" minWidth="360.0" prefHeight="40.0" prefWidth="390.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="93.0" layoutY="217.0" prefHeight="17.0" prefWidth="100.0" text="Name:  " />
+      <Label alignment="CENTER_RIGHT" layoutX="93.0" layoutY="267.0" prefHeight="17.0" prefWidth="100.0" text="Occupation:  " />
+      <Label alignment="CENTER_RIGHT" layoutX="93.0" layoutY="317.0" prefHeight="17.0" prefWidth="100.0" text="Organization:  " />
+      <Button fx:id="btnChange" layoutX="556.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnChangeOnAction" styleClass="btnClass" text="Change" />
+   </children>
+</AnchorPane>

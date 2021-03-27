@@ -1,0 +1,29 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.LabelClass {
+    -fx-border-radius: 2 2 2 2;
+    -fx-background-radius: 2 2 2 2;
+}
+
+.lbl:hover
+{
+    -fx-cursor: text; 
+}
+
+.btnClass:hover
+{
+    -fx-background-color: black;
+    -fx-text-fill: white;   
+    -fx-cursor: hand;
+}
+
+.btnClass
+{
+    -fx-background-color:  #D3D4D6;
+}

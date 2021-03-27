@@ -18,7 +18,7 @@
    <children>
       <AnchorPane fx:id="apBtn" prefHeight="33.0" prefWidth="215.0" style="-fx-background-color: #1D2026;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <JFXButton fx:id="btnProfile" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="218.0" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="My Profile" textFill="#f8f3f3">
+            <JFXButton fx:id="btnProfile" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="218.0" onAction="#btnProfileOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="My Profile" textFill="#f8f3f3">
                <font>
                   <Font size="16.0" />
                </font>
