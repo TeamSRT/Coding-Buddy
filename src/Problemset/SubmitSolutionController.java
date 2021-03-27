@@ -63,9 +63,7 @@ public class SubmitSolutionController extends SubmitCodeController implements In
     @FXML
     private MenuItem btnLangCsharp;
 
-    /**
-     * Initializes the controller class.
-     */
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

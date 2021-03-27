@@ -164,6 +164,25 @@ public class ProblemSQL {
         return false;
     }
     
+    public ArrayList<Problem> readToDo()
+    {
+        ArrayList<Problem> prob = new ArrayList<>(); 
+        try {
+            String query = "SELECT problemID FROM todo WHERE username = AND username = '" + Main.Utility.username + "'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next())
+            {
+                Problem obj = new Problem();
+                obj.problemID = rs.getInt("problemID");
+                prob.add(obj);
+            }
+        } catch (SQLException ex) {
+            System.out.println("To do = "+ex);
+        }
+        return prob;
+    }
+    
     public ArrayList<Submission> readSubmission() {
         ArrayList<Submission> subObj = new ArrayList<>();
         try {        
