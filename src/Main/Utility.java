@@ -34,6 +34,8 @@ public class Utility {
     public static String username;
     public static String name;
     public static String mail;
+    public static String occupation;
+    public static String org;
     public static HomeController Home;
     public static Connection conn;
     
@@ -48,15 +50,16 @@ public class Utility {
     public static void initUser() {
         try {
             Statement query = conn.createStatement();
-            ResultSet answer = query.executeQuery("SELECT `name`, `email` FROM `userinfo` WHERE `username`= '" + Utility.username + "'");
+            ResultSet answer = query.executeQuery("SELECT `name`, `email`, `occupation`, `organization` FROM `userinfo` WHERE `username`= '" + Utility.username + "'");
             if(answer.next()) {
                 Utility.name = answer.getString(1);
                 Utility.mail = answer.getString(2);
+                Utility.occupation = answer.getString(3) + " ";
+                Utility.org = answer.getString(4) + " ";
             }
         } catch (SQLException ex) {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
     }
     
     public static boolean checkPrivillage() {
@@ -96,7 +99,7 @@ public class Utility {
             while (answer.next()) {
                 Blob imgBlob = answer.getBlob(2);
                 InputStream imgIn = imgBlob.getBinaryStream();
-                img = new Image(imgIn, width, height, false, false);
+                img = new Image(imgIn, width, height, true, true);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
