@@ -32,6 +32,7 @@
 .default-color1.chart-bar { -fx-bar-fill:  #990000}
 
 .pane1:hover
+<<<<<<< Updated upstream
 {
     -fx-cursor: hand;
 }
@@ -50,6 +51,12 @@
     -fx-cursor: hand;
 }
 .btn:hover
+=======
+>>>>>>> Stashed changes
 {
     -fx-cursor: hand;
+}
+.pane2:hover
+{
+    -fx-cursor: text;
 }
