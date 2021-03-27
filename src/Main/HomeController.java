@@ -118,8 +118,7 @@ public class HomeController implements Initializable {
     private void btnHomeOnAction(ActionEvent event) throws IOException {
         new Utility().loadPane("/Home/Home.fxml");
     }
-
-    @FXML
+      @FXML
     private void btnProfileOnAction(ActionEvent event) throws IOException {
         new Utility().loadPane("/Profile/Profile.fxml");
     }

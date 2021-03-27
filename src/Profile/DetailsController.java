@@ -33,9 +33,7 @@ public class DetailsController implements Initializable {
     @FXML
     private Button btnChange;
 
-    /**
-     * Initializes the controller class.
-     */
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         txtName.setText(Main.Utility.name);

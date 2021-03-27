@@ -168,23 +168,15 @@ public class ProblemSQL {
     {
         ArrayList<Problem> prob = new ArrayList<>(); 
         try {
-<<<<<<< Updated upstream
             String query = "SELECT trackToDo, problemID as pID,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM todo WHERE username = '" + Main.Utility.username + "'";
-=======
-            String query = "SELECT problemID FROM todo WHERE username = AND username = '" + Main.Utility.username + "'";
->>>>>>> Stashed changes
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             while(rs.next())
             {
                 Problem obj = new Problem();
-<<<<<<< Updated upstream
                 obj.problemID = rs.getInt("pID");
                 obj.title = rs.getString("pTitle");
                 obj.trackToDo = rs.getInt("trackToDo");
-=======
-                obj.problemID = rs.getInt("problemID");
->>>>>>> Stashed changes
                 prob.add(obj);
             }
         } catch (SQLException ex) {
@@ -192,7 +184,6 @@ public class ProblemSQL {
         }
         return prob;
     }
-<<<<<<< Updated upstream
      public Problem readProblemForToDo(int problemID) {
         Problem obj = new Problem();
         try {
@@ -218,8 +209,6 @@ public class ProblemSQL {
         
         return obj;
     }
-=======
->>>>>>> Stashed changes
     
     public ArrayList<Submission> readSubmission() {
         ArrayList<Submission> subObj = new ArrayList<>();

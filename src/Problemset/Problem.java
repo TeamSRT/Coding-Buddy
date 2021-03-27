@@ -12,11 +12,7 @@ package Problemset;
 public class Problem {
 
     public String title, body, input1, output1, input2, output2, input3, output3, author;
-<<<<<<< Updated upstream
     public int submission, problemID, trackToDo;
-=======
-    public int submission, problemID;
->>>>>>> Stashed changes
     public Problem()
     {
         

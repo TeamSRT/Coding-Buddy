@@ -8,11 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-<<<<<<< Updated upstream
-    <jar href="CodingBuddy_Base.jar" size="720297" download="eager" />
-=======
-    <jar href="CodingBuddy_Base.jar" size="715656" download="eager" />
->>>>>>> Stashed changes
+    <jar href="CodingBuddy_Base.jar" size="729710" download="eager" />
     <jar href="lib\activation.jar" size="55147" download="eager" />
     <jar href="lib\fontawesomefx-8.5.jar" size="181458" download="eager" />
     <jar href="lib\jfoenix.jar" size="2211776" download="eager" />
