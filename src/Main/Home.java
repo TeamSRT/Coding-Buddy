@@ -19,7 +19,7 @@ public class Home extends Application {
     public void start(Stage primaryStage) throws IOException {
         //pre = 
         Utility.setConnection();
-        Utility.hackTooltipStartTiming(new Tooltip(""));
+        Utility.tooltipDelay(new Tooltip(""));
         Parent root;
         if (Home.pre.get("username", null) != null && !Home.pre.get("password", null).isEmpty()) {
             Utility.setUsername(pre.get("username", null));

@@ -106,7 +106,7 @@ public class Utility {
         }
         return img;
     }
-    public static void hackTooltipStartTiming(Tooltip tooltip) {
+    public static void tooltipDelay(Tooltip tooltip) {
         try {
             Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
             fieldBehavior.setAccessible(true);
