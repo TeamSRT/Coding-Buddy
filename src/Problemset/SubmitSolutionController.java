@@ -59,6 +59,7 @@ public class SubmitSolutionController extends SubmitCodeController implements In
     private String expectedOutput2 = "";
     private String expectedOutput3 = "";
     private String input;
+    public static Problem currProblem;
     Thread tSub1, tSub2, tSub3;
     @FXML
     private MenuItem btnLangCsharp;
@@ -74,15 +75,15 @@ public class SubmitSolutionController extends SubmitCodeController implements In
         String code = txtCode.getText();
         input = new ProblemSQL().getInput(problemID, 1);
         expectedOutput1 = new ProblemSQL().getOutput(problemID, 1);
-        tSub1 = new Thread(new Compiler(code, input, currLang, 1, this));
+        tSub1 = new Thread(new Compiler(code, input, currLang, 1, currProblem.timeLimit, this));
         tSub1.start();
         input = new ProblemSQL().getInput(problemID, 2);
         expectedOutput2 = new ProblemSQL().getOutput(problemID, 2);
-        tSub2 = new Thread(new Compiler(code, input, currLang, 2, this));
+        tSub2 = new Thread(new Compiler(code, input, currLang, 2,currProblem.timeLimit, this));
         tSub2.start();
         input = new ProblemSQL().getInput(problemID, 3);
         expectedOutput3 = new ProblemSQL().getOutput(problemID, 3);
-        tSub3 = new Thread(new Compiler(code, input, currLang, 3, this));
+        tSub3 = new Thread(new Compiler(code, input, currLang, 3,currProblem.timeLimit, this));
         tSub3.start();
     }
 

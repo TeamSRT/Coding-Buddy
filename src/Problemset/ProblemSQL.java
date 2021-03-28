@@ -39,7 +39,7 @@ public class ProblemSQL {
             Statement currStatement = conn.createStatement();
             ResultSet currSet = currStatement.executeQuery("SELECT * FROM problemset");
             while (currSet.next()) {
-                problemList.add(new Problem(currSet.getString("title"), currSet.getString("problemBody"), currSet.getString("input1"), currSet.getString("output1"), currSet.getString("input2"), currSet.getString("output2"), currSet.getString("input3"), currSet.getString("output3"), currSet.getString("username"), currSet.getInt("submission"), currSet.getInt("problemID")));
+                problemList.add(new Problem(currSet.getString("title"), currSet.getString("problemBody"), currSet.getString("input1"), currSet.getString("output1"), currSet.getString("input2"), currSet.getString("output2"), currSet.getString("input3"), currSet.getString("output3"), currSet.getString("username"), currSet.getInt("timeLimit"), currSet.getInt("problemID")));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -48,7 +48,7 @@ public class ProblemSQL {
         return problemList;
     }
 
-    public void writeProblem(String title, String body, String input1, String output1, String input2, String output2, String input3, String output3, CreateProblemController cpcObj) {
+    public void writeProblem(String title, String body, String input1, String output1, String input2, String output2, String input3, String output3, int Time, CreateProblemController cpcObj) {
         Alert error = new Alert(AlertType.ERROR);
         Alert success = new Alert(AlertType.INFORMATION);
         error.setTitle("Submission Error");
@@ -65,7 +65,7 @@ public class ProblemSQL {
             error.show();
         } else {
             try {
-                PreparedStatement currStatement = conn.prepareStatement("INSERT INTO `problemset`(`title`, `problemBody`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `username`) VALUES (?,?,?,?,?,?,?,?,?)");
+                PreparedStatement currStatement = conn.prepareStatement("INSERT INTO `problemset`(`title`, `problemBody`, `input1`, `output1`, `input2`, `output2`, `input3`, `output3`, `timeLimit`, `username`) VALUES (?,?,?,?,?,?,?,?,?,?)");
                 currStatement.setString(1, title);
                 currStatement.setString(2, body);
                 currStatement.setString(3, input1);
@@ -74,7 +74,8 @@ public class ProblemSQL {
                 currStatement.setString(6, output2);
                 currStatement.setString(7, input3);
                 currStatement.setString(8, output3);
-                currStatement.setString(9, Main.Utility.username);
+                currStatement.setInt(9, Time);
+                currStatement.setString(10, Main.Utility.username);
                 currStatement.execute();
                 cpcObj.clearFields();
                 success.show();

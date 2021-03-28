@@ -12,12 +12,12 @@ package Problemset;
 public class Problem {
 
     public String title, body, input1, output1, input2, output2, input3, output3, author;
-    public int submission, problemID, trackToDo;
+    public int submission, problemID, trackToDo, timeLimit;
     public Problem()
     {
         
     }
-    public Problem(String title, String body, String input1, String output1, String input2, String output2, String input3, String output3, String author, int submission, int problemID) {
+    public Problem(String title, String body, String input1, String output1, String input2, String output2, String input3, String output3, String author, int timeLimit, int problemID) {
         this.title = title;
         this.body = body;
         this.input1 = input1;
@@ -27,7 +27,7 @@ public class Problem {
         this.input3 = input3;
         this.output3 = output3;
         this.author = author;
-        this.submission = submission;
+        this.timeLimit = timeLimit;
         this.problemID = problemID;
     }
 }

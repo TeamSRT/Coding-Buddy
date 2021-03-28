@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -43,17 +44,20 @@ public class ProblemViewController implements Initializable {
     public static Problem currProblem;
     @FXML
     private Button btnToDo;
+    @FXML
+    private Label lblTime;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        lblTime.setText("Time Limit: " + currProblem.timeLimit + "s");
         loadProblem();
     }    
 
     @FXML
     private void btnSubmitPressed(ActionEvent event) throws IOException {
         SubmitSolutionController.problemID = currProblem.problemID;
+        SubmitSolutionController.currProblem = currProblem;
         new Utility().loadPane("/Problemset/SubmitSolution.fxml");
-        
     }
 
     @FXML

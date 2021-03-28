@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -48,6 +50,15 @@ public class CreateProblemController implements Initializable {
     private TextArea txtOutput1;
     @FXML
     private TextArea txtOutput3;
+    @FXML
+    private MenuItem btnT1;
+    @FXML
+    private MenuItem btnT2;
+    @FXML
+    private MenuItem btnT3;
+    @FXML
+    private MenuButton btnTime;
+    private int Time = 1;
 
     /**
      * Initializes the controller class.
@@ -59,7 +70,7 @@ public class CreateProblemController implements Initializable {
 
     @FXML
     private void btnSubmitPressed(ActionEvent event) {
-        new ProblemSQL().writeProblem(txtTitle.getText(), txtProblem.getText(), txtInput1.getText(), txtOutput1.getText(), txtInput2.getText(), txtOutput2.getText(), txtInput3.getText(), txtOutput3.getText(), this);
+        new ProblemSQL().writeProblem(txtTitle.getText(), txtProblem.getText(), txtInput1.getText(), txtOutput1.getText(), txtInput2.getText(), txtOutput2.getText(), txtInput3.getText(), txtOutput3.getText(), Time, this);
     }
 
     @FXML
@@ -76,6 +87,24 @@ public class CreateProblemController implements Initializable {
         txtOutput2.setText("");
         txtInput3.setText("");
         txtOutput3.setText("");
+    }
+
+    @FXML
+    private void btnT1OnAction(ActionEvent event) {
+        btnTime.setText("1s");
+        Time = 1;
+    }
+
+    @FXML
+    private void btnT2OnAction(ActionEvent event) {
+        btnTime.setText("2s");
+        Time = 2;
+    }
+
+    @FXML
+    private void btnT3OnAction(ActionEvent event) {
+        btnTime.setText("3s");
+        Time = 3;
     }
 
 }

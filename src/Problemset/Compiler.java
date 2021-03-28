@@ -22,6 +22,7 @@ public class Compiler implements Runnable {
     private String input;
     private String currLang;
     private int num;
+    private int time;
     public static String expectedOutput1 = "";
     public static String expectedOutput2 = "";
     public static String expectedOutput3 = "";
@@ -32,14 +33,16 @@ public class Compiler implements Runnable {
         this.input = input;
         this.currLang = currLang;
         this.curr = curr;
+        this.time = 3;
     }
 
-    public Compiler(String code, String input, String currLang, int num, SubmitCodeController curr) {
+    public Compiler(String code, String input, String currLang, int num, int time, SubmitCodeController curr) {
         this.code = code;
         this.input = input;
         this.currLang = currLang;
         this.num = num;
         this.curr = curr;
+        this.time = time;
     }
 
     @Override
@@ -47,34 +50,44 @@ public class Compiler implements Runnable {
         curr.flipbtnSubmit();
         String encodedCode = URLEncoder.encode(code);
         String encodedInput = URLEncoder.encode(input);
-        String create = getResponse("http://api.paiza.io:80/runners/create?source_code=" + encodedCode + "&language=" + currLang + "&input=" + encodedInput + "&api_key=guest", "POST");
-        String ID = parseID(create);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException ex) {
-            System.out.println(ex);
-        }
-        String details = getResponse("http://api.paiza.io:80/runners/get_details?id=" + ID + "&api_key=guest", "GET");
-        String output = parseOutput(details);
-        String stderr = parseError(details);
-        String timeout = parseTimeout(details);
-        if (timeout.contains("timeout")) {
+        String create = getResponse("http://api.paiza.io:80/runners/create?source_code=" + encodedCode + "&language=" + currLang + "&input=" + encodedInput + "&longpoll=true&longpoll_timeout=" + time + "&api_key=guest", "POST");
+        if (create.contains("timeout")) {
             curr.settxtOutput("Time Limit Exceeded");
-        } else if (stderr.equals("")) {
-            curr.settxtOutput(output);
         } else {
-            curr.settxtOutput(stderr);
-        }
-        SubmitCodeController.output = output;
-        if (num == 1) {
-            expectedOutput1 = output;
-        } else if (num == 2) {
-            expectedOutput2 = output;
-        } else if (num == 3) {
-            expectedOutput3 = output;
+            String ID = parseID(create);
+            System.out.println(ID);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException ex) {
+                System.out.println(ex);
+            }
+            String details = getResponse("http://api.paiza.io:80/runners/get_details?id=" + ID + "&api_key=guest", "GET");
+            String output = parseOutput(details);
+            String stderr = parseError(details);
+            String timeout = parseTimeout(details);
+            if (timeout.contains("timeout")) {
+                curr.settxtOutput("Time Limit Exceeded");
+            } else if (stderr.equals("")) {
+                curr.settxtOutput(output);
+            } else {
+                curr.settxtOutput(stderr);
+            }
+            System.out.println(details);
+            SubmitCodeController.output = output;
+            double reqTime = parseTime(details);
+            if (reqTime > time) {
+                curr.settxtOutput("Time Limit Exceeded");
+            } else {
+                if (num == 1) {
+                    expectedOutput1 = output;
+                } else if (num == 2) {
+                    expectedOutput2 = output;
+                } else if (num == 3) {
+                    expectedOutput3 = output;
+                }
+            }
         }
         curr.flipbtnSubmit();
-
     }
 
     public String getResponse(String apiURL, String requestType) {
@@ -130,6 +143,17 @@ public class Compiler implements Runnable {
         String processedOutput = parseString(toProcess, "\"stdout\": ", "\"stderr\": ");
         processedOutput = (processedOutput.replace("\\n", "\n")).replace("\\t", "\t");
         return processedOutput;
+    }
+
+    public double parseTime(String toProcess) {
+        String totalTime = parseString(toProcess, "\"time\": ", "\"memory\": ");
+        double reqTime = 0;
+        try {
+            reqTime = Double.parseDouble(totalTime);
+        } catch (Exception ex) {
+            System.out.println("Can't Parse Double value from this String.");
+        }
+        return reqTime;
     }
 
     public String parseError(String toProcess) {
