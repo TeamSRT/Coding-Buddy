@@ -153,6 +153,7 @@ public class SubmitSolutionController extends SubmitCodeController implements In
                     new ProblemSQL().recordSubmission(problemID, -1, currLang, txtCode.getText());
                 } else {
                     new ProblemSQL().recordSubmission(problemID, 1, currLang, txtCode.getText());
+                    new ProblemSQL().completeToDo(problemID);
                 }
             } catch (SQLException ex) {
                 System.out.println("Error While Submitting Record " + ex);

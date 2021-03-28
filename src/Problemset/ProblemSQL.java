@@ -164,6 +164,14 @@ public class ProblemSQL {
         return false;
     }
     
+    public void completeToDo(int problemID) throws SQLException {
+        if (checkToDo(problemID) == true) {
+            String Query = "UPDATE todo SET trackToDo = 1 WHERE problemID = " + problemID + " AND username = '" + Main.Utility.username + "'";
+            Statement st = conn.createStatement();
+            st.executeUpdate(Query);
+        }
+    }
+
     public ArrayList<Problem> readToDo()
     {
         ArrayList<Problem> prob = new ArrayList<>(); 
