@@ -6,39 +6,43 @@
 package Dashboard;
 
 import Main.Utility;
+import Problemset.Problem;
+import Problemset.ProblemSQL;
 import Problemset.Submission;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 /**
  * FXML Controller class
  *
  * @author Srishti
  */
+public class ShowAllSubmissionController implements Initializable {
 
- 
-public class ShowSubmissionController implements Initializable {
-
+    @FXML
+    private VBox vbShowAllSub;
     @FXML
     private Button btnBack;
-    public static Submission sub;
-    private TextArea taSourceCode;
-    @FXML
-    private TextArea taSubAllSourceCode;
-  
+    ArrayList<Submission> showAllSub;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        showCode();
+      loadShowAllSub();
     }    
-    public void showCode()
+    
+    public void loadShowAllSub()
     {
-       taSourceCode.setText(sub.code);
+       
     }
     @FXML
     private void btnCustomBackPressed(ActionEvent event) throws IOException {

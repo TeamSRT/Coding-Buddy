@@ -690,6 +690,10 @@ public class SubmissionController implements Initializable {
          new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
     }
 
+    private void btnShowAllSubPressed(ActionEvent event) throws IOException {
+        new Utility().loadPane("/Dashboard/ShowAllSubmission.fxml");
+    }
+
     
     
 }
