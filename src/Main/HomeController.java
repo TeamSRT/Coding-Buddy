@@ -12,7 +12,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
@@ -20,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -100,8 +105,14 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void btnSignOutClicked(ActionEvent event) {
-
+    private void btnSignOutClicked(ActionEvent event) throws IOException {
+        Home.pre.put("username", "");
+        Home.pre.put("password", "");
+        Parent root = FXMLLoader.load(getClass().getResource("/Login/mainGUI.fxml"));
+        Scene src = new Scene(root);
+        Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        s.setScene(src);
+        s.show();
     }
 
     @FXML
@@ -122,4 +133,6 @@ public class HomeController implements Initializable {
     private void btnProfileOnAction(ActionEvent event) throws IOException {
         new Utility().loadPane("/Profile/Profile.fxml");
     }
+    
+    
 }

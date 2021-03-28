@@ -1,6 +1,7 @@
 package Login;
 
 import Main.DateAndTime;
+import Main.Home;
 import Main.Utility;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
@@ -49,19 +50,17 @@ public class MainGUIController implements Initializable {
     public static String username;
     @FXML
     private JFXCheckBox rememberMe_checkBtn;
-    
-    Preferences pre;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        pre = Preferences.userNodeForPackage(MainGUIController.class);
+        Home.pre = Preferences.userNodeForPackage(MainGUIController.class);
 
-        if (pre != null) {
-            if (pre.get("username", null) != null && !pre.get("password", null).isEmpty()) {
-                tfLoginUsername.setText(pre.get("username", null));
-                tfLoginPassword.setText(pre.get("password",null));
-                passShow_tf.setText(pre.get("password",null));
+        if (Home.pre != null) {
+            if (Home.pre.get("username", null) != null && !Home.pre.get("password", null).isEmpty()) {
+                tfLoginUsername.setText(Home.pre.get("username", null));
+                tfLoginPassword.setText(Home.pre.get("password",null));
+                passShow_tf.setText(Home.pre.get("password",null));
            
             }
         }
@@ -106,13 +105,15 @@ public class MainGUIController implements Initializable {
             
             if (rememberMe_checkBtn.isSelected()) //remember me working
             {
-                pre.put("username", tfLoginUsername.getText());
-                pre.put("password", tfLoginPassword.getText());
-                pre.put("password", passShow_tf.getText());
+                Home.pre.put("username", tfLoginUsername.getText());
+                Home.pre.put("password", tfLoginPassword.getText());
+                if(tfLoginPassword.getText().equals(""))
+                    Home.pre.put("password", passShow_tf.getText());
+                //System.out.println(tfLoginPassword.getText());
                 
             } else {
-                pre.put("username", "");
-                pre.put("password", "");
+                Home.pre.put("username", "");
+                Home.pre.put("password", "");
             }
             Utility.setUsername(tfLoginUsername.getText());
             Utility.initUser();
