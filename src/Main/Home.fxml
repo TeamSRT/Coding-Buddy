@@ -100,6 +100,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <ImageView fitHeight="37.0" fitWidth="161.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Screenshot%202021-03-29%20013524.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <BorderPane fx:id="testContent" layoutX="215.0" layoutY="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />

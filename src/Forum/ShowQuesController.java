@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -301,10 +303,14 @@ public class ShowQuesController implements Initializable {
             Forum sendComm = new Forum();
             sendComm.connection();
             sendComm.writeComment(showObj.postID, commContent);
+            
             try {
+                loadComment();
                 lblShowCommCount.setText(sendComm.readAnsCount(showObj.postID) + " Comments");
             } catch (SQLException ex) {
                 System.out.println("SQl Exception");
+            } catch (ParseException ex) {
+                Logger.getLogger(ShowQuesController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         //loadComment();
