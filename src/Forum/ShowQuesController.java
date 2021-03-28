@@ -20,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -60,6 +61,7 @@ public class ShowQuesController implements Initializable {
     @FXML
     private TextArea taSQBody;
     public static Post showObj;
+    public int sendCommID;
     @FXML
     private Label lblSQTag;
     private VBox vbSQ;
@@ -74,7 +76,7 @@ public class ShowQuesController implements Initializable {
     @FXML
     private Label lblCommVote;
     public static boolean upvoted = false, downvoted = false, commUpVoted = false, commDownVoted = false;
-
+    public boolean commUpdated = false;
     @FXML
     private Label lblShowCommCount;
     //   private VBox vbContent;
@@ -93,7 +95,8 @@ public class ShowQuesController implements Initializable {
     private Button btnEdit;
     @FXML
     private FontAwesomeIconView iconEdit;
-
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb){             
         Tooltip.install(btnRefresh, new Tooltip("Refresh this page"));
@@ -152,7 +155,8 @@ public class ShowQuesController implements Initializable {
     public void loadComment() throws ParseException, SQLException {
         Forum obj = new Forum();
         Image upVote = new Image("/Image/Up1.png");
-        Image upVoteP = new Image("/Image/Up2.png");      
+        Image upVoteP = new Image("/Image/Up2.png");
+        
         try {
             obj.connection();
         } catch (SQLException ex) {
@@ -172,11 +176,12 @@ public class ShowQuesController implements Initializable {
                 VBox vbCommVote = new VBox();
                 VBox vbCommContent = new VBox();
                 HBox addVbox = new HBox();
+                String commBody = commInfo.get(i).commentBody;
                 Button edit = new Button("Edit");
                 edit.setTextFill(Color.WHITE);
                 edit.setPrefWidth(50);
                 edit.setLayoutX(200);
-                edit.getStyleClass().add("btnStyle");
+                edit.getStyleClass().add("btnStyle");                            
                 Text user;
                 if(commInfo.get(i).userName.equals(Main.Utility.username))
                 {
@@ -269,6 +274,11 @@ public class ShowQuesController implements Initializable {
                         System.out.println(ex);
                     }
                 });
+                edit.setOnMouseClicked((Event event) -> {
+                    taSQComm.setText(commBody);
+                    commUpdated = true;
+                    sendCommID = commentID;                                    
+                });    
                 Text whiteSpace1 = new Text();
                 Text whiteSpace2 = new Text();           
                 Button btn = new Button();                
@@ -290,10 +300,8 @@ public class ShowQuesController implements Initializable {
                 vbCommVote.setSpacing(5);
                 if((commInfo.get(i).userName).equals(Main.Utility.username))
                 {   
-                    HBox container = new HBox();
-                    container.getChildren().addAll(user, edit);
-                 //   container.setSpacing(10);
-                    vbCommContent.getChildren().addAll(container, body, whiteSpace1, commTime, whiteSpace2);
+                                
+                    vbCommContent.getChildren().addAll(user, body, whiteSpace1, edit, commTime, whiteSpace2);
                 }
                 else
                 {    
@@ -318,7 +326,15 @@ public class ShowQuesController implements Initializable {
             taSQComm.setText(null);
             Forum sendComm = new Forum();
             sendComm.connection();
-            sendComm.writeComment(showObj.postID, commContent);
+            if(!commUpdated)
+            {                   
+                sendComm.writeComment(showObj.postID, commContent);
+            }
+            else
+            {
+                sendComm.updateComment(sendCommID, commContent);
+                commUpdated = false;
+            }
             
             try {
                 loadComment();

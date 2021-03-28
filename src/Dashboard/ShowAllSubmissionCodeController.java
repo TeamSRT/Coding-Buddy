@@ -5,7 +5,6 @@
  */
 package Dashboard;
 
-import static Dashboard.ShowSubmissionController.sub;
 import Main.Utility;
 import Problemset.Submission;
 import java.io.IOException;
@@ -15,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 /**

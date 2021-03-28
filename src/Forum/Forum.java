@@ -97,6 +97,14 @@ public class Forum {
         wC.setString(5, obj.getTime());
         wC.execute();
     }
+    public void updateComment(int commentID ,String commBody) throws SQLException
+    {        
+        String query = "UPDATE comment SET commentBody = ? WHERE commentID = ?";
+        PreparedStatement uC = conn.prepareStatement(query);
+        uC.setString(1, commBody);
+        uC.setInt(2, commentID);
+        uC.execute();
+    }
     public void writeVote(int postID, int vote) throws SQLException
     {
         String query = "UPDATE `forum` SET `vote`= ? where postID = ?";
