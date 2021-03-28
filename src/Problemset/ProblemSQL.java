@@ -6,7 +6,6 @@
 package Problemset;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,11 +25,7 @@ public class ProblemSQL {
     private Connection conn;
 
     public ProblemSQL() {
-        try {
-            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/codingbuddydb", "root", "");
-        } catch (SQLException ex) {
-            System.out.println(ex + "At ProblemSQL constructor");
-        }
+        this.conn = Main.Utility.conn;
     }
 
     public ArrayList<Problem> readProblem() {
@@ -84,6 +79,16 @@ public class ProblemSQL {
                 Logger.getLogger(ProblemSQL.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public boolean isSolved(int problemID) throws SQLException {
+        Statement st = conn.createStatement();
+        ResultSet ans = st.executeQuery("SELECT COUNT(userName) FROM submission WHERE verdict = 1 AND problemID = " + problemID + " AND userName = '" + Main.Utility.username + "'");
+        int cnt = 0;
+        if(ans.next()) {
+            cnt = ans.getInt(1);
+        }
+        return cnt > 0;
     }
     
     public String getOutput(int problemID, int num) throws SQLException {

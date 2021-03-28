@@ -32,6 +32,8 @@ public class DetailsController implements Initializable {
     private JFXTextField txtOrg;
     @FXML
     private Button btnChange;
+    @FXML
+    private Button btnBack;
 
    
     @Override
@@ -67,6 +69,11 @@ public class DetailsController implements Initializable {
         if(changeWindow) {
             new Main.Utility().loadPane("/Profile/Profile.fxml");
         }
+    }
+
+    @FXML
+    private void btnBackOnAction(ActionEvent event) throws IOException {
+        new Main.Utility().loadPane("/Profile/Profile.fxml");
     }
     
 }

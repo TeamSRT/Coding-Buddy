@@ -21,6 +21,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
 /**
@@ -28,7 +30,6 @@ import javafx.scene.text.Text;
  *
  * @author ktouf
  */
-
 public class ProblemsetController implements Initializable {
 
     @FXML
@@ -95,22 +96,22 @@ public class ProblemsetController implements Initializable {
     private FontAwesomeIconView iconRefresh;
 
     private ArrayList<Problem> listProblem;
-    private int problemCount; 
+    private int problemCount;
     private int currPage;
     private final int problemPerPage = 6;
-    
+
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadAll();
         Tooltip.install(btnRefresh, new Tooltip("Refresh this page"));
     }
-    
+
     public void loadAll() {
         try {
             if (Utility.checkPrivillage()) {
@@ -140,7 +141,7 @@ public class ProblemsetController implements Initializable {
             System.out.println("Error in loadAll of ProblemsetController.");
         }
     }
-    
+
     public void showProblem() throws SQLException {
         lblProblem1.setText(listProblem.get(currPage * problemPerPage + 0).title);
         lblProblem2.setText(listProblem.get(currPage * problemPerPage + 1).title);
@@ -160,6 +161,36 @@ public class ProblemsetController implements Initializable {
         lblCount4.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 3).problemID));
         lblCount5.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 4).problemID));
         lblCount6.setText("" + new ProblemSQL().countSubmission(listProblem.get(currPage * problemPerPage + 5).problemID));
+        if (new ProblemSQL().isSolved(listProblem.get(currPage * problemPerPage + 0).problemID)) {
+            lblProblem1.setTextFill(Color.FORESTGREEN);
+        } else {
+            lblProblem1.setTextFill(Color.BLACK);
+        }
+        if (new ProblemSQL().isSolved(listProblem.get(currPage * problemPerPage + 1).problemID)) {
+            lblProblem2.setTextFill(Color.FORESTGREEN);
+        } else {
+            lblProblem2.setTextFill(Color.BLACK);
+        }
+        if (new ProblemSQL().isSolved(listProblem.get(currPage * problemPerPage + 2).problemID)) {
+            lblProblem3.setTextFill(Color.FORESTGREEN);
+        } else {
+            lblProblem3.setTextFill(Color.BLACK);
+        }
+        if (new ProblemSQL().isSolved(listProblem.get(currPage * problemPerPage + 3).problemID)) {
+            lblProblem4.setTextFill(Color.FORESTGREEN);
+        } else {
+            lblProblem4.setTextFill(Color.BLACK);
+        }
+        if (new ProblemSQL().isSolved(listProblem.get(currPage * problemPerPage + 4).problemID)) {
+            lblProblem5.setTextFill(Color.FORESTGREEN);
+        } else {
+            lblProblem5.setTextFill(Color.BLACK);
+        }
+        if (new ProblemSQL().isSolved(listProblem.get(currPage * problemPerPage + 5).problemID)) {
+            lblProblem6.setTextFill(Color.FORESTGREEN);
+        } else {
+            lblProblem6.setTextFill(Color.BLACK);
+        }
     }
 
     @FXML
@@ -207,7 +238,7 @@ public class ProblemsetController implements Initializable {
     private void btnNextPressed(ActionEvent event) throws SQLException {
         currPage++;
         showProblem();
-        if(currPage + 1 == problemCount / problemPerPage) {
+        if (currPage + 1 == problemCount / problemPerPage) {
             btnNext.setDisable(true);
         }
         btnPrevious.setDisable(false);
@@ -219,60 +250,54 @@ public class ProblemsetController implements Initializable {
     private void btnPreviousPressed(ActionEvent event) throws SQLException {
         currPage--;
         showProblem();
-        if(currPage == 0) {
+        if (currPage == 0) {
             btnPrevious.setDisable(true);
-        }            
+        }
         btnNext.setDisable(false);
         txtPageCount.setText(currPage + "");
         checkAvailability();
     }
-    
+
     private void checkAvailability() {
-        if(listProblem.get(currPage * problemPerPage + 0).problemID == -1) {
+        if (listProblem.get(currPage * problemPerPage + 0).problemID == -1) {
             problemPane1.setOpacity(0);
             problemPane1.setDisable(true);
-        }
-        else {
+        } else {
             problemPane1.setOpacity(1);
             problemPane1.setDisable(false);
         }
-        if(listProblem.get(currPage * problemPerPage + 1).problemID == -1) {
+        if (listProblem.get(currPage * problemPerPage + 1).problemID == -1) {
             problemPane2.setOpacity(0);
             problemPane2.setDisable(true);
-        }
-        else {
+        } else {
             problemPane2.setOpacity(1);
             problemPane2.setDisable(false);
         }
-        if(listProblem.get(currPage * problemPerPage + 2).problemID == -1) {
+        if (listProblem.get(currPage * problemPerPage + 2).problemID == -1) {
             problemPane3.setOpacity(0);
             problemPane3.setDisable(true);
-        }
-        else {
+        } else {
             problemPane3.setOpacity(1);
             problemPane3.setDisable(false);
         }
-        if(listProblem.get(currPage * problemPerPage + 3).problemID == -1) {
+        if (listProblem.get(currPage * problemPerPage + 3).problemID == -1) {
             problemPane4.setOpacity(0);
             problemPane4.setDisable(true);
-        }
-        else {
+        } else {
             problemPane4.setOpacity(1);
             problemPane4.setDisable(false);
         }
-        if(listProblem.get(currPage * problemPerPage + 4).problemID == -1) {
+        if (listProblem.get(currPage * problemPerPage + 4).problemID == -1) {
             problemPane5.setOpacity(0);
             problemPane5.setDisable(true);
-        }
-        else {
+        } else {
             problemPane5.setOpacity(1);
             problemPane5.setDisable(false);
         }
-        if(listProblem.get(currPage * problemPerPage + 5).problemID == -1) {
+        if (listProblem.get(currPage * problemPerPage + 5).problemID == -1) {
             problemPane6.setOpacity(0);
             problemPane6.setDisable(true);
-        }
-        else {
+        } else {
             problemPane6.setOpacity(1);
             problemPane6.setDisable(false);
         }
@@ -282,5 +307,5 @@ public class ProblemsetController implements Initializable {
     private void btnRefreshOnAction(ActionEvent event) {
         loadAll();
     }
-    
+
 }

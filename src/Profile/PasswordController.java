@@ -40,6 +40,8 @@ public class PasswordController implements Initializable {
     private Button btnChange;
     
     int pStrength = 0;
+    @FXML
+    private Button btnBack;
 
     /**
      * Initializes the controller class.
@@ -118,6 +120,11 @@ public class PasswordController implements Initializable {
         if(changeWindow) {
             new Main.Utility().loadPane("/Profile/Profile.fxml");
         }
+    }
+
+    @FXML
+    private void btnBackOnAction(ActionEvent event) throws IOException {
+        new Main.Utility().loadPane("/Profile/Profile.fxml");
     }
 
 }
