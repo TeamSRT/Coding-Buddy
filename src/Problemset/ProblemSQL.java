@@ -106,7 +106,6 @@ public class ProblemSQL {
         } catch(SQLException ex) {
             System.out.println(ex);
         }
-        
     }
     
     public boolean isSolved(int problemID) throws SQLException {

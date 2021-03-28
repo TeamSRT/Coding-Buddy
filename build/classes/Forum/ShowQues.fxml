@@ -21,7 +21,7 @@
          <content>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="lblSQTitle" alignment="BASELINE_LEFT" layoutX="28.0" layoutY="14.0" prefHeight="45.0" prefWidth="593.0" styleClass="font" wrapText="true">
+                  <Label fx:id="lblSQTitle" alignment="BASELINE_LEFT" layoutX="28.0" layoutY="14.0" prefHeight="45.0" prefWidth="558.0" styleClass="font" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -82,6 +82,11 @@
                   <Button fx:id="btnEdit" layoutX="625.0" layoutY="366.0" mnemonicParsing="false" onAction="#btnEditClicked" prefHeight="30.0" prefWidth="30.0" styleClass="btnStyle" AnchorPane.rightAnchor="28.0">
                      <graphic>
                         <FontAwesomeIconView fx:id="iconEdit" fill="WHITE" glyphName="EDIT" size="16.0" wrappingWidth="13.0" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnDelete" layoutX="592.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="30.0" styleClass="btnStyle" AnchorPane.rightAnchor="62.0">
+                     <graphic>
+                        <FontAwesomeIconView fx:id="iconDelete" fill="WHITE" glyphName="TRASH" size="16.0" />
                      </graphic>
                   </Button>
                </children>

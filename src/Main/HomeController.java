@@ -39,15 +39,11 @@ public class HomeController implements Initializable {
     @FXML
     private JFXButton btnForum;
     @FXML
-    private JFXButton btnAbout;
-    @FXML
     private JFXButton btnHome;
     @FXML
     private FontAwesomeIconView iconProbSet;
     @FXML
     private FontAwesomeIconView iconForum;
-    @FXML
-    private FontAwesomeIconView iconAbout;
     @FXML
     private JFXButton btnDashboard;
     @FXML
