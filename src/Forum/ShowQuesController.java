@@ -294,7 +294,7 @@ public class ShowQuesController implements Initializable {
                 delete.setOnMouseClicked((Event event) -> {
                     Alert alert = new Alert(AlertType.CONFIRMATION);
                     alert.setHeaderText("Are you sure?");
-                    alert.setContentText("Do you really want to delete this post?This Process can't be undone!");
+                    alert.setContentText("Do you really want to delete this comment?This Process can't be undone!");
                     ButtonType yes = new ButtonType("Yes");
                     ButtonType no = new ButtonType("No");
                     alert.getButtonTypes().setAll(yes, no);
@@ -303,11 +303,15 @@ public class ShowQuesController implements Initializable {
                         try {
                             obj.connection();
                             obj.deleteComment(commentID);
-                            new Utility().loadPane("/Forum/ShowQuestionController.fxml");
+                            try {
+                                loadComment();
+                                lblShowCommCount.setText(obj.readAnsCount(showObj.postID) + " Comments");
+                                
+                            } catch (ParseException ex) {
+                                System.out.println(ex);
+                            }
                         } catch (SQLException ex) {
                             System.out.println("While deleting comment = " + ex);
-                        } catch (IOException ex) {
-                            System.out.println("File not found" + ex);
                         }
 
                     }
