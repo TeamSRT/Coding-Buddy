@@ -28,9 +28,8 @@ public class ShowSubmissionController implements Initializable {
     @FXML
     private Button btnBack;
     public static Submission sub;
-    private TextArea taSourceCode;
     @FXML
-    private TextArea taSubAllSourceCode;
+    private TextArea taSourceCode;
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {

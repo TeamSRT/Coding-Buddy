@@ -31,6 +31,6 @@
             </TextArea>
          </children>
       </AnchorPane>
-      <Button fx:id="btnBack" layoutX="21.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnCustomBackPressed" prefHeight="25.0" prefWidth="57.0" styleClass="btnClass" stylesheets="@showsubmission.css" text="Back" AnchorPane.leftAnchor="20.0" />
+      <Button fx:id="btnBack" layoutX="21.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnBackPressed" prefHeight="25.0" prefWidth="57.0" styleClass="btnClass" stylesheets="@showsubmission.css" text="Back" AnchorPane.leftAnchor="20.0" />
    </children>
 </AnchorPane>

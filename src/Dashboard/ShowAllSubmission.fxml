@@ -167,7 +167,7 @@
                <children>
                   <Label fx:id="lbl9ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl9User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl9Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
+                  <Label fx:id="lbl9Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl9Sub" alignment="CENTER" onMouseClicked="#lbl9SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl9Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl9SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">

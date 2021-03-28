@@ -5,6 +5,9 @@
  */
 package Dashboard;
 
+import static Dashboard.ShowSubmissionController.sub;
+import Main.Utility;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -28,11 +31,15 @@ public class ShowAllSubmissionCodeController implements Initializable {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        showSubAllCode();
     }    
-
+    public void showSubAllCode()
+    {
+       taSubAllSourceCode.setText(sub.code);
+    }  
     @FXML
-    private void btnCustomBackPressed(ActionEvent event) {
+    private void btnBackPressed(ActionEvent event) throws IOException {
+        new Utility().loadPane("/Dashboard/ShowAllSubmission.fxml");
     }
     
 }
