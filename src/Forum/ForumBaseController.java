@@ -240,37 +240,86 @@ public class ForumBaseController implements Initializable {
         imgHolder7.setImage(Utility.getImage(receive.get(currPage * QuesPerPage + 6).username, 72, 65));
         Forum obj = new Forum();
         obj.connection();
-        lblForumUser1.setText("Asked by " + receive.get(currPage * QuesPerPage + 0).username);
+        if(receive.get(currPage * QuesPerPage + 0).username.equals(Main.Utility.username))
+        {
+            lblForumUser1.setText("Asked by me");
+        }
+        else
+        {    
+            lblForumUser1.setText("Asked by " + receive.get(currPage * QuesPerPage + 0).username);
+        }
         lblShowTitle1.setText(receive.get(currPage * QuesPerPage + 0).title);
         lblPostTime1.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 0).postDate +  receive.get(currPage * QuesPerPage + 0).postTime)));
         lblVote1.setText(receive.get(currPage * QuesPerPage + 0).vote + " ");        
-        lblAns1.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 0).postID));    
-        lblForumUser2.setText("Asked by " + receive.get(currPage * QuesPerPage + 1).username);
+        lblAns1.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 0).postID));
+        if(receive.get(currPage * QuesPerPage + 1).username.equals(Main.Utility.username))
+        {
+            lblForumUser2.setText("Asked by me");
+        }
+        else
+        {    
+            lblForumUser2.setText("Asked by " + receive.get(currPage * QuesPerPage + 1).username);
+        }
         lblShowTitle2.setText(receive.get(currPage * QuesPerPage + 1).title);
         lblPostTime2.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 1).postDate + receive.get(currPage * QuesPerPage + 1).postTime)));
         lblVote2.setText(receive.get(currPage * QuesPerPage + 1).vote + " ");
         lblAns2.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 1).postID));
-        lblForumUser3.setText("Asked by " + receive.get(currPage * QuesPerPage + 2).username);
+        if(receive.get(currPage * QuesPerPage + 2).username.equals(Main.Utility.username))
+        {
+            lblForumUser3.setText("Asked by me");
+        }
+        else
+        {    
+            lblForumUser3.setText("Asked by " + receive.get(currPage * QuesPerPage + 2).username);
+        }
         lblShowTitle3.setText(receive.get(currPage * QuesPerPage + 2).title);        
         lblPostTime3.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 2).postDate +  receive.get(currPage * QuesPerPage + 2).postTime)));       
         lblVote3.setText(receive.get(currPage * QuesPerPage + 2).vote + " ");
         lblAns3.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 2).postID));
-        lblForumUser4.setText("Asked by " + receive.get(currPage * QuesPerPage + 3).username);
+        if(receive.get(currPage * QuesPerPage + 3).username.equals(Main.Utility.username))
+        {
+            lblForumUser4.setText("Asked by me");
+        }
+        else
+        {   
+            lblForumUser4.setText("Asked by " + receive.get(currPage * QuesPerPage + 3).username);
+        }
         lblShowTitle4.setText(receive.get(currPage * QuesPerPage + 3).title);
         lblPostTime4.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 3).postDate + receive.get(currPage * QuesPerPage + 3).postTime)));
         lblVote4.setText(receive.get(currPage * QuesPerPage + 3).vote + " ");
         lblAns4.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 3).postID));
-        lblForumUser5.setText("Asked by " + receive.get(currPage * QuesPerPage + 4).username);
+        if(receive.get(currPage * QuesPerPage + 4).username.equals(Main.Utility.username))
+        {
+            lblForumUser5.setText("Asked by me");
+        }
+        else
+        {    
+            lblForumUser5.setText("Asked by " + receive.get(currPage * QuesPerPage + 4).username);
+        }
         lblShowTitle5.setText(receive.get(currPage * QuesPerPage + 4).title);
         lblPostTime5.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 4).postDate + receive.get(currPage * QuesPerPage + 4).postTime)));
         lblVote5.setText(receive.get(currPage * QuesPerPage + 4).vote + " ");
         lblAns5.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 4).postID));
-        lblForumUser6.setText("Asked by " + receive.get(currPage * QuesPerPage + 5).username);
+        if(receive.get(currPage * QuesPerPage + 5).username.equals(Main.Utility.username))
+        {
+            lblForumUser6.setText("Asked by me");
+        }
+        else
+        {    
+            lblForumUser6.setText("Asked by " + receive.get(currPage * QuesPerPage + 5).username);
+        }
         lblShowTitle6.setText(receive.get(currPage * QuesPerPage + 5).title);
         lblPostTime6.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 5).postDate + receive.get(currPage * QuesPerPage + 5).postTime)));
         lblVote6.setText(receive.get(currPage * QuesPerPage + 5).vote + " ");
         lblAns6.setText(obj.readAnsCount(receive.get(currPage * QuesPerPage + 5).postID));
-        lblForumUser7.setText("Asked by " + receive.get(currPage * QuesPerPage + 6).username);
+        if(receive.get(currPage * QuesPerPage + 6).username.equals(Main.Utility.username))
+        {
+            lblForumUser7.setText("Asked by me");
+        }
+        else
+        {    
+            lblForumUser7.setText("Asked by " + receive.get(currPage * QuesPerPage + 6).username);
+        }
         lblPostTime7.setText("Posted "+new DateAndTime().passedTime(new Date(),format.parse(receive.get(currPage * QuesPerPage + 6).postDate + receive.get(currPage * QuesPerPage + 6).postTime)));
         lblShowTitle7.setText(receive.get(currPage * QuesPerPage + 6).title);
         lblVote7.setText(receive.get(currPage * QuesPerPage + 6).vote + " ");

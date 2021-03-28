@@ -126,7 +126,14 @@ public class ShowQuesController implements Initializable {
             btnEdit.setDisable(true);
             btnEdit.setOpacity(0);
         }
-        lblSQUser.setText("Asked by " + showObj.username);
+        if(showObj.username.equals(Main.Utility.username))
+        {
+            lblSQUser.setText("Asked by me");
+        }
+        else
+        {    
+            lblSQUser.setText("Asked by " + showObj.username);
+        }
         String timeAgo = new DateAndTime().passedTime(new Date(), format.parse(showObj.postDate + showObj.postTime));
         lblSQPostTime.setText("Posted " + timeAgo);
         taSQBody.setText(showObj.body);
