@@ -554,74 +554,74 @@ public class ShowAllSubmissionController implements Initializable {
 
     @FXML
     private void lbl1SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 0); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 0); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl2SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 1); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 1); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl3SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 2); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 2); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl4SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 3); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 3); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl5SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 4); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 4); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl6SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 5); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 5); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl7SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 6); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 6); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl8SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 7); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 7); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl9SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 8); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 8); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl10SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 9); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 9); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl11SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 10); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 10); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     @FXML
     private void lbl12SubClicked(MouseEvent event) throws IOException {
-        ShowSubmissionController.sub = showAllSub.get(currPage * BoxPerPage + 11); 
-        new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
+        ShowAllSubmissionCodeController.sub = showAllSub.get(currPage * BoxPerPage + 11); 
+        new Utility().loadPane("/Dashboard/ShowAllSubmissionCode.fxml");
     }
 
     

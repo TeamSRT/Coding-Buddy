@@ -190,7 +190,7 @@ public class DashboardController implements Initializable {
     }
     public void showToDo() {
         rec = new ProblemSQL().readToDo("AND trackToDo = -1");
-        System.out.println("size = "+rec.size());
+//        System.out.println("size = "+rec.size());
         if(rec.isEmpty())
         {
            lblShowTD5.setText("No todo's to display");

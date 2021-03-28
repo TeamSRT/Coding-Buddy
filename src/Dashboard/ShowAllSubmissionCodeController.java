@@ -7,6 +7,7 @@ package Dashboard;
 
 import static Dashboard.ShowSubmissionController.sub;
 import Main.Utility;
+import Problemset.Submission;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 /**
@@ -27,6 +29,7 @@ public class ShowAllSubmissionCodeController implements Initializable {
     private TextArea taSubAllSourceCode;
     @FXML
     private Button btnBack;
+    public static Submission sub;
 
    
     @Override
