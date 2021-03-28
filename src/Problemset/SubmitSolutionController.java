@@ -61,11 +61,20 @@ public class SubmitSolutionController extends SubmitCodeController implements In
     Thread tSub1, tSub2, tSub3;
     @FXML
     private MenuItem btnLangCsharp;
+    @FXML
+    private Label lblStatus1;
+    @FXML
+    private Label lblStatus2;
+    @FXML
+    private Label lblStatus3;
 
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        lblStatus1.setOpacity(0);
+        lblStatus2.setOpacity(0);
+        lblStatus3.setOpacity(0);
     }
 
     @FXML
@@ -133,26 +142,30 @@ public class SubmitSolutionController extends SubmitCodeController implements In
             boolean m1 = expectedOutput1.equals(Compiler.expectedOutput1);
             boolean m2 = expectedOutput2.equals(Compiler.expectedOutput2);
             boolean m3 = expectedOutput3.equals(Compiler.expectedOutput3);
-//            System.out.println("TC1 " + expectedOutput1);
-//            System.out.println("TC1 " + Compiler.expectedOutput1);
-//            System.out.println("TC2 " + expectedOutput2);
-//            System.out.println("TC2 " + Compiler.expectedOutput2);
-//            System.out.println("TC3 " + expectedOutput3);
-//            System.out.println("TC3 " + Compiler.expectedOutput3);
+            lblStatus1.setOpacity(1);
+            lblStatus2.setOpacity(2);
+            lblStatus3.setOpacity(3);
             if (!m1) {
-                lblStatus.setText("Status: Wrong Answer in Test Case 1.");
-                lblStatus.setStyle("-fx-text-fill : red");
-            } else if (!m2) {
-                lblStatus.setText("Status: Wrong Answer in Test Case 2.");
-                lblStatus.setStyle("-fx-text-fill : red");
-            } else if (!m3) {
-                lblStatus.setText("Status: Wrong Answer in Test Case 3.");
-                lblStatus.setStyle("-fx-text-fill : red");
+                lblStatus1.setText("Status: Wrong Answer in Test Case 1.");
+                lblStatus1.setStyle("-fx-text-fill : red");
             } else {
-                lblStatus.setText("Status: Accepted.");
-                lblStatus.setStyle("-fx-text-fill : green");
+                lblStatus1.setText("Status: Passed Test Case 1.");
+                lblStatus1.setStyle("-fx-text-fill : green");
+            } 
+            if (!m2) {
+                lblStatus2.setText("Status: Wrong Answer in Test Case 2.");
+                lblStatus2.setStyle("-fx-text-fill : red");
+            } else {
+                lblStatus2.setText("Status: Passed Test Case 2.");
+                lblStatus2.setStyle("-fx-text-fill : green");
+            } 
+            if (!m3) {
+                lblStatus3.setText("Status: Wrong Answer in Test Case 3.");
+                lblStatus3.setStyle("-fx-text-fill : red");
+            } else {
+                lblStatus3.setText("Status: Passed Test Case 3.");
+                lblStatus3.setStyle("-fx-text-fill : green");
             }
-
             try {
                 if (!m1 || !m2 || !m3) {
                     new ProblemSQL().recordSubmission(problemID, -1, currLang, txtCode.getText());

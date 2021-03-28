@@ -105,6 +105,12 @@ public class SubmitCodeController implements Initializable {
         currLang = "python3";
         btnLang.setText("Python3");
     }
+    
+    @FXML
+    private void btnLangCsharpPressed(ActionEvent event) {
+        currLang = "csharp";
+        btnLang.setText("C#");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -127,10 +133,5 @@ public class SubmitCodeController implements Initializable {
         new Utility().loadPane("/Problemset/Problemset.fxml");
     }
 
-    @FXML
-    private void btnLangCsharpPressed(ActionEvent event) {
-        currLang = "csharp";
-        btnLang.setText("C#");
-    }
 
 }
