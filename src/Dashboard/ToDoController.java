@@ -43,7 +43,7 @@ public class ToDoController implements Initializable {
     }    
     public void loadToDo()
     {
-        recToDo = new ProblemSQL().readToDo();        
+        recToDo = new ProblemSQL().readToDo("");        
         for(int i = 0; i < recToDo.size(); i++)
         {
             CheckBox todo = new CheckBox(recToDo.get(i).title);                             

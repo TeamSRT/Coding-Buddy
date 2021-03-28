@@ -188,7 +188,7 @@ public class DashboardController implements Initializable {
          new Utility().loadPane("/Dashboard/ToDo.fxml");
     }
     public void showToDo() {
-        rec = new ProblemSQL().readToDo();
+        rec = new ProblemSQL().readToDo("AND trackToDo = -1");
         System.out.println("size = "+rec.size());
         if(rec.isEmpty())
         {

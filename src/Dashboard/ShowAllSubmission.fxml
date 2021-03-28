@@ -55,12 +55,12 @@
                <children>
                   <Label fx:id="lbl1ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl1User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl1Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl1Sub" alignment="CENTER" onMouseClicked="#lbl1SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl1Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl1Sub" alignment="CENTER" onMouseClicked="#lbl1SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl1Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl1SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl1SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -69,12 +69,12 @@
                <children>
                   <Label fx:id="lbl2ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl2User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl2Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl2Sub" alignment="CENTER" onMouseClicked="#lbl2SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl2Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl2Sub" alignment="CENTER" onMouseClicked="#lbl2SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl2Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl2SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl2SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -83,12 +83,12 @@
                <children>
                   <Label fx:id="lbl3ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl3User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl3Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl3Sub" alignment="CENTER" onMouseClicked="#lbl3SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl3Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl3Sub" alignment="CENTER" onMouseClicked="#lbl3SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl3Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl3SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl3SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -97,12 +97,12 @@
                <children>
                   <Label fx:id="lbl4ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl4User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl4Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl4Sub" alignment="CENTER" onMouseClicked="#lbl4SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl4Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl4Sub" alignment="CENTER" onMouseClicked="#lbl4SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl4Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl4SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl4SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -111,12 +111,12 @@
                <children>
                   <Label fx:id="lbl5ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl5User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl5Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl5Sub" alignment="CENTER" onMouseClicked="#lbl5SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl5Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl5Sub" alignment="CENTER" onMouseClicked="#lbl5SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl5Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl5SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl5SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -125,12 +125,12 @@
                <children>
                   <Label fx:id="lbl6ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl6User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl6Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl6Sub" alignment="CENTER" onMouseClicked="#lbl6SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl6Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl6Sub" alignment="CENTER" onMouseClicked="#lbl6SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl6Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl6SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl6SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -139,12 +139,12 @@
                <children>
                   <Label fx:id="lbl7ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl7User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl7Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl7Sub" alignment="CENTER" onMouseClicked="#lbl7SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl7Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl7Sub" alignment="CENTER" onMouseClicked="#lbl7SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl7Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl7SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl7SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -153,12 +153,12 @@
                <children>
                   <Label fx:id="lbl8ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl8User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl8Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl8Sub" alignment="CENTER" onMouseClicked="#lbl8SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl8Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl8Sub" alignment="CENTER" onMouseClicked="#lbl8SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl8Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl8SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl8SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -168,11 +168,11 @@
                   <Label fx:id="lbl9ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl9User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl9Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl9Sub" alignment="CENTER" onMouseClicked="#lbl9SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl9Sub" alignment="CENTER" onMouseClicked="#lbl9SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl9Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl9SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl9SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -181,12 +181,12 @@
                <children>
                   <Label fx:id="lbl10ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl10User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl10Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl10Sub" alignment="CENTER" onMouseClicked="#lbl10SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl10Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl10Sub" alignment="CENTER" onMouseClicked="#lbl10SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl10Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl10SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl10SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -195,12 +195,12 @@
                <children>
                   <Label fx:id="lbl11ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl11User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl11Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl11Sub" alignment="CENTER" onMouseClicked="#lbl11SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl11Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl11Sub" alignment="CENTER" onMouseClicked="#lbl11SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl11Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl11SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl11SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -209,12 +209,12 @@
                <children>
                   <Label fx:id="lbl12ProbName" alignment="CENTER" prefHeight="34.0" prefWidth="116.0" styleClass="lbl" stylesheets="@submission.css" />
                   <Label fx:id="lbl12User" alignment="CENTER" prefHeight="40.0" prefWidth="114.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl12Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" stylesheets="@submission.css" />
-                  <Label fx:id="lbl12Sub" alignment="CENTER" onMouseClicked="#lbl12SubClicked" prefHeight="40.0" prefWidth="89.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl12Ans" alignment="CENTER" prefHeight="40.0" prefWidth="117.0" styleClass="lbl" stylesheets="@submission.css" />
+                  <Label fx:id="lbl12Sub" alignment="CENTER" onMouseClicked="#lbl12SubClicked" prefHeight="40.0" prefWidth="89.0" stylesheets="@submission.css" />
                   <Label fx:id="lbl12Lang" alignment="CENTER" prefHeight="40.0" prefWidth="94.0" styleClass="lbl" stylesheets="@submission.css" />
-                  <Label fx:id="lbl12SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" stylesheets="@submission.css">
+                  <Label fx:id="lbl12SubDate" alignment="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="lbl" stylesheets="@submission.css">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>

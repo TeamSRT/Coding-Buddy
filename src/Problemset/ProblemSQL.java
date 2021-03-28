@@ -173,11 +173,11 @@ public class ProblemSQL {
         }
     }
 
-    public ArrayList<Problem> readToDo()
+    public ArrayList<Problem> readToDo(String instruct)
     {
         ArrayList<Problem> prob = new ArrayList<>(); 
         try {
-            String query = "SELECT trackToDo, problemID as pID,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM todo WHERE username = '" + Main.Utility.username + "'";
+            String query = "SELECT trackToDo, problemID as pID,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM todo WHERE username = '" + Main.Utility.username + "' " + instruct + " ORDER BY trackID DESC";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             while(rs.next())
@@ -192,7 +192,9 @@ public class ProblemSQL {
             System.out.println("To do = "+ex);
         }
         return prob;
-    }
+    }    
+    
+     
      public Problem readProblemForToDo(int problemID) {
         Problem obj = new Problem();
         try {
@@ -223,7 +225,7 @@ public class ProblemSQL {
         ArrayList<Submission> subObj = new ArrayList<>();
         try {        
             Statement st = conn.createStatement();
-            String query = "SELECT problemID as pID, track, verdict, lang, code, subdate, subtime,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM submission WHERE username = '" + Main.Utility.username + "'";         
+            String query = "SELECT problemID as pID, track, verdict, lang, code, subdate, subtime,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM submission WHERE username = '" + Main.Utility.username + "'ORDER BY track DESC";         
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
                 Submission obj = new Submission();
@@ -246,7 +248,7 @@ public class ProblemSQL {
         ArrayList<Submission> subAll = new ArrayList<>();
         try {        
             Statement st = conn.createStatement();
-            String query = "SELECT problemID as pID, userName, track, lang, code, subdate, subtime,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM submission WHERE verdict = 1 OR verdict = -1";         
+            String query = "SELECT problemID as pID, verdict, userName, track, lang, code, subdate, subtime,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM submission WHERE verdict = 1 OR verdict = -1 ORDER BY track DESC";         
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
                 Submission obj = new Submission();

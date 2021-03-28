@@ -23,7 +23,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 /**
  * FXML Controller class
@@ -220,7 +219,7 @@ public class ShowAllSubmissionController implements Initializable {
     }    
     public void loadAll() {
         currPage = 0;
-        showAllSub = new ProblemSQL().readSubmission();
+        showAllSub = new ProblemSQL().readAllSubmission();
         sizeCount = showAllSub.size();
         
         if (sizeCount % 12 != 0) {
