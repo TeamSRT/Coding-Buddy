@@ -18,10 +18,10 @@
                   <TextArea fx:id="txtInput1" layoutX="10.0" layoutY="401.0" prefHeight="40.0" prefWidth="655.0" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" />
                   <TextArea fx:id="txtOutput1" layoutX="10.0" layoutY="455.0" prefHeight="45.0" prefWidth="655.0" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" />
                   <TextArea fx:id="txtProblem" layoutX="10.0" layoutY="108.0" prefHeight="278.0" prefWidth="655.0" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="108.0" />
-                  <Button fx:id="btnSubmit" layoutX="610.0" layoutY="744.0" mnemonicParsing="false" onAction="#btnSubmitPressed" prefHeight="25.0" prefWidth="55.0" text="Submit" AnchorPane.rightAnchor="20.0" />
+                  <Button fx:id="btnSubmit" layoutX="610.0" layoutY="744.0" mnemonicParsing="false" onAction="#btnSubmitPressed" prefHeight="25.0" prefWidth="55.0" styleClass="btnClass" stylesheets="@ProblemView.css" text="Submit" AnchorPane.rightAnchor="20.0" />
                   <Label layoutX="9.0" layoutY="438.0" prefHeight="17.0" prefWidth="108.0" text="Expected Output 1:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="562.0" />
                   <Label layoutX="10.0" layoutY="91.0" prefHeight="17.0" prefWidth="65.0" text="Problem:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="605.0" />
-                  <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBackPressed" prefHeight="10.0" prefWidth="45.0" text="Back" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBackPressed" prefHeight="10.0" prefWidth="45.0" styleClass="btnClass" stylesheets="@ProblemView.css" text="Back" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                   <Label layoutX="10.0" layoutY="383.0" prefHeight="18.0" prefWidth="49.0" text="Input 1:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="626.0" />
                   <TextField fx:id="txtTitle" layoutX="10.0" layoutY="61.0" prefHeight="30.0" prefWidth="655.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="61.0" />
                   <Label layoutX="10.0" layoutY="44.0" text="Title:" AnchorPane.leftAnchor="10.0" />
@@ -33,7 +33,7 @@
                   <TextArea fx:id="txtOutput3" layoutX="10.0" layoutY="689.0" prefHeight="45.0" prefWidth="650.0" wrapText="true" />
                   <Label layoutX="10.0" layoutY="672.0" prefHeight="17.0" prefWidth="115.0" text="Expected Output 3:" />
                   <Label layoutX="10.0" layoutY="617.0" prefHeight="18.0" prefWidth="49.0" text="Input 3:" />
-                  <MenuButton fx:id="btnTime" layoutX="549.0" layoutY="744.0" mnemonicParsing="false" text="1s">
+                  <MenuButton fx:id="btnTime" layoutX="549.0" layoutY="744.0" mnemonicParsing="false" styleClass="btnClass" stylesheets="@ProblemView.css" text="1s">
                     <items>
                       <MenuItem fx:id="btnT1" mnemonicParsing="false" onAction="#btnT1OnAction" text="1s" />
                       <MenuItem fx:id="btnT2" mnemonicParsing="false" onAction="#btnT2OnAction" text="2s" />
