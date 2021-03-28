@@ -28,6 +28,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
@@ -193,6 +194,8 @@ public class DashboardController implements Initializable {
         if(rec.isEmpty())
         {
            lblShowTD5.setText("No todo's to display");
+           lblShowTD5.setDisable(true);
+           lblShowTD5.setStyle("-fx-opacity: 1");
            lblShowTD1.setDisable(true);
            lblShowTD1.setOpacity(0); 
            lblShowTD2.setDisable(true);

@@ -48,7 +48,7 @@ public class ToDoController implements Initializable {
         {
             CheckBox todo = new CheckBox(recToDo.get(i).title);                             
             todo.setDisable(true);
-            todo.setStyle("-fx-opacity: 1");           
+            todo.setStyle("-fx-opacity: 1");
             Separator sp = new Separator();
             sp.isVisible();
             sp.setPrefWidth(658);
