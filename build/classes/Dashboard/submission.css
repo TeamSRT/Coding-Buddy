@@ -19,6 +19,7 @@
 {
     -fx-border-color: #a6a6a6;
     -fx-font-size: 14px;
+    -fx-font-weight: bold;
     -fx-border-width: 2px
 }
 .label:hover

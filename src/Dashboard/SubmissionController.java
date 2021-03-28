@@ -563,7 +563,7 @@ public class SubmissionController implements Initializable {
         lbl11Lang.setText(receive.get(currPage * BoxPerPage + 10).lang);
         lbl12Lang.setText(receive.get(currPage * BoxPerPage + 11).lang);
 
-        //language//
+        //Date and Time//
         lbl1SubDate.setText(receive.get(currPage * BoxPerPage + 0).subdate + " " + receive.get(currPage * BoxPerPage + 0).subtime);
         lbl2SubDate.setText(receive.get(currPage * BoxPerPage + 1).subdate + " " + receive.get(currPage * BoxPerPage + 1).subtime);
         lbl3SubDate.setText(receive.get(currPage * BoxPerPage + 2).subdate + " " + receive.get(currPage * BoxPerPage + 2).subtime);
@@ -689,7 +689,7 @@ public class SubmissionController implements Initializable {
          ShowSubmissionController.sub = receive.get(currPage * BoxPerPage + 11);
          new Utility().loadPane("/Dashboard/ShowSubmission.fxml");
     }
-
+    @FXML
     private void btnShowAllSubPressed(ActionEvent event) throws IOException {
         new Utility().loadPane("/Dashboard/ShowAllSubmission.fxml");
     }

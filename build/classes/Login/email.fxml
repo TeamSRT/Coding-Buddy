@@ -6,39 +6,47 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="539.0" prefWidth="328.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.EController">
+<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="485.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.EController">
    <children>
-      <ImageView fitHeight="299.0" fitWidth="330.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="292.0" fitWidth="485.0" pickOnBounds="true">
          <image>
             <Image url="@../Image/v3.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="tf_OTP" layoutX="101.0" layoutY="337.0" maxWidth="258.0" minWidth="127.0" onAction="#tf_OTP" prefHeight="31.0" prefWidth="127.0" promptText="OTP" />
-      <JFXButton fx:id="valid_btn" buttonType="RAISED" layoutX="208.0" layoutY="487.0" onAction="#valid_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #E77471;" text="NEXT" />
-      <Label layoutX="66.0" layoutY="291.0" text="Email Varification">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#972d2d" />
-                  <Stop color="#541010" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
+      <JFXTextField fx:id="tf_OTP" labelFloat="true" layoutX="25.0" layoutY="342.0" maxWidth="258.0" minWidth="127.0" onAction="#tf_OTP" prefHeight="31.0" prefWidth="127.0" promptText="Varification Code" unFocusColor="#8f5050" AnchorPane.leftAnchor="46.0" />
+      <JFXButton fx:id="valid_btn" buttonType="RAISED" layoutX="358.0" layoutY="344.0" onAction="#valid_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #E77471;" text="NEXT" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="21.0" />
+      <Label layoutX="68.0" layoutY="11.0" text="Email Varification" underline="true">
          <font>
-            <Font name="System Bold Italic" size="26.0" />
+            <Font name="System Bold Italic" size="41.0" />
          </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#c62727" />
+                  <Stop color="#270b68" offset="0.6426116838487972" />
+                  <Stop color="#971919" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
       </Label>
-      <JFXButton fx:id="Back_btn" buttonType="RAISED" layoutX="24.0" layoutY="487.0" onAction="#back_btn" prefHeight="25.0" prefWidth="86.0" style="-fx-background-color: #E77471;" text="Back" />
-      <Label fx:id="otp_check_show" layoutX="110.0" layoutY="368.0" prefHeight="25.0" prefWidth="106.0" textFill="#eb0000">
+      <Label fx:id="otp_check_show" layoutX="46.0" layoutY="373.0" prefHeight="25.0" prefWidth="127.0" textFill="#eb0000" AnchorPane.leftAnchor="46.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="GIvenEmailWrong_lebel" layoutX="66.0" layoutY="393.0" prefHeight="17.0" prefWidth="179.0" textFill="#f50000" />
-      <Label fx:id="goback_lebel" layoutX="68.0" layoutY="419.0" prefHeight="17.0" prefWidth="222.0" textFill="RED" />
+      <JFXButton fx:id="ChangeEmail_btn" alignment="TOP_LEFT" buttonType="RAISED" layoutX="193.0" layoutY="422.0" onAction="#ChangeEmail_btn" prefHeight="31.0" prefWidth="168.0" text="Press Here To Change" textFill="#4a04eb" underline="true" AnchorPane.bottomAnchor="146.0">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+      <Label layoutX="108.0" layoutY="422.0" prefHeight="31.0" prefWidth="96.0" text="Wrong Email !" AnchorPane.bottomAnchor="146.0" AnchorPane.leftAnchor="108.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <JFXTextField fx:id="UpdateEmail_tf" labelFloat="true" layoutX="35.0" layoutY="502.0" promptText="New Email" unFocusColor="#8f5050" visible="false" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="492.0" />
+      <JFXButton fx:id="emailUpdate_btn" buttonType="RAISED" layoutX="358.0" layoutY="485.0" onAction="#emailUpdate_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #0000FF;" text="Resent" textFill="#fffdfd" visible="false" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="492.0" />
    </children>
 </AnchorPane>

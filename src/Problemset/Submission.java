@@ -25,5 +25,15 @@ public class Submission {
         this.subdate = date;
         this.subtime = time;
     }
+    public Submission(String probName,String username, String answer, String code, String lang, String date, String time)
+    {
+        this.probName = probName;
+        this.username = username;
+        this.answer = answer;
+        this.code = code;
+        this.lang = lang; 
+        this.subdate = date;
+        this.subtime = time;
+    }
     
 }

@@ -245,7 +245,7 @@ public class ProblemSQL {
         ArrayList<Submission> subAll = new ArrayList<>();
         try {        
             Statement st = conn.createStatement();
-            String query = "SELECT problemID as pID, userName, track, lang, code, subdate, subtime,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM submission WHERE verdict = 1 or verdict = -1";         
+            String query = "SELECT problemID as pID, userName, track, lang, code, subdate, subtime,(SELECT title from problemset WHERE problemID = pID) as pTitle FROM submission WHERE verdict = 1 OR verdict = -1";         
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
                 Submission obj = new Submission();
