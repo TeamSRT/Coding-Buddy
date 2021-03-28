@@ -15,6 +15,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +31,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextArea;
@@ -95,6 +97,10 @@ public class ShowQuesController implements Initializable {
     private Button btnEdit;
     @FXML
     private FontAwesomeIconView iconEdit;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private FontAwesomeIconView iconDelete;
     
     
     @Override
@@ -103,6 +109,7 @@ public class ShowQuesController implements Initializable {
         Tooltip.install(ivUpVote, new Tooltip("This post is helpful and clear"));
         Tooltip.install(ivDownVote, new Tooltip("This post is not helpful and unclear"));
         Tooltip.install(btnEdit, new Tooltip("Edit post"));
+        Tooltip.install(btnDelete, new Tooltip("Delete post"));        
         loadAll();
     }
     
@@ -126,11 +133,15 @@ public class ShowQuesController implements Initializable {
         {
             btnEdit.setDisable(false);
             btnEdit.setOpacity(1);
+            btnDelete.setDisable(false);
+            btnDelete.setOpacity(1);
         }
         else
         {
             btnEdit.setDisable(true);
             btnEdit.setOpacity(0);
+            btnDelete.setDisable(false);
+            btnDelete.setOpacity(0);
         }
         if(showObj.username.equals(Main.Utility.username))
         {
@@ -156,7 +167,7 @@ public class ShowQuesController implements Initializable {
         Forum obj = new Forum();
         Image upVote = new Image("/Image/Up1.png");
         Image upVoteP = new Image("/Image/Up2.png");
-        
+
         try {
             obj.connection();
         } catch (SQLException ex) {
@@ -178,17 +189,17 @@ public class ShowQuesController implements Initializable {
                 HBox addVbox = new HBox();
                 String commBody = commInfo.get(i).commentBody;
                 Button edit = new Button("Edit");
+                Button delete = new Button("Delete");
                 edit.setTextFill(Color.WHITE);
                 edit.setPrefWidth(50);
-                edit.setLayoutX(200);
-                edit.getStyleClass().add("btnStyle");                            
+                edit.getStyleClass().add("btnStyle");
+                delete.setTextFill(Color.WHITE);
+                delete.setPrefWidth(60);
+                delete.getStyleClass().add("btnStyle");
                 Text user;
-                if(commInfo.get(i).userName.equals(Main.Utility.username))
-                {
+                if (commInfo.get(i).userName.equals(Main.Utility.username)) {
                     user = new Text("Me");
-                }
-                else
-                {    
+                } else {
                     user = new Text(commInfo.get(i).userName);
                 }
                 Text body = new Text(commInfo.get(i).commentBody);
@@ -196,13 +207,13 @@ public class ShowQuesController implements Initializable {
                 user.setOnMouseEntered((Event event) -> {
                     user.setCursor(Cursor.TEXT);
                 });
-               body.setOnMouseEntered((Event event) -> {
-                     body.setCursor(Cursor.TEXT);
+                body.setOnMouseEntered((Event event) -> {
+                    body.setCursor(Cursor.TEXT);
                 });
-                 commTime.setOnMouseEntered((Event event) -> {
-                     commTime.setCursor(Cursor.TEXT);
+                commTime.setOnMouseEntered((Event event) -> {
+                    commTime.setCursor(Cursor.TEXT);
                 });
-                
+
                 commTime.setTranslateX(508.0f);
                 ImageView ivCommUpVote = new ImageView(upVote);
                 ivCommUpVote.setFitWidth(15);
@@ -211,10 +222,10 @@ public class ShowQuesController implements Initializable {
                 ImageView ivCommDownVote = new ImageView(downVote);
                 ivCommDownVote.setFitWidth(15);
                 ivCommDownVote.setFitHeight(25);
-                Image downVoteP = new Image("/Image/Down2.png");            
+                Image downVoteP = new Image("/Image/Down2.png");
                 final int postID = showObj.postID;
-                final int commentID = commInfo.get(i).commentID;                
-                final Text commVote = new Text(obj.commVoteCount(postID, commentID)+"");
+                final int commentID = commInfo.get(i).commentID;
+                final Text commVote = new Text(obj.commVoteCount(postID, commentID) + "");
                 int check = obj.readCommVoteStatus(postID, commentID);
                 switch (check) {
                     case 0:
@@ -246,15 +257,15 @@ public class ShowQuesController implements Initializable {
                             ivCommUpVote.setImage(upVoteP);
                             ivCommDownVote.setImage(downVote);
                         }
-                        commVote.setText(obj.commVoteCount(postID, commentID)+"");
+                        commVote.setText(obj.commVoteCount(postID, commentID) + "");
 
                     } catch (SQLException ex) {
                         System.out.println(ex);
                     }
                 });
-                 ivCommDownVote.setOnMouseEntered((Event event) -> {
-                     Tooltip.install(ivCommDownVote, new Tooltip("This comment is not helpful"));
-                     ivCommDownVote.setCursor(Cursor.HAND);
+                ivCommDownVote.setOnMouseEntered((Event event) -> {
+                    Tooltip.install(ivCommDownVote, new Tooltip("This comment is not helpful"));
+                    ivCommDownVote.setCursor(Cursor.HAND);
                 });
                 ivCommDownVote.setOnMouseClicked((Event event) -> {
                     try {
@@ -268,20 +279,49 @@ public class ShowQuesController implements Initializable {
                             ivCommDownVote.setImage(downVoteP);
                             ivCommUpVote.setImage(upVote);
                         }
-                        commVote.setText(obj.commVoteCount(postID, commentID)+"");
+                        commVote.setText(obj.commVoteCount(postID, commentID) + "");
 
                     } catch (SQLException ex) {
                         System.out.println(ex);
                     }
                 });
+
                 edit.setOnMouseClicked((Event event) -> {
                     taSQComm.setText(commBody);
                     commUpdated = true;
-                    sendCommID = commentID;                                    
-                });    
+                    sendCommID = commentID;
+                });
+                delete.setOnMouseClicked((Event event) -> {
+                    Alert alert = new Alert(AlertType.CONFIRMATION);
+                    alert.setHeaderText("Are you sure?");
+                    alert.setContentText("Do you really want to delete this post?This Process can't be undone!");
+                    ButtonType yes = new ButtonType("Yes");
+                    ButtonType no = new ButtonType("No");
+                    alert.getButtonTypes().setAll(yes, no);
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == yes) {
+                        try {
+                            obj.connection();
+                            obj.deleteComment(commentID);
+                            new Utility().loadPane("/Forum/ShowQuestionController.fxml");
+                        } catch (SQLException ex) {
+                            System.out.println("While deleting comment = " + ex);
+                        } catch (IOException ex) {
+                            System.out.println("File not found" + ex);
+                        }
+
+                    }
+                });
+                edit.setOnMouseEntered((Event event) -> {
+                    Tooltip.install(edit, new Tooltip("Edit this comment"));
+                });
+                delete.setOnMouseEntered((Event event) -> {
+                    Tooltip.install(delete, new Tooltip("Delete this comment"));
+                });
+
                 Text whiteSpace1 = new Text();
-                Text whiteSpace2 = new Text();           
-                Button btn = new Button();                
+                Text whiteSpace2 = new Text();
+                Button btn = new Button();
                 commVote.setTextAlignment(TextAlignment.CENTER);
                 commVote.setFont(Font.font("Times New Roman", 18));
                 Separator sp = new Separator(Orientation.HORIZONTAL);
@@ -295,16 +335,15 @@ public class ShowQuesController implements Initializable {
                 body.setWrappingWidth(633);
                 vbCommContent.getChildren().add(sp);
                 sp.setTranslateX(0.0f);
-                vbCommVote.getChildren().addAll(ivCommUpVote, commVote, ivCommDownVote, whiteSpace1);                
+                vbCommVote.getChildren().addAll(ivCommUpVote, commVote, ivCommDownVote, whiteSpace1);
                 vbCommVote.setPrefWidth(28.0f);
                 vbCommVote.setSpacing(5);
-                if((commInfo.get(i).userName).equals(Main.Utility.username))
-                {   
-                                
-                    vbCommContent.getChildren().addAll(user, body, whiteSpace1, edit, commTime, whiteSpace2);
-                }
-                else
-                {    
+                if ((commInfo.get(i).userName).equals(Main.Utility.username)) {
+                    HBox container = new HBox();
+                    container.getChildren().addAll(edit, delete);
+                    container.setSpacing(20);
+                    vbCommContent.getChildren().addAll(user, body, whiteSpace1, container, commTime, whiteSpace2);
+                } else {
                     vbCommContent.getChildren().addAll(user, body, whiteSpace1, commTime, whiteSpace2);
                 }
                 vbCommContent.setSpacing(5);
@@ -326,16 +365,13 @@ public class ShowQuesController implements Initializable {
             taSQComm.setText(null);
             Forum sendComm = new Forum();
             sendComm.connection();
-            if(!commUpdated)
-            {                   
+            if (!commUpdated) {
                 sendComm.writeComment(showObj.postID, commContent);
-            }
-            else
-            {
+            } else {
                 sendComm.updateComment(sendCommID, commContent);
                 commUpdated = false;
             }
-            
+
             try {
                 loadComment();
                 lblShowCommCount.setText(sendComm.readAnsCount(showObj.postID) + " Comments");
@@ -435,11 +471,27 @@ public class ShowQuesController implements Initializable {
     }
 
     @FXML
-    private void btnEditClicked(ActionEvent event) throws IOException{
+    private void btnEditClicked(ActionEvent event) throws IOException {
         AskQuesController.recObj = showObj;
-        new Utility().loadPane("/Forum/AskQues.fxml");              
+        new Utility().loadPane("/Forum/AskQues.fxml");
     }
-  
 
+    @FXML
+    private void btnDeleteOnAction(ActionEvent event) throws IOException, SQLException {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setHeaderText("Are you sure?");
+        alert.setContentText("Do you really want to delete this post?This Process can't be undone!");
+        ButtonType yes = new ButtonType("Yes");
+        ButtonType no = new ButtonType("No");
+        alert.getButtonTypes().setAll(yes, no);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == yes) {
+            Forum obj = new Forum();
+            obj.connection();
+            obj.deleteForum(showObj.postID);
+            new Utility().loadPane("/Forum/ForumBase.fxml");
+
+        }
+    }
 
 }

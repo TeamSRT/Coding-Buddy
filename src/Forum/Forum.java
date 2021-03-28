@@ -63,6 +63,20 @@ public class Forum {
         uF.setString(5, Main.Utility.username);
         uF.execute();
     }
+    public void deleteForum(int postID) throws SQLException
+    {
+        String query = "DELETE FROM forum WHERE postID = ?";
+        PreparedStatement dF = conn.prepareStatement(query);
+        dF.setInt(1, postID);
+        dF.executeUpdate();        
+    }
+    public void deleteComment(int commentID) throws SQLException
+    {
+        String query = "DELETE FROM `comment` WHERE commentID = ?";
+        PreparedStatement dC = conn.prepareStatement(query);
+        dC.setInt(1, commentID);
+        dC.executeUpdate();        
+    }
     public ArrayList<Comment> readComment(int postID)
     {
         ArrayList<Comment> sendComm = new ArrayList<>(); 
