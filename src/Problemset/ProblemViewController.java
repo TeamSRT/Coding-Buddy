@@ -46,11 +46,21 @@ public class ProblemViewController implements Initializable {
     private Button btnToDo;
     @FXML
     private Label lblTime;
+    @FXML
+    private Button btnEdit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lblTime.setText("Time Limit: " + currProblem.timeLimit + "s");
         loadProblem();
+        System.out.println(currProblem.author);
+        if(currProblem.author.equals(Main.Utility.username)) {
+            btnEdit.setDisable(false);
+            btnEdit.setOpacity(1);
+        } else {
+            btnEdit.setDisable(true);
+            btnEdit.setOpacity(0);
+        }
     }    
 
     @FXML
@@ -77,6 +87,12 @@ public class ProblemViewController implements Initializable {
     private void btnToDoOnAction(ActionEvent event) throws SQLException {
         new ProblemSQL().recordToDo(currProblem.problemID);
         loadProblem();
+    }
+
+    @FXML
+    private void btnEditOnAction(ActionEvent event) throws IOException {
+        CreateProblemController.curr = currProblem;
+        new Utility().loadPane("/Problemset/CreateProblem.fxml");
     }
     
 }

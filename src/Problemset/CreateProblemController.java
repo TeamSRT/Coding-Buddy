@@ -8,6 +8,7 @@ package Problemset;
 import Main.Utility;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,18 +60,33 @@ public class CreateProblemController implements Initializable {
     @FXML
     private MenuButton btnTime;
     private int Time = 1;
-
+    public static Problem curr;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        if (curr != null) {
+            txtTitle.setText(curr.title);
+            txtProblem.setText(curr.body);
+            txtInput1.setText(curr.input1);
+            txtOutput1.setText(curr.output1);
+            txtInput2.setText(curr.input2);
+            txtOutput2.setText(curr.output2);
+            txtInput3.setText(curr.input3);
+            txtOutput3.setText(curr.output3);
+        }
     }
 
     @FXML
     private void btnSubmitPressed(ActionEvent event) {
-        new ProblemSQL().writeProblem(txtTitle.getText(), txtProblem.getText(), txtInput1.getText(), txtOutput1.getText(), txtInput2.getText(), txtOutput2.getText(), txtInput3.getText(), txtOutput3.getText(), Time, this);
+        if (curr == null) {
+            new ProblemSQL().writeProblem(txtTitle.getText(), txtProblem.getText(), txtInput1.getText(), txtOutput1.getText(), txtInput2.getText(), txtOutput2.getText(), txtInput3.getText(), txtOutput3.getText(), Time, this);
+        }
+        else {
+            new ProblemSQL().updateProblem(txtTitle.getText(), txtProblem.getText(), txtInput1.getText(), txtOutput1.getText(), txtInput2.getText(), txtOutput2.getText(), txtInput3.getText(), txtOutput3.getText(), Time, curr.problemID, this);
+            curr = null;
+        }
     }
 
     @FXML

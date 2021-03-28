@@ -17,7 +17,8 @@
             <Button fx:id="btnSubmit" layoutX="561.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnSubmitPressed" prefHeight="25.0" prefWidth="110.0" styleClass="btnClass" stylesheets="@ProblemView.css" text="Submit Solution" />
             <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBackPressed" prefHeight="10.0" prefWidth="45.0" styleClass="btnClass" stylesheets="@ProblemView.css" text="Back" />
             <Button fx:id="btnToDo" layoutX="606.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnToDoOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnClass" stylesheets="@ProblemView.css" text="Do Later" />
-            <Label fx:id="lblTime" alignment="CENTER_RIGHT" layoutX="474.0" layoutY="10.0" prefHeight="25.0" prefWidth="110.0" text="Time" />
+            <Label fx:id="lblTime" alignment="CENTER_RIGHT" layoutX="489.0" layoutY="10.0" prefHeight="25.0" prefWidth="110.0" text="Time" />
+            <Button fx:id="btnEdit" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="25.0" prefWidth="45.0" styleClass="btnClass" stylesheets="@ProblemView.css" text="Edit" />
          </children>
       </AnchorPane>
    </children>

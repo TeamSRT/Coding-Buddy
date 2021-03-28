@@ -194,6 +194,7 @@ public class ProblemsetController implements Initializable {
 
     @FXML
     private void btnCreatePressed(ActionEvent event) throws IOException {
+        CreateProblemController.curr = null;
         new Utility().loadPane("/Problemset/CreateProblem.fxml");
     }
 

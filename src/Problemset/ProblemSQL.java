@@ -49,6 +49,8 @@ public class ProblemSQL {
         Alert success = new Alert(AlertType.INFORMATION);
         error.setTitle("Submission Error");
         success.setTitle("Submission Successful");
+        error.setContentText("Problem wasn't submitted! An error Occured!");
+        success.setContentText("Problem submitted successfully");
         success.setContentText("Post created successful");
         if (title.equals("")) {
             error.setContentText("Title can not be empty");
@@ -79,6 +81,32 @@ public class ProblemSQL {
                 Logger.getLogger(ProblemSQL.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public void updateProblem(String title, String body, String input1, String output1, String input2, String output2, String input3, String output3, int Time, int problemID, CreateProblemController cpcObj) {
+        try {
+        String query = "UPDATE problemset SET title = ?, problemBody = ?, input1 = ?, input2 = ?, input3 = ?, output1 = ?, output2 = ?, output3 = ?, timeLimit = ? WHERE problemID = ?";
+        PreparedStatement currStatement = conn.prepareStatement(query);
+            currStatement.setString(1, title);
+            currStatement.setString(2, body);
+            currStatement.setString(3, input1);
+            currStatement.setString(4, input2);
+            currStatement.setString(5, input3);
+            currStatement.setString(6, output1);
+            currStatement.setString(7, output2);
+            currStatement.setString(8, output3);
+            currStatement.setInt(9, Time);
+            currStatement.setInt(10, problemID);
+            currStatement.execute();
+            cpcObj.clearFields();
+            Alert success = new Alert(AlertType.INFORMATION);
+            success.setTitle("Update Successful");
+            success.setContentText("Problem updated successfully");
+            success.show();
+        } catch(SQLException ex) {
+            System.out.println(ex);
+        }
+        
     }
     
     public boolean isSolved(int problemID) throws SQLException {
