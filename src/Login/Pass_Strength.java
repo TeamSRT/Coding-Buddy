@@ -16,13 +16,11 @@ public class Pass_Strength {
     boolean pass_length_checker = false;
 
     public static int pass_strength_checke;
-    
-    
+
     public boolean pass_length_check(String password) {
-        
-       
-        if (password.length()>7) {
-            
+
+        if (password.length() > 7) {
+
             System.out.println(password.length());
             pass_length_checker = true;
 
@@ -54,54 +52,34 @@ public class Pass_Strength {
             pass_strength_checke = 1;
         }
 
-        /*if(small==true)
-        
-        {  
-           
-               pass_strength_checke=1;
- 
-        }
-        else if(caps==true)
-        {
-            pass_strength_checke=1;
-        }
-        else if(digit==true)
-        {
-             pass_strength_checke=1;
-        }
-        else if(specialKey==true)
-        {
-             pass_strength_checke=1; 
-        }
-         */
-        if (small == true && caps == true) {
+        if ((small == true && caps == true) || (small == true && digit == true) || (caps == true && digit == true)) {
             pass_strength_checke = 2;
 
         }
 
-        if (small == true && digit == true) {
+        if ((small == true && specialKey == true) || (caps == true && specialKey == true) || (digit == true && specialKey == true)) {
             pass_strength_checke = 2;
 
         }
-
+        /*
         if (caps == true && digit == true) {
             pass_strength_checke = 2;
 
-        }
+        }*/
 
-        if (small == true && caps == true && digit == true) {
+        if ((small == true && caps == true && digit == true) || (small == true && caps == true && specialKey == true) || (small == true && caps == true && digit == true && specialKey == true)) {
             pass_strength_checke = 3;
 
         }
+        /*
         if (small == true && caps == true && specialKey == true) {
-            pass_strength_checke = 2;
+            pass_strength_checke = 3;
 
         }
-
         if (small == true && caps == true && digit == true && specialKey == true) {
             pass_strength_checke = 3;
 
-        }
+        }*/
 
         return pass_strength_checke;
 
