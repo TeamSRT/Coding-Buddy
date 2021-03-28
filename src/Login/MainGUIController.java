@@ -3,13 +3,14 @@ package Login;
 import Main.DateAndTime;
 import Main.Utility;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.prefs.Preferences;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ import javafx.stage.Stage;
 public class MainGUIController implements Initializable {
 
     Database d = new Database();
+
     @FXML
     private AnchorPane anchorLogin;
     @FXML
@@ -38,46 +40,86 @@ public class MainGUIController implements Initializable {
     private TextField tfLoginUsername;
     @FXML
     private JFXPasswordField tfLoginPassword;
+    @FXML
+    private JFXCheckBox PasswordShow_btn;
+    @FXML
+    private JFXTextField passShow_tf;
+
+    public static String password;
+    public static String username;
+    @FXML
+    private JFXCheckBox rememberMe_checkBtn;
+    
+    Preferences pre;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        pre = Preferences.userNodeForPackage(MainGUIController.class);
+
+        if (pre != null) {
+            if (pre.get("username", null) != null && !pre.get("password", null).isEmpty()) {
+                tfLoginUsername.setText(pre.get("username", null));
+                tfLoginPassword.setText(pre.get("password",null));
+                passShow_tf.setText(pre.get("password",null));
+           
+            }
+        }
 
     }
 
     @FXML
     private void sign_in_btn_Action(ActionEvent event) throws IOException {
-        boolean data_match = false;
 
-        String username = tfLoginUsername.getText();
-        String password = tfLoginPassword.getText();
+        boolean data_match = false;    //Checking if database has this data
 
-        boolean empty;
+        if (!PasswordShow_btn.isSelected()) //show password button is not select
+        {
+            password = tfLoginPassword.getText();   //ball sign textfield is working
+        } else {
+            password = passShow_tf.getText();  //password show textfield is working
+        }
+
+        username = tfLoginUsername.getText();
+
+        boolean empty; //checking is textfiels is empty
 
         Exception e = new Exception();
 
         empty = e.SignInException(username, password);
 
         if (empty == true) {
+
             Alert a = new Alert(Alert.AlertType.NONE);
             a.setAlertType(Alert.AlertType.INFORMATION);
-
-            //set content text 
             a.setContentText("Username And Password can not be kept blank ");
-
-            //show the dialog 
             a.show();
 
         } else {
 
-            data_match = d.getData(username, password);
+            data_match = d.getData(username, password);  //checking that database has this inputed data
         }
 
-        if (data_match == true) {            
+        if (data_match == true) {
+            
+            
+            
+            if (rememberMe_checkBtn.isSelected()) //remember me working
+            {
+                pre.put("username", tfLoginUsername.getText());
+                pre.put("password", tfLoginPassword.getText());
+                pre.put("password", passShow_tf.getText());
+                
+            } else {
+                pre.put("username", "");
+                pre.put("password", "");
+            }
             Utility.setUsername(tfLoginUsername.getText());
             Utility.initUser();
             DateAndTime obj = new DateAndTime();
+
             try {
-                obj.connection();              
+                obj.connection();
             } catch (SQLException ex) {
                 System.out.println("Login Connection failed");
             }
@@ -86,7 +128,8 @@ public class MainGUIController implements Initializable {
             } catch (SQLException ex) {
                 System.out.println("Login writing failed");
             }
-            obj.readLoginTime();            
+            obj.readLoginTime();
+
             Parent root = FXMLLoader.load(getClass().getResource("/Main/Home.fxml"));
             Scene src = new Scene(root);
             Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -96,6 +139,7 @@ public class MainGUIController implements Initializable {
 
     }
 
+    
     @FXML
     private void sign_Up_Btn_Action(ActionEvent event) throws IOException {
 
@@ -116,4 +160,33 @@ public class MainGUIController implements Initializable {
         s.show();
 
     }
+
+    @FXML
+    private void PasswordShow_btn(ActionEvent event) //Password show or hide
+    {
+
+        if (PasswordShow_btn.isSelected()) {
+
+            passShow_tf.setVisible(true);
+
+            passShow_tf.setText(tfLoginPassword.getText());
+
+            tfLoginPassword.setVisible(false);
+
+        } else if (!(PasswordShow_btn.isSelected())) {
+
+            tfLoginPassword.setText(passShow_tf.getText());
+
+            passShow_tf.setVisible(false);
+
+            tfLoginPassword.setVisible(true);
+        }
+
+    }
+
+    @FXML
+    private void rememberMe_checkBtn(ActionEvent event) {
+
+    }
+
 }

@@ -14,29 +14,29 @@
 
 <AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="552.0" style="-fx-background-color: #342D7E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.PassUpdateController">
    <children>
-      <Pane layoutX="10.0" layoutY="14.0" prefHeight="445.0" prefWidth="273.0" style="-fx-background-color: #f8f8f8;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="269.0" AnchorPane.topAnchor="14.0">
+      <Pane layoutX="10.0" layoutY="14.0" prefHeight="445.0" prefWidth="273.0" style="-fx-background-color: #f8f8f8;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="269.0" AnchorPane.topAnchor="14.0">
          <children>
             <ImageView fitHeight="248.0" fitWidth="245.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/passupdate1.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="back_btn" buttonType="RAISED" layoutX="27.0" layoutY="406.0" onAction="#back_btn" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #4863A0;" text="Back" textFill="WHITE" />
-            <Label layoutX="33.0" layoutY="315.0" prefHeight="17.0" prefWidth="211.0" text="Forgot Password ! No Worries. " textFill="#4863a0">
+            <JFXButton fx:id="back_btn" buttonType="RAISED" layoutX="14.0" layoutY="400.0" onAction="#back_btn" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #4863A0;" text="Back" textFill="WHITE" />
+            <Label layoutX="14.0" layoutY="317.0" prefHeight="32.0" prefWidth="254.0" text="Forgot Password ! No Worries. " textFill="#4863a0">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold Italic" size="17.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="284.0" layoutY="11.0" prefHeight="452.0" prefWidth="260.0" style="-fx-background-color: #1D2026;" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="14.0">
+      <Pane layoutX="283.0" layoutY="14.0" prefHeight="452.0" prefWidth="260.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0">
          <children>
-            <JFXButton fx:id="changePass" buttonType="RAISED" layoutX="132.0" layoutY="398.0" onAction="#changePass" style="-fx-background-color: #4863A0;" text="Change Password" textFill="WHITE" />
-            <JFXTextField fx:id="tf_username" focusColor="WHITE" layoutX="11.0" layoutY="88.0" maxWidth="235.0" minWidth="235.0" prefHeight="31.0" prefWidth="235.0" promptText="Username" style="-fx-background-color: White;" unFocusColor="#d76b6b" />
-            <JFXTextField fx:id="tf_email" layoutX="14.0" layoutY="167.0" maxWidth="235.0" minWidth="235.0" prefHeight="31.0" prefWidth="235.0" promptText="Email" style="-fx-background-color: White;" unFocusColor="#8f5050" />
-            <JFXPasswordField fx:id="tf_updatedPass" layoutX="12.0" layoutY="243.0" maxWidth="235.0" minWidth="235.0" prefHeight="31.0" prefWidth="235.0" promptText="Password" style="-fx-background-color: White;" unFocusColor="#8f5050" />
-            <JFXPasswordField fx:id="tf_confUpdatedpass" layoutX="11.0" layoutY="320.0" maxWidth="235.0" minWidth="235.0" prefHeight="31.0" prefWidth="235.0" promptText="Confirm Password" style="-fx-background-color: White;" unFocusColor="#8f5050" />
-            <Label layoutX="14.0" layoutY="22.0" prefHeight="27.0" prefWidth="235.0" text="CHANGE PASSWORD ">
+            <JFXButton fx:id="changePass" buttonType="RAISED" layoutX="132.0" layoutY="400.0" onAction="#changePass" style="-fx-background-color: #4863A0;" text="Change Password" textFill="WHITE" />
+            <JFXTextField fx:id="tf_username" focusColor="WHITE" labelFloat="true" layoutX="11.0" layoutY="96.0" maxWidth="235.0" minWidth="235.0" prefHeight="31.0" prefWidth="235.0" promptText="Username" style="-fx-background-color: White;" unFocusColor="#d76b6b" />
+            <JFXTextField fx:id="tf_email" labelFloat="true" layoutX="11.0" layoutY="167.0" maxWidth="235.0" minWidth="235.0" prefHeight="31.0" prefWidth="235.0" promptText="Email" style="-fx-background-color: White;" unFocusColor="#8f5050" />
+            <JFXPasswordField fx:id="tf_updatedPass" labelFloat="true" layoutX="11.0" layoutY="237.0" maxWidth="235.0" minWidth="235.0" onKeyPressed="#tfPasswordOnTyped" onKeyReleased="#tfPasswordOnTyped" prefHeight="31.0" prefWidth="235.0" promptText="Password" style="-fx-background-color: White;" unFocusColor="#8f5050" />
+            <JFXPasswordField fx:id="tf_confUpdatedpass" labelFloat="true" layoutX="11.0" layoutY="308.0" maxWidth="235.0" minWidth="235.0" prefHeight="31.0" prefWidth="235.0" promptText="Confirm Password" style="-fx-background-color: White;" unFocusColor="#8f5050" />
+            <Label layoutX="14.0" layoutY="22.0" prefHeight="27.0" prefWidth="235.0" text="CHANGE PASSWORD " underline="true">
                <font>
                   <Font name="System Bold Italic" size="22.0" />
                </font>
@@ -44,12 +44,16 @@
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
                         <Stop color="#5e60d7" />
-                        <Stop color="WHITE" offset="1.0" />
+                        <Stop color="#8f5050" offset="1.0" />
                      </stops>
                   </LinearGradient>
                </textFill>
             </Label>
             <Label fx:id="pass_matching_lebel" layoutX="14.0" layoutY="359.0" prefHeight="17.0" prefWidth="222.0" textFill="#f80202" />
+            <Label fx:id="Passwordlength_lbl" layoutX="23.0" layoutY="274.0" prefHeight="17.0" prefWidth="211.0" text="Password must be more than 7 letters" textFill="#fc0000" visible="false" />
+            <Label fx:id="weak_lbl" layoutX="23.0" layoutY="274.0" text="Weak" textFill="#f21111" visible="false" />
+            <Label fx:id="mid_lbl" layoutX="24.0" layoutY="274.0" prefHeight="17.0" prefWidth="44.0" text="Midium" textFill="#7f8d00" visible="false" />
+            <Label fx:id="strong_lbl" layoutX="24.0" layoutY="274.0" text="Strong" textFill="#0ba809" visible="false" />
          </children>
       </Pane>
    </children>

@@ -16,27 +16,27 @@
             <Image url="@../Image/email_varify.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="Next_btn" buttonType="RAISED" layoutX="93.0" layoutY="388.0" onAction="#Next_btn" prefHeight="23.0" prefWidth="105.0" style="-fx-background-color: green;" text="Next">
+      <JFXButton fx:id="Next_btn" buttonType="RAISED" layoutX="93.0" layoutY="388.0" onAction="#Next_btn" prefHeight="23.0" prefWidth="105.0" style="-fx-background-color: green;" text="Next" textFill="#060a12">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </JFXButton>
-      <Label layoutX="16.0" layoutY="254.0" prefHeight="75.0" prefWidth="105.0" text="Email ">
+      <Label layoutX="41.0" layoutY="254.0" prefHeight="75.0" prefWidth="105.0" text="Email " AnchorPane.bottomAnchor="141.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="146.0" AnchorPane.topAnchor="254.0">
          <font>
-            <Font name="System Bold Italic" size="35.0" />
+            <Font name="System Bold Italic" size="29.0" />
          </font>
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
                   <Stop color="#424e9a" />
-                  <Stop color="#39e4dc" offset="1.0" />
+                  <Stop color="#070e1e" offset="1.0" />
                </stops>
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutX="121.0" layoutY="277.0" prefHeight="35.0" prefWidth="134.0" text="Varified !">
+      <Label layoutX="129.0" layoutY="254.0" prefHeight="75.0" prefWidth="139.0" text="Varified !" AnchorPane.bottomAnchor="141.0" AnchorPane.topAnchor="254.0">
          <font>
-            <Font name="System Bold Italic" size="24.0" />
+            <Font name="System Bold Italic" size="29.0" />
          </font>
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">

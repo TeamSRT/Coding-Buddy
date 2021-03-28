@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="577.0" prefWidth="341.0" style="-fx-background-color: #342D7E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Update_pass_otpController">
+   <children>
+      <Pane layoutX="22.0" layoutY="30.0" prefHeight="530.0" prefWidth="297.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <ImageView fitHeight="280.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/v2.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="PassUpdateVarify_btn" buttonType="RAISED" layoutX="105.0" layoutY="453.0" onAction="#PassUpdateVarify_btn" prefHeight="43.0" prefWidth="87.0" ripplerFill="WHITE" style="-fx-background-color: #342D7E;" text="Next" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></JFXButton>
+            <JFXTextField fx:id="OtpPassUpdate_tf" layoutX="74.0" layoutY="344.0" promptText="Varification Code" unFocusColor="#8f5050" />
+            <Label fx:id="NotMatch_lbl" layoutX="74.0" layoutY="375.0" prefHeight="17.0" prefWidth="117.0" textFill="#f20000" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

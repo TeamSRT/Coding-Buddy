@@ -15,19 +15,18 @@ public class Exception {
     }
 
     public boolean signup_SpecharacterException(String Name, String Username, String Email, String Occupation) {
-        
-        
+
         Alert a = new Alert(Alert.AlertType.NONE);
-        
+
         a.setAlertType(Alert.AlertType.INFORMATION);
-        
+
         boolean name_invalid = false;
         boolean email_invalid = false;
 
         boolean invalid = false;
 
         for (int i = 0; i < Name.length(); ++i) {
-            if (!((Name.charAt(i) >= 'A' && Name.charAt(i) <= 'Z') || (Name.charAt(i) >= 'a' && Name.charAt(i) <= 'z')||(Name.charAt(i)==' '))) {
+            if (!((Name.charAt(i) >= 'A' && Name.charAt(i) <= 'Z') || (Name.charAt(i) >= 'a' && Name.charAt(i) <= 'z') || (Name.charAt(i) == ' '))) {
                 invalid = true;
                 name_invalid = true;
             }
@@ -43,7 +42,7 @@ public class Exception {
                     invalid = true;
 
                     email_invalid = true;
-                    
+
                 }
 
             }
@@ -62,7 +61,7 @@ public class Exception {
         boolean empty = false;
 
         if (Username.isEmpty() || Password.isEmpty()) {
-            empty= true;
+            empty = true;
         }
 
         return empty;

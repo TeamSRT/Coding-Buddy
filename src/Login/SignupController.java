@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -31,7 +32,9 @@ import javafx.stage.Stage;
  */
 public class SignupController implements Initializable {
 
-   
+    public static String email;
+    Alert a = new Alert(AlertType.NONE);
+
     Database d = new Database();
 
     @FXML
@@ -54,6 +57,19 @@ public class SignupController implements Initializable {
     private JFXPasswordField tf_Signup_Confirmpassword;
     @FXML
     private Label passwrd_matching;
+    
+    boolean pass_length_checker = false;
+    
+    int pass_strength_checke;
+    
+    @FXML
+    private Label weak_lbl;
+    @FXML
+    private Label mid_lbl;
+    @FXML
+    private Label strong_lbl;
+    @FXML
+    private Label Passwordlength_lbl;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,14 +85,14 @@ public class SignupController implements Initializable {
 
         String Name = tf_Signup_Name.getText();
         String Username = tf_Signup_Username.getText();
-        String email = tf_Signup_Email.getText();
+        email = tf_Signup_Email.getText();
         String Password = tf_Signup_Password.getText();
         String Confirmpassword = tf_Signup_Confirmpassword.getText();
         String Occupation = tf_Signup_Occupation.getText();
 
         //exception
         Exception e = new Exception();
-       
+
         empty = e.SignUpException(Name, Username, email, Password, Confirmpassword);
 
         if (empty == true) {
@@ -94,65 +110,71 @@ public class SignupController implements Initializable {
 
             if (invalid == false) {
 
-                if (Password.equals(Confirmpassword)) {
-                    
-                    passwrd_matching.setText(null);
-                   
-                    boolean data_same = false;
+                if (pass_length_checker == true && pass_strength_checke >= 2) {
+                    if (Password.equals(Confirmpassword)) {
+                        passwrd_matching.setText(null);
+                        if (!(tf_Signup_Username.getText().equals(tf_Signup_Password.getText()))) {
 
-                    data_same = d.check_same_data(Username, email);
-                    if (data_same == true) {
+                            boolean data_same = false;
 
-                        a.setAlertType(AlertType.INFORMATION);
-                        a.setContentText("This Username or Email has been already used");
-                        a.show();
-                    } else {
+                            data_same = d.check_same_data(Username, email);
+                            if (data_same == true) {
 
-                        EController.Name = Name;
-                        EController.Username = Username;
-                        EController.email = email;
-                        EController.Password = Password;
-                        EController.Confirmpassword = Confirmpassword;
-                        EController.Occupation = Occupation;
-                        //double rand_double = Math.random();
-                        int rand = (int) (Math.random() * 4000);
-                        EController.sent_otp = rand;
+                                a.setAlertType(AlertType.INFORMATION);
+                                a.setContentText("This Username or Email has been already used");
+                                a.show();
+                            } else {
 
-                        //boolean emailSent_or_not = false;
+                                EController.Name = Name;
+                                EController.Username = Username;
+                                EController.email = email;
+                                EController.Password = Password;
+                                EController.Confirmpassword = Confirmpassword;
+                                EController.Occupation = Occupation;
+                                //double rand_double = Math.random();
 
-                       Email.send("samirsarker055@gmail.com", "Samir1234", email, "Emai Varification", rand);
+                                int rand = (int) (Math.random() * 4000);
+                                EController.sent_otp = rand;
 
-                       // if (emailSent_or_not == true) {
-                            Parent root = FXMLLoader.load(getClass().getResource("email.fxml"));
-                            Scene src = new Scene(root);
-                            Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            s.setScene(src);
-                            s.show();
-                      //  }
-                    /*else {
+                                //boolean emailSent_or_not = false;
+                                Email.send("samirsarker055@gmail.com", "Samir1234", email, "Emai Varification", rand);
+
+                                // if (emailSent_or_not == true) {
+                                Parent root = FXMLLoader.load(getClass().getResource("email.fxml"));
+                                Scene src = new Scene(root);
+                                Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                s.setScene(src);
+                                s.show();
+                                //  }
+                                /*else {
                             a.setAlertType(AlertType.INFORMATION);
                             a.setContentText("Invalid Email Address");
                             a.show();
                         }*/
-                        /*  tf_Signup_Name.setText(null);
+ /*  tf_Signup_Name.setText(null);
                     tf_Signup_Username.setText(null);
      tf_Signup_Email.setText(null);
      tf_Signup_Password.setText(null);
      tf_Signup_Confirmpassword.setText(null);
      tf_Signup_Occupation.setText(null);*/
 
-                        //if(data_taken==true)
-                        //{
-                        //int rand= (int) Math.random()+1000;
-                        //EController.sent_otp=rand;
-                    }
-                } else {
+                                //if(data_taken==true)
+                                //{
+                                //int rand= (int) Math.random()+1000;
+                            }                           //EController.sent_otp=rand;
+                        } else {
+                            a.setAlertType(AlertType.INFORMATION);
+                            a.setContentText("Username can not be use as Password");
+                            a.show();
+                        }
+                    } else {
 
-                    String pass_match = "Not Matched with Confirm Password  !";
-                    passwrd_matching.setText(pass_match);
+                        String pass_match = "Not Matched with Confirm Password !";
+                        passwrd_matching.setText(pass_match);
+
+                    }
 
                 }
-
             }
         }
     }
@@ -165,6 +187,61 @@ public class SignupController implements Initializable {
         s.setScene(src);
         s.show();
 
+    }
+
+    @FXML
+    private void tfPasswordOnTyped(KeyEvent event) {
+        System.out.println("working");
+         passwrd_matching.setText(null);
+
+        Pass_Strength p = new Pass_Strength();
+//       
+        pass_length_checker = p.pass_length_check(tf_Signup_Password.getText());
+
+        if (pass_length_checker == true) {
+
+            Passwordlength_lbl.setVisible(false);
+
+            pass_strength_checke = p.pass_strength_check(tf_Signup_Password.getText());
+
+            if (pass_strength_checke == 1) {
+                System.out.println("1");
+                weak_lbl.setStyle("-fx-background-color: white;");
+                weak_lbl.setVisible(true);
+                mid_lbl.setVisible(false);
+                strong_lbl.setVisible(false);
+            } else if (pass_strength_checke == 2) {
+                System.out.println("2");
+                mid_lbl.setStyle("-fx-background-color: white;");
+                mid_lbl.setVisible(true);
+                weak_lbl.setVisible(false);
+                strong_lbl.setVisible(false);
+
+            } else if (pass_strength_checke == 3) {
+                System.out.println("3");
+
+                strong_lbl.setStyle("-fx-background-color: white;");
+                strong_lbl.setVisible(true);
+                weak_lbl.setVisible(false);
+                mid_lbl.setVisible(false);
+
+            }
+
+        } else {
+            Passwordlength_lbl.setVisible(true);
+            weak_lbl.setVisible(false);
+            mid_lbl.setVisible(false);
+            strong_lbl.setVisible(false);
+
+        }
+    }
+
+    @FXML
+    private void tf_Signup_Password(ActionEvent event) {
+    }
+
+    @FXML
+    private void tf_Signup_Confirmpassword(ActionEvent event) {
     }
 
 }

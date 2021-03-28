@@ -20,7 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -44,18 +44,27 @@ public class PassUpdateController implements Initializable {
     private JFXButton back_btn;
     @FXML
     private Label pass_matching_lebel;
-     
-  
+    boolean pass_length_checker = false;
+    int pass_strength_checke;
+    @FXML
+    private Label Passwordlength_lbl;
+    @FXML
+    private Label weak_lbl;
+    @FXML
+    private Label mid_lbl;
+    @FXML
+    private Label strong_lbl;
 
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
     @FXML
-    private void changePass(ActionEvent event) {
-
+    private void changePass(ActionEvent event) throws IOException 
+    
+    {
+        boolean check_match;
         Database d = new Database();
         String user = tf_username.getText();
         String email = tf_email.getText();
@@ -65,30 +74,100 @@ public class PassUpdateController implements Initializable {
         Exception e = new Exception();
         boolean empty;
 
-        empty = e.forgotpasswordException(user, updatedpassword, email, confirmpass);
+        empty = e.forgotpasswordException(user, updatedpassword, email, confirmpass); //checking if the textfield is empty
 
-        if (empty== true) {
+        if (empty == true) {
 
             Alert a = new Alert(Alert.AlertType.NONE);
             a.setAlertType(Alert.AlertType.INFORMATION);
-
-            //set content text 
             a.setContentText("All fields must be filled ");
             a.show();
-        } else {
-               if(updatedpassword.equals(confirmpass))
-               {
-                   pass_matching_lebel.setText(null);
-                   
-            d.forgotpassword(user, updatedpassword, email, confirmpass);
-               }
-               else
-               {   
-                   String lebel_text= "Not Matched with Confirm Password";
-                   pass_matching_lebel.setText(lebel_text);
-               }
-        }
 
+        } else if (pass_length_checker == true && pass_strength_checke >= 2) {
+
+            if (updatedpassword.equals(confirmpass)) {
+                if (!(updatedpassword.equals(tf_username.getText()))) {
+                    pass_matching_lebel.setText(null);
+                    {
+
+                        check_match = d.forgotpassword_data_matching_check(user, updatedpassword, email);
+
+                        if (check_match == true) {
+
+                            Email email_obj = new Email();
+                            int rand = (int) (Math.random() * 40000); //generating varification code
+                            //EController.sent_otp = rand;
+                            Update_pass_otpController.UpdatePassSent_otp = rand;
+
+                            email_obj.send("samirsarker055@gmail.com", "Samir1234", email, "Varification", rand);
+                            Parent root = FXMLLoader.load(getClass().getResource("update_pass_otp.fxml"));
+                            Scene src = new Scene(root);
+                            Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            s.setScene(src);
+                            s.show();
+
+                        }
+
+                    }
+                } else {
+                    Alert a = new Alert(Alert.AlertType.NONE);
+                    a.setAlertType(Alert.AlertType.INFORMATION);
+                    a.setContentText("Username can not be used as Password ");
+                    a.show();
+                }
+            } else {
+                String lebel_text = "Not Matched with Confirm Password";
+                pass_matching_lebel.setText(lebel_text);
+            }
+
+        }
+    }
+
+    @FXML
+    private void tfPasswordOnTyped(KeyEvent event) {
+
+        //System.out.println("working");
+         pass_matching_lebel.setText(null);
+         
+        Pass_Strength p = new Pass_Strength();
+
+        pass_length_checker = p.pass_length_check(tf_updatedPass.getText());
+
+        if (pass_length_checker == true) {
+
+            Passwordlength_lbl.setVisible(false);
+
+            pass_strength_checke = p.pass_strength_check(tf_updatedPass.getText());
+
+            if (pass_strength_checke == 1) {
+
+                //System.out.println("1");
+                weak_lbl.setVisible(true);
+                mid_lbl.setVisible(false);
+                strong_lbl.setVisible(false);
+            } else if (pass_strength_checke == 2) {
+
+                //System.out.println("2");
+                mid_lbl.setVisible(true);
+                weak_lbl.setVisible(false);
+                strong_lbl.setVisible(false);
+
+            } else if (pass_strength_checke == 3) {
+
+                //System.out.println("3");
+                strong_lbl.setVisible(true);
+                weak_lbl.setVisible(false);
+                mid_lbl.setVisible(false);
+
+            }
+
+        } else {
+            Passwordlength_lbl.setVisible(true);
+            weak_lbl.setVisible(false);
+            mid_lbl.setVisible(false);
+            strong_lbl.setVisible(false);
+
+        }
     }
 
     @FXML

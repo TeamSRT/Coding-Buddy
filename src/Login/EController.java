@@ -1,7 +1,5 @@
 package Login;
 
-
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
@@ -36,9 +34,13 @@ public class EController implements Initializable {
     @FXML
     private JFXButton valid_btn;
     @FXML
-    private JFXButton Back_btn;
-    @FXML
     private Label otp_check_show;
+    @FXML
+    private JFXButton ChangeEmail_btn;
+    @FXML
+    private JFXTextField UpdateEmail_tf;
+    @FXML
+    private JFXButton emailUpdate_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -57,8 +59,8 @@ public class EController implements Initializable {
         if (!(tf_get_otp.isEmpty())) {
             if (tf_get_otp.equals(final_sent_otp)) {
 
-                
-                d.setData(Name, Username, email, Password, Confirmpassword, Occupation);                
+                d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
+
                 Parent root = FXMLLoader.load(getClass().getResource("confirm_var_email.fxml"));
                 Scene src = new Scene(root);
                 Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -81,7 +83,6 @@ public class EController implements Initializable {
         }
     }
 
-    @FXML
     private void back_btn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
         Scene src = new Scene(root);
@@ -93,6 +94,34 @@ public class EController implements Initializable {
 
     @FXML
     private void tf_OTP(ActionEvent event) {
+    }
+
+    @FXML
+    private void ChangeEmail_btn(ActionEvent event) {
+
+        // UpdateEmail_tf.setOpacity(1);
+        UpdateEmail_tf.setVisible(true);
+        emailUpdate_btn.setVisible(true);
+
+    }
+
+    @FXML
+    private void emailUpdate_btn(ActionEvent event) {
+
+        if (UpdateEmail_tf.getText().isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.NONE);
+            a.setAlertType(Alert.AlertType.INFORMATION);
+
+            a.setContentText("Please Fill Up the New Email Textfield");
+
+            a.show();
+        } else {
+            email = UpdateEmail_tf.getText();
+            SignupController.email = UpdateEmail_tf.getText();
+            int rand = (int) (Math.random() * 4000);
+            EController.sent_otp = rand;
+            Email.send("samirsarker055@gmail.com", "Samir1234", email, "Emai Varification", rand);
+        }
     }
 
 }
