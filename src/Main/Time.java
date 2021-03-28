@@ -11,12 +11,7 @@ package Main;
  */
 public class Time {
     
-    public String username, loginDate, loginTime, signupDate, signupTime;
-   
-
-   
-
-  
+    public String username, signupDate, signupTime;  
 
     
 

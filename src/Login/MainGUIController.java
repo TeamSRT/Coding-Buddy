@@ -115,21 +115,7 @@ public class MainGUIController implements Initializable {
                 Home.pre.put("password", "");
             }
             Utility.setUsername(tfLoginUsername.getText());
-            Utility.initUser();
-            DateAndTime obj = new DateAndTime();
-
-            try {
-                obj.connection();
-            } catch (SQLException ex) {
-                System.out.println("Login Connection failed");
-            }
-            try {
-                obj.writeLoginTime();
-            } catch (SQLException ex) {
-                System.out.println("Login writing failed");
-            }
-            obj.readLoginTime();
-
+            Utility.initUser();           
             Parent root = FXMLLoader.load(getClass().getResource("/Main/Home.fxml"));
             Scene src = new Scene(root);
             Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();

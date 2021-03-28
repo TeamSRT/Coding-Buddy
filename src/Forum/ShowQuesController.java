@@ -20,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
@@ -171,6 +172,11 @@ public class ShowQuesController implements Initializable {
                 VBox vbCommVote = new VBox();
                 VBox vbCommContent = new VBox();
                 HBox addVbox = new HBox();
+                Button edit = new Button("Edit");
+                edit.setTextFill(Color.WHITE);
+                edit.setPrefWidth(50);
+                edit.setLayoutX(200);
+                edit.getStyleClass().add("btnStyle");
                 Text user;
                 if(commInfo.get(i).userName.equals(Main.Utility.username))
                 {
@@ -279,10 +285,20 @@ public class ShowQuesController implements Initializable {
                 body.setWrappingWidth(633);
                 vbCommContent.getChildren().add(sp);
                 sp.setTranslateX(0.0f);
-                vbCommVote.getChildren().addAll(ivCommUpVote, commVote, ivCommDownVote, whiteSpace1);
+                vbCommVote.getChildren().addAll(ivCommUpVote, commVote, ivCommDownVote, whiteSpace1);                
                 vbCommVote.setPrefWidth(28.0f);
                 vbCommVote.setSpacing(5);
-                vbCommContent.getChildren().addAll(user, body, whiteSpace1, commTime, whiteSpace2);
+                if((commInfo.get(i).userName).equals(Main.Utility.username))
+                {   
+                    HBox container = new HBox();
+                    container.getChildren().addAll(user, edit);
+                 //   container.setSpacing(10);
+                    vbCommContent.getChildren().addAll(container, body, whiteSpace1, commTime, whiteSpace2);
+                }
+                else
+                {    
+                    vbCommContent.getChildren().addAll(user, body, whiteSpace1, commTime, whiteSpace2);
+                }
                 vbCommContent.setSpacing(5);
                 addVbox.getChildren().addAll(vbCommVote, vbCommContent);
                 vbComment.getChildren().add(addVbox);

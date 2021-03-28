@@ -22,20 +22,19 @@ public class Forum {
             ResultSet answer = query.executeQuery("SELECT * FROM forum ORDER BY postID DESC");
 
             while (answer.next()) {
-           //     System.out.println("ID = " + answer.getInt("postID") + "Username = " + answer.getString("username") + "Title = " + answer.getString("title") + "Body = " + answer.getString("body") + "Tag = " + answer.getString("tag")+" postDate = " +answer.getDate("postDate").toString()+" postTime = "+answer.getTime("postTime").toString());
+       
                 Post infoObj = new Post();
                 infoObj.username = answer.getString("username");
                 infoObj.title = answer.getString("title");
                 infoObj.body = answer.getString("body");
                 infoObj.tag = answer.getString("tag");
-                infoObj.vote = answer.getInt("vote");
-                infoObj.answer = answer.getInt("answer");
+                infoObj.vote = answer.getInt("vote");                
                 infoObj.postID = answer.getInt("postID");
                 infoObj.postDate = answer.getDate("postDate").toString();
                 infoObj.postTime = answer.getTime("postTime").toString();
                 info.add(infoObj);
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println(ex);
         }
         return info;
@@ -72,7 +71,7 @@ public class Forum {
             ResultSet comm = query.executeQuery("SELECT `commentID`, `userName`, `commentBody`,`commDate`,`commTime` FROM `comment` WHERE postID = "+postID);
             while(comm.next())
             {
-              //  System.out.println("commdate = "+comm.getDate("commDate").toString()+"commTime = " + comm.getTime("commTime").toString());
+            
                 Comment commObj = new Comment();
                 commObj.userName = comm.getString("userName");
                 commObj.commentID = comm.getInt("commentID");
@@ -108,7 +107,7 @@ public class Forum {
     }
     public void updateVote(int track, int postID) throws SQLException 
     {
-        //String query =  "INSERT OR REPLACE INTO `postvote`(postTrack, postID, username) VALUES('" + track + "','" + postID + "','" + Main.Utility.username + "')";
+       
         int Store;
         String query1 = "UPDATE `postvote` SET postTrack = ? WHERE postID = ? AND username = ?";    
         try{
@@ -118,7 +117,7 @@ public class Forum {
         uV1.setString(3, Main.Utility.username);                
         Store = uV1.executeUpdate();
         }
-        catch(Exception e)
+        catch(SQLException e)
         {
             Store = 0;
         }

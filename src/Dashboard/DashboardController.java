@@ -170,8 +170,7 @@ public class DashboardController implements Initializable {
         Time tObj = obj.totalDay();           
         long diff = new Date().getTime() - new SimpleDateFormat("yyyy-MM-ddHH:mm:ss").parse(tObj.signupDate + tObj.signupTime).getTime();
         long mSecPerDay = 86400000;
-        int dayCount = Math.round(diff / mSecPerDay);  
-        System.out.println("daycount = "+dayCount);
+        int dayCount = Math.round(diff / mSecPerDay);         
         lblTotalDay.setText(dayCount+"");
     }
 
