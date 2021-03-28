@@ -169,7 +169,15 @@ public class ShowQuesController implements Initializable {
                 VBox vbCommVote = new VBox();
                 VBox vbCommContent = new VBox();
                 HBox addVbox = new HBox();
-                Text user = new Text(commInfo.get(i).userName);
+                Text user;
+                if(commInfo.get(i).userName.equals(Main.Utility.username))
+                {
+                    user = new Text("Me");
+                }
+                else
+                {    
+                    user = new Text(commInfo.get(i).userName);
+                }
                 Text body = new Text(commInfo.get(i).commentBody);
                 Text commTime = new Text("Posted " + new DateAndTime().passedTime(new Date(), format.parse(commInfo.get(i).commDate + commInfo.get(i).commTime)));
                 user.setOnMouseEntered((Event event) -> {
