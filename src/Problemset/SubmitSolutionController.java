@@ -10,8 +10,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -135,6 +133,12 @@ public class SubmitSolutionController extends SubmitCodeController implements In
             boolean m1 = expectedOutput1.equals(Compiler.expectedOutput1);
             boolean m2 = expectedOutput2.equals(Compiler.expectedOutput2);
             boolean m3 = expectedOutput3.equals(Compiler.expectedOutput3);
+//            System.out.println("TC1 " + expectedOutput1);
+//            System.out.println("TC1 " + Compiler.expectedOutput1);
+//            System.out.println("TC2 " + expectedOutput2);
+//            System.out.println("TC2 " + Compiler.expectedOutput2);
+//            System.out.println("TC3 " + expectedOutput3);
+//            System.out.println("TC3 " + Compiler.expectedOutput3);
             if (!m1) {
                 lblStatus.setText("Status: Wrong Answer in Test Case 1.");
                 lblStatus.setStyle("-fx-text-fill : red");

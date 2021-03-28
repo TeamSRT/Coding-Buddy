@@ -66,7 +66,7 @@ public class Utility {
         boolean author = false;
         try {
             int totalSolve = new ProblemSQL().sqlOperation("COUNT", "verdict = 1 AND problemID != 0");
-            if (totalSolve >= 10) {
+            if (totalSolve >= 0) {
                 author = true;
             } else {
                 author = false;

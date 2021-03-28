@@ -39,6 +39,7 @@ public class ProblemSQL {
             Statement currStatement = conn.createStatement();
             ResultSet currSet = currStatement.executeQuery("SELECT * FROM problemset");
             while (currSet.next()) {
+                System.out.println("RUNNING");
                 problemList.add(new Problem(currSet.getString("title"), currSet.getString("problemBody"), currSet.getString("input1"), currSet.getString("output1"), currSet.getString("input2"), currSet.getString("output2"), currSet.getString("input3"), currSet.getString("output3"), currSet.getString("username"), currSet.getInt("timeLimit"), currSet.getInt("problemID")));
             }
         } catch (SQLException e) {
@@ -199,7 +200,7 @@ public class ProblemSQL {
         Problem obj = new Problem();
         try {
             Statement currStatement = conn.createStatement();
-            ResultSet currSet = currStatement.executeQuery("SELECT title, problemBody, input1, output1, input2, output2, input3, output3, submission, username FROM problemset WHERE problemID = "+problemID);
+            ResultSet currSet = currStatement.executeQuery("SELECT title, problemBody, input1, output1, input2, output2, input3, output3, timeLimit, username FROM problemset WHERE problemID = "+problemID);
             if(currSet.next()) {
                 
                 obj.title = currSet.getString("title");
@@ -210,14 +211,13 @@ public class ProblemSQL {
                 obj.output2 = currSet.getString("output2");
                 obj.input3 = currSet.getString("input3");
                 obj.output3 = currSet.getString("output3");
-                obj.submission =  currSet.getInt("submission");
+                obj.timeLimit =  currSet.getInt("timeLimit");
                 obj.problemID = problemID;
                 obj.author = currSet.getString("username");
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-        
         return obj;
     }
     

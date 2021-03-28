@@ -22,8 +22,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -242,7 +240,7 @@ public class HomeController implements Initializable {
             Statement st1 = Main.Utility.conn.createStatement();
             ResultSet currSet = st1.executeQuery(query);
             if (currSet.next()) {
-                last = new Problem(currSet.getString("title"), currSet.getString("problemBody"), currSet.getString("input1"), currSet.getString("output1"), currSet.getString("input2"), currSet.getString("output2"), currSet.getString("input3"), currSet.getString("output3"), currSet.getString("username"), currSet.getInt("submission"), currSet.getInt("problemID"));
+                last = new Problem(currSet.getString("title"), currSet.getString("problemBody"), currSet.getString("input1"), currSet.getString("output1"), currSet.getString("input2"), currSet.getString("output2"), currSet.getString("input3"), currSet.getString("output3"), currSet.getString("username"), currSet.getInt("timeLimit"), currSet.getInt("problemID"));
             }
         } catch (SQLException ex) {
             System.out.println(ex);

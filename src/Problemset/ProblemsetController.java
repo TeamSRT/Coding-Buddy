@@ -122,12 +122,12 @@ public class ProblemsetController implements Initializable {
             problemCount = listProblem.size();
             //System.out.println(problemCount);
             currPage = 0;
-            showProblem();
             if (problemCount % 6 != 0) {
                 for (int i = 0; i < 6 - (problemCount % 6); ++i) {
                     listProblem.add(new Problem("", "", "", "", "", "", "", "", "", 0, -1));
                 }
             }
+            showProblem();
             problemCount = listProblem.size();
             if (currPage >= problemCount / problemPerPage - 1) {
                 btnNext.setDisable(true);

@@ -67,22 +67,25 @@ public class Compiler implements Runnable {
             String timeout = parseTimeout(details);
             if (timeout.contains("timeout")) {
                 curr.settxtOutput("Time Limit Exceeded");
-            } else if (stderr.equals("")) {
-                curr.settxtOutput(output);
-            } else {
+            } else if (output.equals("")) {
                 curr.settxtOutput(stderr);
+            } else {
+                curr.settxtOutput(output);
             }
-            System.out.println(details);
+            //System.out.println(details);
             SubmitCodeController.output = output;
             double reqTime = parseTime(details);
             if (reqTime > time) {
                 curr.settxtOutput("Time Limit Exceeded");
             } else {
                 if (num == 1) {
+                    System.out.println(output);
                     expectedOutput1 = output;
                 } else if (num == 2) {
+                    System.out.println(output);
                     expectedOutput2 = output;
                 } else if (num == 3) {
+                    System.out.println(output);
                     expectedOutput3 = output;
                 }
             }
