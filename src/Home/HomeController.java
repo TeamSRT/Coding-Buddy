@@ -28,6 +28,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -105,7 +106,7 @@ public class HomeController implements Initializable {
     private ImageView imgHolder3;
     @FXML
     private Label lblPostTime3;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadAll();
@@ -119,7 +120,7 @@ public class HomeController implements Initializable {
             topVoted = getTopVotedPost();
             lastTried = getLastProblem();
             recentPost = getRecentProblem();
-            
+
             lblShowTitle1.setText(topVoted.title);
             lblForumUser1.setText("Asked By " + topVoted.username);
             lblPostTime1.setText("Posted " + new DateAndTime().passedTime(new Date(), format.parse(topVoted.postDate + topVoted.postTime)));
@@ -133,15 +134,14 @@ public class HomeController implements Initializable {
             lblVote2.setText("" + topComm.vote);
             lblAns2.setText(obj.readAnsCount(topComm.postID));
             imgHolder2.setImage(Main.Utility.getImage(topComm.username, 65, 55));
-            
+
             lblShowTitle3.setText(recentPost.title);
             lblForumUser3.setText("Asked By " + recentPost.username);
             lblPostTime3.setText("Posted " + new DateAndTime().passedTime(new Date(), format.parse(recentPost.postDate + recentPost.postTime)));
             lblVote3.setText("" + recentPost.vote);
             lblAns3.setText(obj.readAnsCount(recentPost.postID));
             imgHolder3.setImage(Main.Utility.getImage(recentPost.username, 65, 55));
-            
-            
+
             if (lastTried == null) {
                 problemPane1.setDisable(true);
                 problemPane1.setOpacity(0);
@@ -151,6 +151,11 @@ public class HomeController implements Initializable {
                 lblProblem1.setText(lastTried.title);
                 lblAuthor1.setText("Author: " + lastTried.author);
                 lblCount1.setText("" + new ProblemSQL().countSubmission(lastTried.problemID));
+                if (new ProblemSQL().isSolved(lastTried.problemID)) {
+                    lblProblem1.setTextFill(Color.FORESTGREEN);
+                } else {
+                    lblProblem1.setTextFill(Color.BLACK);
+                }
             }
 
         } catch (ParseException ex) {
@@ -248,7 +253,7 @@ public class HomeController implements Initializable {
         }
         return last;
     }
-    
+
     public Post getRecentProblem() {
         Post recent = null;
         try {
@@ -272,7 +277,6 @@ public class HomeController implements Initializable {
         }
         return recent;
     }
-
 
     @FXML
     private void paneProb1Pressed(MouseEvent event) throws IOException {

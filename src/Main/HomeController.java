@@ -18,7 +18,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -81,8 +80,13 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {      
-        Utility.setHome(this);
-        lblUserName.setText("Welcome " + Utility.username + "!");
+        try {
+            Utility.setHome(this);
+            lblUserName.setText("Welcome " + Utility.username + "!");
+            new Utility().loadPane("/Home/Home.fxml");
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 
     @FXML
