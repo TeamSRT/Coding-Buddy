@@ -24,7 +24,6 @@ public class Email {
         //Get properties object  
         boolean emailsent_or_not = false;
         String mssg = String.valueOf(msg);
-
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
@@ -48,16 +47,12 @@ public class Email {
             //send message  
             Transport.send(message);
             System.out.println("message sent successfully");
-
             emailsent_or_not = true;
-
         } catch (MessagingException e) {
             System.out.println("message not sent");
             System.out.println(e);
         }
-
         return emailsent_or_not;
-
     }
 
 }

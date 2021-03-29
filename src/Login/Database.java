@@ -154,7 +154,7 @@ public class Database {
             String username = "root";
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
-
+            //Counting if there is a username and email matching the entry
             String qrr = "SELECT COUNT(username) FROM userinfo WHERE email= '" + email + "' AND username = '" + user + "'";
             Statement stmt = conn.createStatement();
             r = stmt.executeQuery(qrr);
