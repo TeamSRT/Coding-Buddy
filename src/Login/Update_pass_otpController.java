@@ -13,9 +13,14 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -60,6 +65,11 @@ public class Update_pass_otpController implements Initializable {
             if (tf_get_otp.equals(final_sent_otp)) {
 
                 d.forgot_password_update();     //Updating forget passoword
+                Parent root = FXMLLoader.load(getClass().getResource("mainGUI.fxml"));
+                Scene src = new Scene(root);
+                Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                s.setScene(src);
+                s.show();
 
             } else {
                 NotMatch_lbl.setText(OtpNotMatch_lbl);
