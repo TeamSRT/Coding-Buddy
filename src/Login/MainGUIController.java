@@ -66,8 +66,8 @@ public class MainGUIController implements Initializable {
     @FXML
     private void sign_in_btn_Action(ActionEvent event) throws IOException {
         boolean data_match = false;    //Checking if database has this data
-        if (!PasswordShow_btn.isSelected()) //show password button is not select
-        {
+        if (!PasswordShow_btn.isSelected()) {
+            //show password button is not select
             password = tfLoginPassword.getText();   //ball sign textfield is working
         } else {
             password = passShow_tf.getText();  //password show textfield is working
@@ -85,8 +85,8 @@ public class MainGUIController implements Initializable {
             data_match = d.getData(username, password);  //checking that database has this inputed data
         }
         if (data_match == true) {
-            if (rememberMe_checkBtn.isSelected()) //remember me working
-            {
+            if (rememberMe_checkBtn.isSelected()) {
+                //remember me working
                 Home.pre.put("username", tfLoginUsername.getText());
                 Home.pre.put("password", tfLoginPassword.getText());
                 if (tfLoginPassword.getText().equals("")) {
@@ -105,7 +105,6 @@ public class MainGUIController implements Initializable {
             s.setScene(src);
             s.show();
         }
-
     }
 
     @FXML
@@ -124,7 +123,6 @@ public class MainGUIController implements Initializable {
         Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
         s.setScene(src);
         s.show();
-
     }
 
     @FXML
