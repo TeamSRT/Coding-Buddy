@@ -57,11 +57,11 @@ public class SignupController implements Initializable {
     private JFXPasswordField tf_Signup_Confirmpassword;
     @FXML
     private Label passwrd_matching;
-    
+
     boolean pass_length_checker = false;
-    
+
     int pass_strength_checke;
-    
+
     @FXML
     private Label weak_lbl;
     @FXML
@@ -89,42 +89,28 @@ public class SignupController implements Initializable {
         String Password = tf_Signup_Password.getText();
         String Confirmpassword = tf_Signup_Confirmpassword.getText();
         String Occupation = tf_Signup_Occupation.getText();
-
         //exception
         Exception e = new Exception();
-
         empty = e.SignUpException(Name, Username, email, Password, Confirmpassword);
-
         if (empty == true) {
-
             a.setContentText("All fields with Star sign are must be filled"); //Exception
             a.show();
-
         } else if (empty == false) {
-
             boolean invalid = false;
-
             invalid = e.signup_SpecharacterException(Name, Username, email, Occupation);
-
             System.out.println("invalid checked");
-
             if (invalid == false) {
-
                 if (pass_length_checker == true && pass_strength_checke >= 2) {
                     if (Password.equals(Confirmpassword)) {
                         passwrd_matching.setText(null);
                         if (!(tf_Signup_Username.getText().equals(tf_Signup_Password.getText()))) {
-
                             boolean data_same = false;
-
                             data_same = d.check_same_data(Username, email);
                             if (data_same == true) {
-
                                 a.setAlertType(AlertType.INFORMATION);
                                 a.setContentText("This Username or Email has been already used");
                                 a.show();
                             } else {
-
                                 EController.Name = Name;
                                 EController.Username = Username;
                                 EController.email = email;
@@ -132,13 +118,10 @@ public class SignupController implements Initializable {
                                 EController.Confirmpassword = Confirmpassword;
                                 EController.Occupation = Occupation;
                                 //double rand_double = Math.random();
-
                                 int rand = (int) (Math.random() * 4000);
                                 EController.sent_otp = rand;
-
                                 //boolean emailSent_or_not = false;
                                 Email.send("samirsarker055@gmail.com", "Samir1234", email, "Emai Varification", rand);
-
                                 // if (emailSent_or_not == true) {
                                 Parent root = FXMLLoader.load(getClass().getResource("email.fxml"));
                                 Scene src = new Scene(root);
@@ -157,7 +140,6 @@ public class SignupController implements Initializable {
      tf_Signup_Password.setText(null);
      tf_Signup_Confirmpassword.setText(null);
      tf_Signup_Occupation.setText(null);*/
-
                                 //if(data_taken==true)
                                 //{
                                 //int rand= (int) Math.random()+1000;
@@ -168,12 +150,9 @@ public class SignupController implements Initializable {
                             a.show();
                         }
                     } else {
-
                         String pass_match = "Not Matched with Confirm Password !";
                         passwrd_matching.setText(pass_match);
-
                     }
-
                 }
             }
         }
@@ -192,18 +171,12 @@ public class SignupController implements Initializable {
     @FXML
     private void tfPasswordOnTyped(KeyEvent event) {
         System.out.println("working");
-         passwrd_matching.setText(null);
-
+        passwrd_matching.setText(null);
         Pass_Strength p = new Pass_Strength();
-//       
         pass_length_checker = p.pass_length_check(tf_Signup_Password.getText());
-
         if (pass_length_checker == true) {
-
             Passwordlength_lbl.setVisible(false);
-
             pass_strength_checke = p.pass_strength_check(tf_Signup_Password.getText());
-
             if (pass_strength_checke == 1) {
                 System.out.println("1");
                 weak_lbl.setStyle("-fx-background-color: white;");
@@ -216,23 +189,18 @@ public class SignupController implements Initializable {
                 mid_lbl.setVisible(true);
                 weak_lbl.setVisible(false);
                 strong_lbl.setVisible(false);
-
             } else if (pass_strength_checke == 3) {
                 System.out.println("3");
-
                 strong_lbl.setStyle("-fx-background-color: white;");
                 strong_lbl.setVisible(true);
                 weak_lbl.setVisible(false);
                 mid_lbl.setVisible(false);
-
             }
-
         } else {
             Passwordlength_lbl.setVisible(true);
             weak_lbl.setVisible(false);
             mid_lbl.setVisible(false);
             strong_lbl.setVisible(false);
-
         }
     }
 

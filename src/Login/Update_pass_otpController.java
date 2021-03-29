@@ -32,9 +32,7 @@ public class Update_pass_otpController implements Initializable {
     public static int UpdatePassSent_otp;
     public static String user;
     public static String Updatedpassword;
-
     Database d = new Database();
-
     @FXML
     private JFXButton PassUpdateVarify_btn;
     @FXML
@@ -52,30 +50,20 @@ public class Update_pass_otpController implements Initializable {
 
     @FXML
     private void PassUpdateVarify_btn(ActionEvent event) throws IOException, SQLException {
-
         String OtpNotMatch_lbl = "Not matched!";
-
         String tf_get_otp = OtpPassUpdate_tf.getText();//inputed varification code
-
-        String final_sent_otp = String.valueOf(UpdatePassSent_otp); //int to string conversion
-                                                                    //random sent otp
-
+        String final_sent_otp = String.valueOf(UpdatePassSent_otp); //int to string conversion                                                                  //random sent otp
         if (!(tf_get_otp.isEmpty())) {
-
             if (tf_get_otp.equals(final_sent_otp)) {
-
                 d.forgot_password_update();     //Updating forget passoword
                 Parent root = FXMLLoader.load(getClass().getResource("mainGUI.fxml"));
                 Scene src = new Scene(root);
                 Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 s.setScene(src);
                 s.show();
-
             } else {
                 NotMatch_lbl.setText(OtpNotMatch_lbl);
-
             }
-
         } else {
             Alert a = new Alert(Alert.AlertType.NONE);
             a.setAlertType(Alert.AlertType.INFORMATION);

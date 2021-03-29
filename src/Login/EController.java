@@ -49,18 +49,12 @@ public class EController implements Initializable {
 
     @FXML
     private void valid_btn(ActionEvent event) throws IOException {
-
         String lebel = "Not matched!";
-
         String tf_get_otp = tf_OTP.getText();
-
         String final_sent_otp = String.valueOf(sent_otp); //int to string conversion
-
         if (!(tf_get_otp.isEmpty())) {
             if (tf_get_otp.equals(final_sent_otp)) {
-
                 d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
-
                 Parent root = FXMLLoader.load(getClass().getResource("confirm_var_email.fxml"));
                 Scene src = new Scene(root);
                 Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -68,16 +62,12 @@ public class EController implements Initializable {
                 s.show();
             } else {
                 otp_check_show.setText(lebel);
-
             }
-
         } else {
             Alert a = new Alert(Alert.AlertType.NONE);
             a.setAlertType(Alert.AlertType.INFORMATION);
-
             //set content text 
             a.setContentText("Fillup the Textfield");
-
             //show the dialog 
             a.show();
         }
@@ -89,7 +79,6 @@ public class EController implements Initializable {
         Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
         s.setScene(src);
         s.show();
-
     }
 
     @FXML
@@ -98,29 +87,26 @@ public class EController implements Initializable {
 
     @FXML
     private void ChangeEmail_btn(ActionEvent event) {
-
         // UpdateEmail_tf.setOpacity(1);
         UpdateEmail_tf.setVisible(true);
         emailUpdate_btn.setVisible(true);
-
     }
 
     @FXML
     private void emailUpdate_btn(ActionEvent event) {
-
         if (UpdateEmail_tf.getText().isEmpty()) {
             Alert a = new Alert(Alert.AlertType.NONE);
             a.setAlertType(Alert.AlertType.INFORMATION);
-
             a.setContentText("Please Fill Up the New Email Textfield");
-
             a.show();
         } else {
             email = UpdateEmail_tf.getText();
             SignupController.email = UpdateEmail_tf.getText();
             int rand = (int) (Math.random() * 4000);
             EController.sent_otp = rand;
+            //Storing OTP
             Email.send("YOURBASEEMAIL@GMAIL.COM", "YOURPASSWORD", email, "Emai Varification", rand);
+            //Sending Verification Email
         }
     }
 
