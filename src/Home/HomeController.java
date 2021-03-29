@@ -187,7 +187,6 @@ public class HomeController implements Initializable {
                 topComm.body = answer.getString("body");
                 topComm.tag = answer.getString("tag");
                 topComm.vote = answer.getInt("vote");
-                topComm.answer = answer.getInt("answer");
                 topComm.postID = answer.getInt("postID");
                 topComm.postDate = answer.getDate("postDate").toString();
                 topComm.postTime = answer.getTime("postTime").toString();
@@ -218,7 +217,6 @@ public class HomeController implements Initializable {
                 topVoted.body = answer.getString("body");
                 topVoted.tag = answer.getString("tag");
                 topVoted.vote = answer.getInt("vote");
-                topVoted.answer = answer.getInt("answer");
                 topVoted.postID = answer.getInt("postID");
                 topVoted.postDate = answer.getDate("postDate").toString();
                 topVoted.postTime = answer.getTime("postTime").toString();
@@ -267,7 +265,6 @@ public class HomeController implements Initializable {
                 recent.body = answer.getString("body");
                 recent.tag = answer.getString("tag");
                 recent.vote = answer.getInt("vote");
-                recent.answer = answer.getInt("answer");
                 recent.postID = answer.getInt("postID");
                 recent.postDate = answer.getDate("postDate").toString();
                 recent.postTime = answer.getTime("postTime").toString();

@@ -133,6 +133,15 @@ public class HomeController implements Initializable {
     private void btnProfileOnAction(ActionEvent event) throws IOException {
         new Utility().loadPane("/Profile/Profile.fxml");
     }
+
+    @FXML
+    private void btnCodingBuddyPressed(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/AboutUs/AboutUs.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("About US");
+        stage.setScene(new Scene(root, 600, 275));
+        stage.show();
+    }
     
     
 }
