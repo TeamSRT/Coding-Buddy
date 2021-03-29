@@ -120,7 +120,7 @@ public class EController implements Initializable {
             SignupController.email = UpdateEmail_tf.getText();
             int rand = (int) (Math.random() * 4000);
             EController.sent_otp = rand;
-            Email.send("samirsarker055@gmail.com", "Samir1234", email, "Emai Varification", rand);
+            Email.send("YOURBASEEMAIL@GMAIL.COM", "YOURPASSWORD", email, "Emai Varification", rand);
         }
     }
 
