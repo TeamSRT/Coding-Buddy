@@ -56,10 +56,10 @@
       <FontAwesomeIconView fill="#221a1a" glyphName="ASTERISK" layoutX="282.0" layoutY="398.0" text="" AnchorPane.leftAnchor="282.0" />
       <FontAwesomeIconView fill="#070505" glyphName="ASTERISK" layoutX="287.0" layoutY="462.0" AnchorPane.leftAnchor="282.0" />
       <JFXButton fx:id="ConfirmSignup_btn" buttonType="RAISED" layoutX="441.0" layoutY="523.0" onAction="#ConfirmSignup_btn" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #710193;" text="Sign Up" textFill="WHITE" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="523.0" />
-      <Label fx:id="weak_lbl" layoutX="317.0" layoutY="408.0" prefHeight="17.0" prefWidth="44.0" style="-fx-background-color: white;" text="Weak" textFill="#f80101" visible="false" />
-      <Label fx:id="mid_lbl" layoutX="317.0" layoutY="408.0" prefHeight="17.0" prefWidth="44.0" style="-fx-background-color: white;" text="Midium" textFill="#839701" visible="false" />
-      <Label fx:id="strong_lbl" layoutX="317.0" layoutY="408.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: white;" text="Strong" textFill="#26bf1b" visible="false" />
+      <Label fx:id="weak_lbl" alignment="CENTER" layoutX="300.0" layoutY="408.0" prefHeight="17.0" prefWidth="245.0" style="-fx-background-color: white;" text="Weak" textFill="#f80101" visible="false" />
+      <Label fx:id="mid_lbl" alignment="CENTER" layoutX="300.0" layoutY="408.0" prefHeight="17.0" prefWidth="245.0" style="-fx-background-color: white;" text="Medium" textFill="#839701" visible="false" />
+      <Label fx:id="strong_lbl" alignment="CENTER" layoutX="300.0" layoutY="408.0" prefHeight="17.0" prefWidth="245.0" style="-fx-background-color: white;" text="Strong" textFill="#26bf1b" visible="false" />
       <Label fx:id="passwrd_matching" layoutX="317.0" layoutY="472.0" prefHeight="17.0" prefWidth="212.0" textFill="#fc0000" />
-      <Label fx:id="Passwordlength_lbl" layoutX="317.0" layoutY="408.0" prefHeight="17.0" prefWidth="212.0" text="Password Must be More Than 7 Letters" textFill="RED" visible="false" />
+      <Label fx:id="Passwordlength_lbl" alignment="CENTER" layoutX="301.0" layoutY="408.0" prefHeight="17.0" prefWidth="245.0" text="Password Must be More Than 7 Letters" textFill="RED" visible="false" />
    </children>
 </AnchorPane>

@@ -50,10 +50,10 @@
                </textFill>
             </Label>
             <Label fx:id="pass_matching_lebel" layoutX="14.0" layoutY="359.0" prefHeight="17.0" prefWidth="222.0" textFill="#f80202" />
-            <Label fx:id="Passwordlength_lbl" layoutX="23.0" layoutY="274.0" prefHeight="17.0" prefWidth="211.0" text="Password must be more than 7 letters" textFill="#fc0000" visible="false" />
-            <Label fx:id="weak_lbl" layoutX="23.0" layoutY="274.0" text="Weak" textFill="#f21111" visible="false" />
-            <Label fx:id="mid_lbl" layoutX="24.0" layoutY="274.0" prefHeight="17.0" prefWidth="44.0" text="Midium" textFill="#7f8d00" visible="false" />
-            <Label fx:id="strong_lbl" layoutX="24.0" layoutY="274.0" text="Strong" textFill="#0ba809" visible="false" />
+            <Label fx:id="Passwordlength_lbl" alignment="CENTER" layoutX="23.0" layoutY="274.0" prefHeight="17.0" prefWidth="211.0" text="Password must be more than 7 letters" textFill="#fc0000" visible="false" />
+            <Label fx:id="weak_lbl" alignment="CENTER" layoutX="23.0" layoutY="274.0" prefHeight="17.0" prefWidth="211.0" text="Weak" textFill="#f21111" visible="false" />
+            <Label fx:id="mid_lbl" alignment="CENTER" layoutX="24.0" layoutY="274.0" prefHeight="17.0" prefWidth="211.0" text="Medium" textFill="#7f8d00" visible="false" />
+            <Label fx:id="strong_lbl" alignment="CENTER" layoutX="24.0" layoutY="274.0" prefHeight="17.0" prefWidth="211.0" text="Strong" textFill="#0ba809" visible="false" />
          </children>
       </Pane>
    </children>

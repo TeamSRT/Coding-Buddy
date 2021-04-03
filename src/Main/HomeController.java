@@ -140,6 +140,7 @@ public class HomeController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("About US");
         stage.setScene(new Scene(root, 600, 275));
+        stage.setResizable(false);
         stage.show();
     }
     

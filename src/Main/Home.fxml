@@ -92,7 +92,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="37.0" fitWidth="161.0" layoutX="14.0" layoutY="7.0" onMouseClicked="#btnCodingBuddyPressed" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="161.0" layoutX="14.0" layoutY="7.0" onMouseClicked="#btnCodingBuddyPressed" pickOnBounds="true" preserveRatio="true" styleClass="homebtn">
                <image>
                   <Image url="@../Image/Screenshot%202021-03-29%20013524.png" />
                </image>

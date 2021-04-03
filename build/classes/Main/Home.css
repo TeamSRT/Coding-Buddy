@@ -11,3 +11,7 @@
 {
     -fx-cursor: text;
 }
+
+.icon:hover {
+    -fx-fill: red;
+}

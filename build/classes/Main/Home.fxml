@@ -18,7 +18,20 @@
    <children>
       <AnchorPane fx:id="apBtn" prefHeight="33.0" prefWidth="215.0" style="-fx-background-color: #1D2026;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <JFXButton fx:id="btnProfile" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="218.0" onAction="#btnProfileOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="My Profile" textFill="#f8f3f3">
+            <Pane fx:id="PaneNavigation" layoutX="-39.0" layoutY="-66.0" prefHeight="78.0" prefWidth="215.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <FontAwesomeIconView disable="true" fill="#f8f8f8" glyphName="BARS" layoutX="14.0" layoutY="23.0" opacity="0.0" size="17.0" />
+               </children>
+            </Pane>
+            <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="108.0" onAction="#btnHomeOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Home" textFill="#f8f3f3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fx:id="iconHome" fill="WHITE" glyphName="HOME" size="16.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnProfile" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="244.0" onAction="#btnProfileOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="My Profile" textFill="#f8f3f3">
                <font>
                   <Font size="16.0" />
                </font>
@@ -26,7 +39,7 @@
                   <FontAwesomeIconView fx:id="iconProfile" fill="#f8f8f8" glyphName="CLONE" size="16.0" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnProbSet" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="181.0" onAction="#btnProbSetOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Problem Sets" textFill="#f8f3f3">
+            <JFXButton fx:id="btnProbSet" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="207.0" onAction="#btnProbSetOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Problem Sets" textFill="#f8f3f3">
                <graphic>
                   <FontAwesomeIconView fx:id="iconProbSet" fill="#f8f8f8" glyphName="CODE" onMouseEntered="#iconProbSetEnter" size="16.0" />
                </graphic>
@@ -34,7 +47,7 @@
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnForum" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="115.0" onAction="#btnForumOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Forum" textFill="#f8f3f3">
+            <JFXButton fx:id="btnForum" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="141.0" onAction="#btnForumOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Forum" textFill="#f8f3f3">
                <graphic>
                   <FontAwesomeIconView fx:id="iconForum" fill="#f8f8f8" glyphName="COMMENTS" size="16.0" />
                </graphic>
@@ -42,15 +55,7 @@
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnAbout" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="288.0" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="About us" textFill="#f8f3f3">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fx:id="iconAbout" fill="#f8f8f8" glyphName="GROUP" size="16.0" />
-               </graphic>
-            </JFXButton>
-            <JFXButton fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="251.0" onAction="#btnDashboardOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Dashboard" textFill="#f8f3f3">
+            <JFXButton fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="277.0" onAction="#btnDashboardOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Dashboard" textFill="#f8f3f3">
                <font>
                   <Font size="16.0" />
                </font>
@@ -70,20 +75,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <Pane fx:id="PaneNavigation" layoutX="-39.0" layoutY="-66.0" prefHeight="113.0" prefWidth="215.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <FontAwesomeIconView disable="true" fill="#f8f8f8" glyphName="BARS" layoutX="14.0" layoutY="23.0" opacity="0.0" size="17.0" />
-               </children>
-            </Pane>
-            <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="82.0" onAction="#btnHomeOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Home" textFill="#f8f3f3">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fx:id="iconHome" fill="#f8f8f8" glyphName="HOME" size="16.0" />
-               </graphic>
-            </JFXButton>
-            <JFXButton fx:id="btnComplier" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="148.0" onAction="#btnCompilerOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Complier" textFill="#f8f3f3">
+            <JFXButton fx:id="btnComplier" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutY="174.0" onAction="#btnCompilerOnAction" prefHeight="33.0" prefWidth="215.0" ripplerFill="#f8f8f8" styleClass="homebtn" text="Complier" textFill="#f8f3f3">
                <font>
                   <Font size="16.0" />
                </font>
@@ -100,6 +92,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <ImageView fitHeight="37.0" fitWidth="161.0" layoutX="14.0" layoutY="7.0" onMouseClicked="#btnCodingBuddyPressed" pickOnBounds="true" preserveRatio="true" styleClass="homebtn">
+               <image>
+                  <Image url="@../Image/Screenshot%202021-03-29%20013524.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <BorderPane fx:id="testContent" layoutX="215.0" layoutY="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
