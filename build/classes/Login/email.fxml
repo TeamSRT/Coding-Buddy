@@ -18,7 +18,7 @@
          </image>
       </ImageView>
       <JFXTextField fx:id="tf_OTP" labelFloat="true" layoutX="25.0" layoutY="342.0" maxWidth="258.0" minWidth="127.0" onAction="#tf_OTP" prefHeight="31.0" prefWidth="127.0" promptText="Varification Code" unFocusColor="#8f5050" AnchorPane.leftAnchor="46.0" />
-      <JFXButton fx:id="valid_btn" buttonType="RAISED" layoutX="358.0" layoutY="344.0" onAction="#valid_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #E77471;" text="NEXT" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="21.0" />
+      <JFXButton fx:id="valid_btn" buttonType="RAISED" layoutX="358.0" layoutY="344.0" onAction="#valid_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #E77471;" styleClass="homebtn" stylesheets="@Home.css" text="NEXT" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="21.0" />
       <Label layoutX="68.0" layoutY="11.0" text="Email Varification" underline="true">
          <font>
             <Font name="System Bold Italic" size="41.0" />
@@ -38,7 +38,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXButton fx:id="ChangeEmail_btn" alignment="TOP_LEFT" buttonType="RAISED" layoutX="193.0" layoutY="422.0" onAction="#ChangeEmail_btn" prefHeight="31.0" prefWidth="168.0" text="Press Here To Change" textFill="#4a04eb" underline="true" AnchorPane.bottomAnchor="146.0">
+      <JFXButton fx:id="ChangeEmail_btn" alignment="TOP_LEFT" buttonType="RAISED" layoutX="193.0" layoutY="422.0" onAction="#ChangeEmail_btn" prefHeight="31.0" prefWidth="168.0" styleClass="homebtn" stylesheets="@Home.css" text="Press Here To Change" textFill="#4a04eb" underline="true" AnchorPane.bottomAnchor="146.0">
          <font>
             <Font size="15.0" />
          </font></JFXButton>

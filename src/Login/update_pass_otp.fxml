@@ -18,7 +18,7 @@
                   <Image url="@../Image/v2.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="PassUpdateVarify_btn" buttonType="RAISED" layoutX="105.0" layoutY="453.0" onAction="#PassUpdateVarify_btn" prefHeight="43.0" prefWidth="87.0" ripplerFill="WHITE" style="-fx-background-color: #342D7E;" text="Next" textFill="WHITE">
+            <JFXButton fx:id="PassUpdateVarify_btn" buttonType="RAISED" layoutX="105.0" layoutY="453.0" onAction="#PassUpdateVarify_btn" prefHeight="43.0" prefWidth="87.0" ripplerFill="WHITE" style="-fx-background-color: #342D7E;" styleClass="homebtn" stylesheets="@Home.css" text="Next" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></JFXButton>

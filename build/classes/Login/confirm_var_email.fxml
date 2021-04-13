@@ -16,7 +16,7 @@
             <Image url="@../Image/email_varify.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="Next_btn" buttonType="RAISED" layoutX="93.0" layoutY="388.0" onAction="#Next_btn" prefHeight="23.0" prefWidth="105.0" style="-fx-background-color: green;" text="Next" textFill="#060a12">
+      <JFXButton fx:id="Next_btn" buttonType="RAISED" layoutX="93.0" layoutY="388.0" onAction="#Next_btn" prefHeight="23.0" prefWidth="105.0" style="-fx-background-color: green;" styleClass="homebtn" stylesheets="@Home.css" text="Next" textFill="#060a12">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
