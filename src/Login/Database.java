@@ -104,8 +104,8 @@ Email e=new Email();
             String username = "root";
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
-            String qrr = "SELECT COUNT(username) FROM userinfo WHERE password = '" + pass + "' OR username = '" + user + "'";
-
+            String qrr = "SELECT COUNT(username) FROM userinfo WHERE password = '" + password + "' AND username = '" + user + "'";
+            //System.out.println(qrr);
             Statement stmt = conn.createStatement();
             r = stmt.executeQuery(qrr);
 

@@ -159,7 +159,7 @@ public class SignupController implements Initializable {
                             a.show();
                         }
                     } else {
-                        String pass_match = "Not Matched with Confirm Password !";
+                        String pass_match = "Does Not Match with Password!";
                         passwrd_matching.setText(pass_match);
                     }
                 }
