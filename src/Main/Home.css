@@ -15,3 +15,13 @@
 .icon:hover {
     -fx-fill: red;
 }
+.btn {
+     -fx-background-color:  #1D2026;
+}
+.btn:hover{
+    -fx-background-color: #4e4e4e; 
+    -fx-cursor: hand;
+  }
+  .btn:focused{
+      -fx-background-color: #4e4e4e; 
+  }

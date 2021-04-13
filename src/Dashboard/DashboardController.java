@@ -101,6 +101,7 @@ public class DashboardController implements Initializable {
     private VBox vbShowTD;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         try {
             lblSolved.setText(new ProblemSQL().sqlOperation("COUNT", "verdict = 1 AND problemID != 0") + "");
             lblSubmissions.setText(new ProblemSQL().sqlOperation("COUNT", "1") + "");

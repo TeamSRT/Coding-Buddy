@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -35,21 +36,19 @@ public class HomeController implements Initializable {
     @FXML
     private FontAwesomeIconView iconHome;
     @FXML
-    private JFXButton btnProbSet;
+    private Button btnProbSet;
     @FXML
-    private JFXButton btnForum;
+    private Button btnForum;
     @FXML
-    private JFXButton btnHome;
+    private Button btnHome;
     @FXML
     private FontAwesomeIconView iconProbSet;
     @FXML
     private FontAwesomeIconView iconForum;
     @FXML
-    private JFXButton btnDashboard;
+    private Button btnDashboard;
     @FXML
     private FontAwesomeIconView iconDashboard;
-    @FXML
-    private Pane PaneNavigation;
     private AnchorPane APContent;
     @FXML
     private Label lblUserName;
@@ -60,17 +59,17 @@ public class HomeController implements Initializable {
     @FXML
     private AnchorPane apBtn;
     @FXML
-    private JFXButton btnSignOut;
+    private Button btnSignOut;
     @FXML
     private AnchorPane apTop;
     @FXML
-    private JFXButton btnProfile;
+    private Button btnProfile;
     @FXML
     private FontAwesomeIconView iconProfile;
     @FXML
     private ImageView iconSIgnOut;
     @FXML
-    private JFXButton btnComplier;
+    private Button btnComplier;
     @FXML
     private FontAwesomeIconView iconComplier;
 
@@ -85,10 +84,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
-    private void iconProbSetEnter(MouseEvent event) {
-
-    }
 
     @FXML
     private void btnForumOnAction(ActionEvent event) throws IOException {
