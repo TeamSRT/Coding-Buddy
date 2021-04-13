@@ -5,6 +5,12 @@
  */
 package Login;
 
+import static Login.EController.Confirmpassword;
+import static Login.EController.Name;
+import static Login.EController.Occupation;
+import static Login.EController.Password;
+import static Login.EController.Username;
+import static Login.EController.email;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -120,8 +126,11 @@ public class SignupController implements Initializable {
                                 //double rand_double = Math.random();
                                 int rand = (int) (Math.random() * 4000);
                                 EController.sent_otp = rand;
+                                //d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
+                                // d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
+                                // System.out.println(Name+Username+email+Password+Confirmpassword+Occupation);
                                 //boolean emailSent_or_not = false;
-                                Email.send("samirsarker055@gmail.com", "Samir1234", email, "Emai Varification", rand);
+                               Email.send("samirsarker055@gmail.com", "CodingBuddySamir@1", email, "Emai Varification", rand);
                                 // if (emailSent_or_not == true) {
                                 Parent root = FXMLLoader.load(getClass().getResource("email.fxml"));
                                 Scene src = new Scene(root);
@@ -164,6 +173,7 @@ public class SignupController implements Initializable {
         Scene src = new Scene(root);
         Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
         s.setScene(src);
+          s.setResizable(false);
         s.show();
 
     }

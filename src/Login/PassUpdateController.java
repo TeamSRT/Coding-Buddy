@@ -88,7 +88,7 @@ public class PassUpdateController implements Initializable {
                             int rand = (int) (Math.random() * 40000); //generating varification code
                             //EController.sent_otp = rand;
                             Update_pass_otpController.UpdatePassSent_otp = rand;
-                            email_obj.send("samirsarker055@gmail.com", "Samir1234", email, "Varification", rand);
+                            email_obj.send("samirsarker055@gmail.com", "CodingBuddySamir@1", email, "Varification", rand);
                             Parent root = FXMLLoader.load(getClass().getResource("update_pass_otp.fxml"));
                             Scene src = new Scene(root);
                             Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();

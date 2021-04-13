@@ -41,6 +41,7 @@ public class Confirm_var_emailController implements Initializable {
         Scene src = new Scene(root);
         Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
         s.setScene(src);
+       
         s.show();
 
     }

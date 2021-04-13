@@ -54,7 +54,7 @@ public class EController implements Initializable {
         String final_sent_otp = String.valueOf(sent_otp); //int to string conversion
         if (!(tf_get_otp.isEmpty())) {
             if (tf_get_otp.equals(final_sent_otp)) {
-                d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
+                d.setData(Name, Username, email, Password, Occupation);
                 Parent root = FXMLLoader.load(getClass().getResource("confirm_var_email.fxml"));
                 Scene src = new Scene(root);
                 Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();

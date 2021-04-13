@@ -14,12 +14,18 @@ import javafx.scene.control.Alert;
 public class Pass_Strength {
 
     boolean pass_length_checker = false;
+
     public static int pass_strength_checke;
+
     public boolean pass_length_check(String password) {
+
         if (password.length() > 7) {
+
             System.out.println(password.length());
             pass_length_checker = true;
+
         }
+
         return pass_length_checker;
     }
 
