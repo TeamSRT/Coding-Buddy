@@ -87,6 +87,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void btnForumOnAction(ActionEvent event) throws IOException {
+      //  btnForum.setStyle("-fx-background-color: #4e4e4e;");
         new Utility().loadPane("/Forum/ForumBase.fxml");
     }
 

@@ -234,11 +234,11 @@ public class ShowQuesController implements Initializable {
                         break;
                     case 1:
                         ivCommUpVote.setImage(upVoteP);
-                        ivCommDownVote.setImage(downVote);
+                        ivCommDownVote.setImage(downVote);                        
                         break;
                     default:
                         ivCommUpVote.setImage(upVote);
-                        ivCommDownVote.setImage(downVoteP);
+                        ivCommDownVote.setImage(downVoteP);                        
                         break;
                 }
                 ivCommUpVote.setOnMouseEntered((Event event) -> {
@@ -322,7 +322,14 @@ public class ShowQuesController implements Initializable {
                 delete.setOnMouseEntered((Event event) -> {
                     Tooltip.install(delete, new Tooltip("Delete this comment"));
                 });
-
+                if(obj.commVoteCount(postID, commentID)< 0)
+                {
+                    commVote.setTranslateX(0.0f);
+                }
+                else
+                {
+                    commVote.setTranslateX(4.0f);
+                }
                 Text whiteSpace1 = new Text();
                 Text whiteSpace2 = new Text();
                 Button btn = new Button();
@@ -330,7 +337,7 @@ public class ShowQuesController implements Initializable {
                 commVote.setFont(Font.font("Times New Roman", 18));
                 Separator sp = new Separator(Orientation.HORIZONTAL);
                 sp.isVisible();
-                sp.setPrefWidth(629);
+                sp.setPrefWidth(629);              
                 user.setFont(Font.font("System", 19));
                 user.setFill(Color.DARKBLUE);
                 commTime.setFont(Font.font("System", 12));
