@@ -15,6 +15,9 @@
     <jar href="lib\mail.jar" size="462098" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.23.jar" size="2415211" download="eager" />
   </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="CodingBuddy_Base" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
   <jfx:javafx-desc  width="800" height="600" main-class="Main.Home"  name="CodingBuddy_Base" />
   <update check="always"/>
 </jnlp>
