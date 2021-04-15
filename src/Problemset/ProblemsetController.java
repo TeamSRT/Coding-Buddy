@@ -133,7 +133,7 @@ public class ProblemsetController implements Initializable {
                 btnNext.setDisable(true);
             }
             btnPrevious.setDisable(true);
-            txtPageCount.setText(currPage + "");
+            txtPageCount.setText((currPage + 1) + "");
             checkAvailability();
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -242,7 +242,7 @@ public class ProblemsetController implements Initializable {
             btnNext.setDisable(true);
         }
         btnPrevious.setDisable(false);
-        txtPageCount.setText(currPage + "");
+        txtPageCount.setText((currPage + 1) + "");
         checkAvailability();
     }
 
@@ -254,7 +254,7 @@ public class ProblemsetController implements Initializable {
             btnPrevious.setDisable(true);
         }
         btnNext.setDisable(false);
-        txtPageCount.setText(currPage + "");
+        txtPageCount.setText((currPage + 1) + "");
         checkAvailability();
     }
 

@@ -121,38 +121,53 @@ public class DashboardController implements Initializable {
         int countPython = new ProblemSQL().sqlOperation("COUNT", "lang = 'python3'");
         int countJava = new ProblemSQL().sqlOperation("COUNT", "lang = 'java'");
         int countCsharp = new ProblemSQL().sqlOperation("COUNT", "lang = 'csharp'");
+        String color[] = {"#00ffff", "#cc66ff", "#0000ff", "#b30086", "#6600ff", "#b3e0ff"};
         if (countC == 0 && countCpp == 0 && countPython == 0 && countJava == 0 && countCsharp == 0) 
         {
             list.add(new PieChart.Data("N/A", 100));
+            list.get(0).getNode().setStyle("-fx-pie-color : " + color[5] + ";");
             ivPieLegend.setDisable(true);
             ivPieLegend.setOpacity(0);
             pieChart.setLegendVisible(true);
-
         }
         else
         {
+            pieChart.setData(list);
             ivPieLegend.setDisable(false);
             ivPieLegend.setOpacity(1);
             pieChart.setLegendVisible(false);
+            int i = 0;
+            
             if (countC != 0) {
                 list.addAll(new PieChart.Data("C", countC));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[0] + ";");
+                ++i;
             }
             if (countCpp != 0) {
                 list.addAll(new PieChart.Data("C++", countCpp));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[1] + ";");
+                ++i;
             }
             if (countPython != 0) {
                 list.addAll(new PieChart.Data("Python", countPython));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[2] + ";");
+                ++i;
             }
             if (countJava != 0) {
                 list.addAll(new PieChart.Data("Java", countJava));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[3] + ";");
+                ++i;
             }
             if (countCsharp != 0) {
                 list.addAll(new PieChart.Data("C#", countCsharp));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[4] + ";");
+                ++i;
             }
         }
         pieChart.setData(list);
+        pieChart.setLabelsVisible(true);
+       // pieChart.setLabelLineLength(0.5f);
         pieChart.setStartAngle(0);
-
     }
 
     public void barChart() throws SQLException {
