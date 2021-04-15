@@ -121,39 +121,57 @@ public class DashboardController implements Initializable {
         int countPython = new ProblemSQL().sqlOperation("COUNT", "lang = 'python3'");
         int countJava = new ProblemSQL().sqlOperation("COUNT", "lang = 'java'");
         int countCsharp = new ProblemSQL().sqlOperation("COUNT", "lang = 'csharp'");
-        if (countC == 0 && countCpp == 0 && countPython == 0 && countJava == 0 && countCsharp == 0) 
-        {
+        if (countC == 0 && countCpp == 0 && countPython == 0 && countJava == 0 && countCsharp == 0) {
             list.add(new PieChart.Data("N/A", 100));
             ivPieLegend.setDisable(true);
             ivPieLegend.setOpacity(0);
             pieChart.setLegendVisible(true);
 
-        }
-        else
+        } else
         {
             ivPieLegend.setDisable(false);
             ivPieLegend.setOpacity(1);
             pieChart.setLegendVisible(false);
+            int i = 0;
+            pieChart.setData(list);
+            String color[] = {"#00ffff", "#cc66ff", "#0000ff", "#b30086", "#6600ff"};
             if (countC != 0) {
                 list.addAll(new PieChart.Data("C", countC));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[0] + ";");
+                ++i;
             }
             if (countCpp != 0) {
                 list.addAll(new PieChart.Data("C++", countCpp));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[1] + ";");
+                ++i;
             }
             if (countPython != 0) {
                 list.addAll(new PieChart.Data("Python", countPython));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[2] + ";");
+                ++i;
             }
             if (countJava != 0) {
                 list.addAll(new PieChart.Data("Java", countJava));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[3] + ";");
+                ++i;
             }
             if (countCsharp != 0) {
+                System.out.println(countCsharp);
                 list.addAll(new PieChart.Data("C#", countCsharp));
+                list.get(i).getNode().setStyle("-fx-pie-color : " + color[4] + ";");
+                ++i;
+                System.out.println("TESTING CSHARP");
             }
         }
-        pieChart.setData(list);
-        pieChart.setStartAngle(0);
+            pieChart.setData(list);
+            pieChart.setStartAngle(0);            
+            pieChart.setLabelsVisible(true);
+}
+      
 
-    }
+
+
+    
 
     public void barChart() throws SQLException {
         XYChart.Series bar1 = new XYChart.Series();
@@ -161,7 +179,7 @@ public class DashboardController implements Initializable {
         bar1.getData().add(new XYChart.Data<>("Right", new ProblemSQL().sqlOperation("COUNT", "verdict = 1 AND problemID != 0")));
         bar2.getData().add(new XYChart.Data<>("Wrong", new ProblemSQL().sqlOperation("COUNT", "verdict = -1 AND problemID != 0")));
         barChart.getData().addAll(bar1, bar2);
-       
+
     }
         
     public void showTotalDay() throws SQLException, ParseException

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
@@ -33,6 +34,10 @@
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
+                           <styleClass>
+                              <String fx:value="chart-pie-label-line" />
+                              <String fx:value="chart-pie-label" />
+                           </styleClass>
                         </PieChart>
                         <Label alignment="CENTER" layoutX="7.0" layoutY="9.0" prefHeight="27.0" prefWidth="366.0" text="Submissions by Language">
                            <font>
