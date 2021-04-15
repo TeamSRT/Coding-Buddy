@@ -64,7 +64,7 @@ Email e=new Email();
             String pass = "";
             Connection conn = DriverManager.getConnection(url, username, pass);
 
-            String qr = "insert into userinfo values(?,?,?,?,?,?,?)";//(suDate,suTime)
+            String qr = "insert into userinfo values(?,?,?,?,?,?,?,?)";//(suDate,suTime)
 
             PreparedStatement pstmt = conn.prepareStatement(qr);
 //System.out.println(Name+Username+email+Password+Confirmpassword+Occupation);
@@ -79,7 +79,7 @@ Email e=new Email();
             obj.signupTime = new DateAndTime().getTime();
             pstmt.setString(6, obj.signupDate);
             pstmt.setString(7, obj.signupTime);
-            //pstmt.setString(8,"");
+            pstmt.setString(8,"");
             //Time//    
             pstmt.executeUpdate();
 

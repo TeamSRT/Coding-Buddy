@@ -294,7 +294,9 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void paneRecentOnClick(MouseEvent event) {
+    private void paneRecentOnClick(MouseEvent event) throws IOException {
+        ShowQuesController.showObj = recentPost;
+        new Utility().loadPane("/Forum/ShowQues.fxml");
     }
 
 }

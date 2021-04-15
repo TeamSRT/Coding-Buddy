@@ -198,6 +198,22 @@ public class ProblemSQL {
         return false;
     }
     
+    public boolean checkSubmission(int problemID) {
+        try {
+            String Query = "SELECT COUNT(problemID) FROM submission WHERE problemID = " + problemID + " AND userName = '" + Main.Utility.username + "' AND verdict = 1";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(Query);
+            if (rs.next()) {
+                if (rs.getInt(1) > 0) {
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
     public void completeToDo(int problemID) throws SQLException {
         if (checkToDo(problemID) == true) {
             String Query = "UPDATE todo SET trackToDo = 1 WHERE problemID = " + problemID + " AND username = '" + Main.Utility.username + "'";
@@ -300,5 +316,7 @@ public class ProblemSQL {
         }
         return subAll;
     }
+    
+    
     
 }

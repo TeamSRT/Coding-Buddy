@@ -34,7 +34,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutX="129.0" layoutY="254.0" prefHeight="75.0" prefWidth="139.0" text="Varified !" AnchorPane.bottomAnchor="141.0" AnchorPane.topAnchor="254.0">
+      <Label layoutX="129.0" layoutY="254.0" prefHeight="75.0" prefWidth="139.0" text="Verified !" AnchorPane.bottomAnchor="141.0" AnchorPane.topAnchor="254.0">
          <font>
             <Font name="System Bold Italic" size="29.0" />
          </font>

@@ -22,7 +22,7 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></JFXButton>
-            <JFXTextField fx:id="OtpPassUpdate_tf" layoutX="74.0" layoutY="344.0" promptText="Varification Code" unFocusColor="#8f5050" />
+            <JFXTextField fx:id="OtpPassUpdate_tf" layoutX="74.0" layoutY="344.0" promptText="Verification Code" unFocusColor="#8f5050" />
             <Label fx:id="NotMatch_lbl" layoutX="74.0" layoutY="375.0" prefHeight="17.0" prefWidth="117.0" textFill="#f20000" />
          </children>
       </Pane>

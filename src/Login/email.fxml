@@ -17,9 +17,9 @@
             <Image url="@../Image/v3.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="tf_OTP" labelFloat="true" layoutX="25.0" layoutY="342.0" maxWidth="258.0" minWidth="127.0" onAction="#tf_OTP" prefHeight="31.0" prefWidth="127.0" promptText="Varification Code" unFocusColor="#8f5050" AnchorPane.leftAnchor="46.0" />
+      <JFXTextField fx:id="tf_OTP" labelFloat="true" layoutX="25.0" layoutY="342.0" maxWidth="258.0" minWidth="127.0" onAction="#tf_OTP" prefHeight="31.0" prefWidth="127.0" promptText="Verification Code" unFocusColor="#8f5050" AnchorPane.leftAnchor="46.0" />
       <JFXButton fx:id="valid_btn" buttonType="RAISED" layoutX="358.0" layoutY="344.0" onAction="#valid_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #E77471;" styleClass="homebtn" stylesheets="@Home.css" text="NEXT" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="21.0" />
-      <Label layoutX="68.0" layoutY="11.0" text="Email Varification" underline="true">
+      <Label layoutX="68.0" layoutY="11.0" text="Email Verification" underline="true">
          <font>
             <Font name="System Bold Italic" size="41.0" />
          </font>
@@ -47,6 +47,6 @@
             <Font size="15.0" />
          </font></Label>
       <JFXTextField fx:id="UpdateEmail_tf" labelFloat="true" layoutX="35.0" layoutY="502.0" promptText="New Email" unFocusColor="#8f5050" visible="false" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="492.0" />
-      <JFXButton fx:id="emailUpdate_btn" buttonType="RAISED" layoutX="358.0" layoutY="485.0" onAction="#emailUpdate_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #0000FF;" text="Resent" textFill="#fffdfd" visible="false" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="492.0" />
+      <JFXButton fx:id="emailUpdate_btn" buttonType="RAISED" layoutX="358.0" layoutY="485.0" onAction="#emailUpdate_btn" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #0000FF;" text="Resend" textFill="#fffdfd" visible="false" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="492.0" />
    </children>
 </AnchorPane>

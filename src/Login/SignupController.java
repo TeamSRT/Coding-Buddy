@@ -130,7 +130,7 @@ public class SignupController implements Initializable {
                                 // d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
                                 // System.out.println(Name+Username+email+Password+Confirmpassword+Occupation);
                                 //boolean emailSent_or_not = false;
-                               Email.send("samirsarker055@gmail.com", "CodingBuddySamir@1", email, "Emai Varification", rand);
+                               Email.send("samirsarker055@gmail.com", "CodingBuddySamir@1", email, "Emai Verification", rand);
                                 // if (emailSent_or_not == true) {
                                 Parent root = FXMLLoader.load(getClass().getResource("email.fxml"));
                                 Scene src = new Scene(root);
@@ -155,11 +155,11 @@ public class SignupController implements Initializable {
                             }                           //EController.sent_otp=rand;
                         } else {
                             a.setAlertType(AlertType.INFORMATION);
-                            a.setContentText("Username can not be use as Password");
+                            a.setContentText("Username can not be used as Password");
                             a.show();
                         }
                     } else {
-                        String pass_match = "Does Not Match with Password!";
+                        String pass_match = "Does not Match with Password!";
                         passwrd_matching.setText(pass_match);
                     }
                 }
