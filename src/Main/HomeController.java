@@ -146,7 +146,7 @@ public class HomeController implements Initializable {
         stage.show();
     }
     
-    private void focusFix(Button btnCurr) {
+    public void focusFix(Button btnCurr) {
         btnComplier.setStyle("-fx-background-color:  #1D2026;");
         btnDashboard.setStyle("-fx-background-color:  #1D2026;");
         btnForum.setStyle("-fx-background-color:  #1D2026;");
@@ -155,6 +155,14 @@ public class HomeController implements Initializable {
         btnProfile.setStyle("-fx-background-color:  #1D2026;");
         btnSignOut.setStyle("-fx-background-color:  #1D2026;");
         btnCurr.setStyle("-fx-background-color: #4e4e4e;");
+    }
+    
+    public Button getBtnForum() {
+        return btnForum;
+    }
+    
+    public Button getBtnProbSet() {
+        return btnProbSet;
     }
     
 }

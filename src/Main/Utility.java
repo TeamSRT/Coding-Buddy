@@ -87,6 +87,12 @@ public class Utility {
     }
     
     public void loadPane(String path) throws IOException {
+        if(path.contains("ProblemView")) {
+            Home.focusFix(Home.getBtnProbSet());
+        }
+        if(path.contains("ShowQues")) {
+            Home.focusFix(Home.getBtnForum());
+        }
         Pane loader = FXMLLoader.load(getClass().getResource(path));
         Home.getTestContent().setCenter(loader);
     }
