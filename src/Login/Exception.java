@@ -35,8 +35,13 @@ public class Exception {
                 }
             }
             if (email_invalid == true) {
-
                 a.setContentText("You can only use A-Z,a-z,@,. in Email");
+                a.show();
+                return invalid;
+            }
+            if (!Email.contains("@") || !Email.contains(".")) {
+                invalid = true;
+                a.setContentText("Invalid Email Format");
                 a.show();
             }
         }

@@ -222,4 +222,13 @@ public class SignupController implements Initializable {
     private void tf_Signup_Confirmpassword(ActionEvent event) {
     }
 
+    @FXML
+    private void tfConfPassOnRelease(KeyEvent event) {
+        if(!tf_Signup_Password.getText().equals(tf_Signup_Confirmpassword.getText())) {
+            passwrd_matching.setText("Does not Match with Password!");
+        } else {
+            passwrd_matching.setText("");
+        }
+    }
+
 }
