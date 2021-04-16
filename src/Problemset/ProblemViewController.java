@@ -76,8 +76,9 @@ public class ProblemViewController implements Initializable {
     }
     
     public void loadProblem() {
-        btnToDo.setDisable(new ProblemSQL().checkToDo(currProblem.problemID));
-        btnToDo.setDisable(new ProblemSQL().checkSubmission(currProblem.problemID));
+        boolean isTodo = new ProblemSQL().checkToDo(currProblem.problemID);
+        boolean isSub = new ProblemSQL().checkSubmission(currProblem.problemID);
+        btnToDo.setDisable(isTodo || isSub);
         txtTitle.setText(currProblem.title);
         txtInput.setText(currProblem.input1);
         txtOutput.setText(currProblem.output1);
