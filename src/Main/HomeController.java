@@ -32,7 +32,7 @@ import javafx.stage.Stage;
  * @author Srishti
  */
 public class HomeController implements Initializable {
-
+    
     @FXML
     private FontAwesomeIconView iconHome;
     @FXML
@@ -72,9 +72,9 @@ public class HomeController implements Initializable {
     private Button btnComplier;
     @FXML
     private FontAwesomeIconView iconComplier;
-
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {      
+    public void initialize(URL url, ResourceBundle rb) {        
         try {
             Utility.setHome(this);
             lblUserName.setText("Welcome " + Utility.username + "!");
@@ -83,25 +83,27 @@ public class HomeController implements Initializable {
             System.out.println(ex);
         }
     }
-
-
+    
     @FXML
     private void btnForumOnAction(ActionEvent event) throws IOException {
-      //  btnForum.setStyle("-fx-background-color: #4e4e4e;");
+        //  btnForum.setStyle("-fx-background-color: #4e4e4e;");
+        focusFix(btnForum);
         new Utility().loadPane("/Forum/ForumBase.fxml");
     }
-
+    
     @FXML
     private void btnProbSetOnAction(ActionEvent event) throws IOException {
+        focusFix(btnProbSet);
         new Utility().loadPane("/Problemset/Problemset.fxml");
     }
-
+    
     public BorderPane getTestContent() {
         return testContent;
     }
-
+    
     @FXML
     private void btnSignOutClicked(ActionEvent event) throws IOException {
+        focusFix(btnSignOut);
         Home.pre.put("username", "");
         Home.pre.put("password", "");
         Parent root = FXMLLoader.load(getClass().getResource("/Login/mainGUI.fxml"));
@@ -110,26 +112,31 @@ public class HomeController implements Initializable {
         s.setScene(src);
         s.show();
     }
-
+    
     @FXML
     private void btnDashboardOnAction(ActionEvent event) throws IOException {
+        focusFix(btnDashboard);
         new Utility().loadPane("/Dashboard/Dashboard.fxml");
     }
-
+    
     @FXML
     private void btnCompilerOnAction(ActionEvent event) throws IOException {
+        focusFix(btnComplier);
         new Utility().loadPane("/Problemset/SubmitCode.fxml");
+    }
+    
+    @FXML
+    private void btnHomeOnAction(ActionEvent event) throws IOException {
+        focusFix(btnHome);
+        new Utility().loadPane("/Home/Home.fxml");
     }
 
     @FXML
-    private void btnHomeOnAction(ActionEvent event) throws IOException {
-        new Utility().loadPane("/Home/Home.fxml");
-    }
-      @FXML
     private void btnProfileOnAction(ActionEvent event) throws IOException {
+        focusFix(btnProfile);
         new Utility().loadPane("/Profile/Profile.fxml");
     }
-
+    
     @FXML
     private void btnCodingBuddyPressed(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/AboutUs/AboutUs.fxml"));
@@ -139,5 +146,15 @@ public class HomeController implements Initializable {
         stage.show();
     }
     
+    private void focusFix(Button btnCurr) {
+        btnComplier.setStyle("-fx-background-color:  #1D2026;");
+        btnDashboard.setStyle("-fx-background-color:  #1D2026;");
+        btnForum.setStyle("-fx-background-color:  #1D2026;");
+        btnHome.setStyle("-fx-background-color:  #1D2026;");
+        btnProbSet.setStyle("-fx-background-color:  #1D2026;");
+        btnProfile.setStyle("-fx-background-color:  #1D2026;");
+        btnSignOut.setStyle("-fx-background-color:  #1D2026;");
+        btnCurr.setStyle("-fx-background-color: #4e4e4e;");
+    }
     
 }
