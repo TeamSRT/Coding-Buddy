@@ -124,8 +124,9 @@ public class DashboardController implements Initializable {
         String color[] = {"#00ffff", "#cc66ff", "#0000ff", "#b30086", "#6600ff", "#b3e0ff"};
         if (countC == 0 && countCpp == 0 && countPython == 0 && countJava == 0 && countCsharp == 0) 
         {
+            pieChart.setData(list);
             list.add(new PieChart.Data("N/A", 100));
-            list.get(0).getNode().setStyle("-fx-pie-color : " + color[5] + ";");
+         //   list.get(0).getNode().setStyle("-fx-pie-color : " + color[5] + ";");            
             ivPieLegend.setDisable(true);
             ivPieLegend.setOpacity(0);
             pieChart.setLegendVisible(true);
