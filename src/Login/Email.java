@@ -35,6 +35,7 @@ public class Email {
                 new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
+                System.out.println(from);
                 return new PasswordAuthentication(from, password);
             }
         });

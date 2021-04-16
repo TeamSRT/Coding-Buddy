@@ -3,9 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Login/Database.java</file>
             <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Main/HomeController.java</file>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Login/Confirm_var_emailController.java</file>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Login/Update_pass_otpController.java</file>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Login/PassUpdateController.java</file>
             <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Problemset/ProblemViewController.java</file>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Login/SignupController.java</file>
             <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Forum/AskQuesController.java</file>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Login/Exception.java</file>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Login/Email.java</file>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Login/EController.java</file>
+            <file>file:/F:/G/My%20Projects/Coding-Buddy/src/Main/Utility.java</file>
         </group>
     </open-files>
 </project-private>

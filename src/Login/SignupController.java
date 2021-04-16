@@ -130,7 +130,7 @@ public class SignupController implements Initializable {
                                 // d.setData(Name, Username, email, Password, Confirmpassword, Occupation);
                                 // System.out.println(Name+Username+email+Password+Confirmpassword+Occupation);
                                 //boolean emailSent_or_not = false;
-                               Email.send("samirsarker055@gmail.com", "CodingBuddySamir@1", email, "Emai Verification", rand);
+                               Email.send("codingbuddy2021@gmail.com", "rand(123)", email, "CodingBuddy Email Verification", rand);
                                 // if (emailSent_or_not == true) {
                                 Parent root = FXMLLoader.load(getClass().getResource("email.fxml"));
                                 Scene src = new Scene(root);
