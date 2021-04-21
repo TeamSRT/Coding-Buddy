@@ -105,7 +105,7 @@ public class EController implements Initializable {
             int rand = (int) (Math.random() * 4000);
             EController.sent_otp = rand;
             //Storing OTP
-            Email.send("codingbuddy2021@gmail.com", "rand(123)", email, "CodingBuddy Email Verification", rand);
+            Email.send("YOUR EMAIL", "PASSWORD", email, "CodingBuddy Email Verification", rand);
             //Sending Verification Email
         }
     }
